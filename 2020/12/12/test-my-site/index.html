@@ -23,16 +23,17 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="MyBlog">
+<meta name="description" content="helloworld">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test_my_site">
 <meta property="og:url" content="http://example.com/2020/12/12/test-my-site/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="MyBlog">
+<meta property="og:description" content="helloworld">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-12-12T13:52:03.000Z">
-<meta property="article:modified_time" content="2020-12-12T13:52:03.136Z">
+<meta property="article:modified_time" content="2020-12-13T04:04:42.244Z">
 <meta property="article:author" content="XIotian Ye">
+<meta property="article:tag" content="testTag">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,11 +126,10 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archives fa-fw"></i>Archives</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="categories fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="about fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
   </ul>
 </nav>
 
@@ -147,7 +147,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -160,6 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#helloworld"><span class="nav-number">1.</span> <span class="nav-text">helloworld</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -173,11 +174,23 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/archives">
         
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -241,6 +254,22 @@
 
       <time title="Created: 2020-12-12 21:52:03" itemprop="dateCreated datePublished" datetime="2020-12-12T21:52:03+08:00">2020-12-12</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-12-13 12:04:42" itemprop="dateModified" datetime="2020-12-13T12:04:42+08:00">2020-12-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/testcategories/" itemprop="url" rel="index"><span itemprop="name">testcategories</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -252,7 +281,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h1 id="helloworld"><a href="#helloworld" class="headerlink" title="helloworld"></a>helloworld</h1>
     </div>
 
     
@@ -260,6 +289,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/testTag/" rel="tag"># testTag</a>
+          </div>
 
         
 
