@@ -31,6 +31,8 @@
 <li>安装Next主题</li>
 <li>购买域名</li>
 </ol>
+<a id="more"></a>
+
 <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><ol>
 <li><p>进入Git官网<a href="https://git-scm.com/download/win">下载</a></p>
 </li>
@@ -211,7 +213,7 @@
         <category>博客配置与搭建</category>
       </categories>
       <tags>
-        <tag>Github</tag>
+        <tag>Github Hexo NexT</tag>
       </tags>
   </entry>
 </search>
