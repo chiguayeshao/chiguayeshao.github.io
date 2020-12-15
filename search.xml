@@ -225,6 +225,10 @@
 <li><p>点击Setting</p>
 <p><img src="https://i.loli.net/2020/12/15/5SH98wXszenDiQW.png" alt="image-20201215204100107"></p>
 </li>
+</ol>
+<a id="more"></a>
+
+<ol>
 <li><p>下拉找到GitHub Pages，勾选Enforce HTTPS</p>
 <p><img src="https://i.loli.net/2020/12/15/tzY2wFrpsNum3XE.png" alt="image-20201215204231362"></p>
 </li>
@@ -270,7 +274,7 @@
         <category>博客配置与搭建</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
