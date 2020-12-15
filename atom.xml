@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-12-14T16:21:58.894Z</updated>
+  <updated>2020-12-15T12:56:23.361Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一键配置SSL证书</title>
+    <link href="http://example.com/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/"/>
+    <id>http://example.com/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/</id>
+    <published>2020-12-15T12:38:18.000Z</published>
+    <updated>2020-12-15T12:56:23.361Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Github-Hexo博客一键配置证书"><a href="#Github-Hexo博客一键配置证书" class="headerlink" title="Github+Hexo博客一键配置证书"></a>Github+Hexo博客一键配置证书</h1><h1 id="一键配置"><a href="#一键配置" class="headerlink" title="一键配置"></a>一键配置</h1><ol><li><p>进入GitHub，找到博客所部署的仓库</p></li><li><p>点击Setting</p><p><img src="https://i.loli.net/2020/12/15/5SH98wXszenDiQW.png" alt="image-20201215204100107"></p></li><li><p>下拉找到GitHub Pages，勾选Enforce HTTPS</p><p><img src="https://i.loli.net/2020/12/15/tzY2wFrpsNum3XE.png" alt="image-20201215204231362"></p></li><li><p>证书配置完毕</p><p><img src="https://i.loli.net/2020/12/15/qXyrSZeQd7pW5Cv.png" alt="image-20201215204310992"></p></li></ol><h1 id="还想bb两句"><a href="#还想bb两句" class="headerlink" title="还想bb两句"></a>还想bb两句</h1><h2 id="通过Freessl获取免费证书"><a href="#通过Freessl获取免费证书" class="headerlink" title="通过Freessl获取免费证书"></a>通过Freessl获取免费证书</h2><ol><li><p>获取免费证书推荐通过FreeSSl<a href="https://freessl.cn/">官网</a></p></li><li><p>输入你的域名，点击创建证书</p><p><img src="https://i.loli.net/2020/12/15/Pg9wuTGWRZbpXrj.png" alt="image-20201215204649089"></p></li><li><p>之后应该会要求注册登录，输入邮箱为了快速方便选择浏览器生成(推荐chrome)</p><p><img src="https://i.loli.net/2020/12/15/ZTPO5sM3qdgDHBk.png" alt="image-20201215204827876"></p></li><li><p>之后会自动将私钥下载到本地，并且页面会如图所示要求DNS验证</p><p><img src="https://i.loli.net/2020/12/15/gxUdY75pABn2amo.png" alt="image-20201215205007751"></p></li><li><p>进入域名商网站配置域名(我用的是Godaddy<a href="https://www.godaddy.com/">官网</a>，其他供应商大同小异)</p><ul><li><p>根据freessl提示配置TXT记录</p><ul><li><p>Type输入TXT</p></li><li><p>Name输入freessl的TXT记录内容</p><p><img src="https://i.loli.net/2020/12/15/4AVpLatovb2TkhY.png" alt="image-20201215205413553"></p></li><li><p>Value输入freessl的记录值内容</p><p><img src="https://i.loli.net/2020/12/15/9lPns1VMHfTkXyx.png" alt="image-20201215205458547"></p></li></ul></li><li><p>然后回到freessl点击 配置完成，检测一下</p></li><li><p>检查成功后可以点击 点击验证按钮，生成免费的SSL证书</p></li></ul></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Github-Hexo博客一键配置证书&quot;&gt;&lt;a href=&quot;#Github-Hexo博客一键配置证书&quot; class=&quot;headerlink&quot; title=&quot;Github+Hexo博客一键配置证书&quot;&gt;&lt;/a&gt;Github+Hexo博客一键配置证书&lt;/h1&gt;&lt;h1 i</summary>
+      
+    
+    
+    
+    <category term="博客配置与搭建" scheme="http://example.com/categories/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Github+Hexo+NexT搭建个人博客（Windows）</title>

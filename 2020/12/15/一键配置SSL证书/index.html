@@ -23,18 +23,30 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SunleDog">
-<meta property="og:url" content="http://example.com/archives/2020/12/index.html">
+<meta name="description" content="Github+Hexo博客一键配置证书一键配置 进入GitHub，找到博客所部署的仓库  点击Setting   下拉找到GitHub Pages，勾选Enforce HTTPS   证书配置完毕    还想bb两句通过Freessl获取免费证书 获取免费证书推荐通过FreeSSl官网  输入你的域名，点击创建证书   之后应该会要求注册登录，输入邮箱为了快速方便选择浏览器生成(推荐chrome)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一键配置SSL证书">
+<meta property="og:url" content="http://example.com/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Developer">
+<meta property="og:description" content="Github+Hexo博客一键配置证书一键配置 进入GitHub，找到博客所部署的仓库  点击Setting   下拉找到GitHub Pages，勾选Enforce HTTPS   证书配置完毕    还想bb两句通过Freessl获取免费证书 获取免费证书推荐通过FreeSSl官网  输入你的域名，点击创建证书   之后应该会要求注册登录，输入邮箱为了快速方便选择浏览器生成(推荐chrome)">
 <meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/5SH98wXszenDiQW.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/tzY2wFrpsNum3XE.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/qXyrSZeQd7pW5Cv.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/Pg9wuTGWRZbpXrj.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/ZTPO5sM3qdgDHBk.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/gxUdY75pABn2amo.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/4AVpLatovb2TkhY.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/15/9lPns1VMHfTkXyx.png">
+<meta property="article:published_time" content="2020-12-15T12:38:18.000Z">
+<meta property="article:modified_time" content="2020-12-15T12:56:23.361Z">
 <meta property="article:author" content="XIotian Ye">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/12/15/5SH98wXszenDiQW.png">
 
 
-<link rel="canonical" href="http://example.com/archives/2020/12/">
+<link rel="canonical" href="http://example.com/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/">
 
 
 <script class="page-configurations">
@@ -42,11 +54,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
-<title>Archive | SunleDog</title>
+<title>一键配置SSL证书 | SunleDog</title>
   
 
 
@@ -171,7 +183,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -184,6 +196,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Hexo%E5%8D%9A%E5%AE%A2%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AE%E8%AF%81%E4%B9%A6"><span class="nav-number">1.</span> <span class="nav-text">Github+Hexo博客一键配置证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">一键配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%98%E6%83%B3bb%E4%B8%A4%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">还想bb两句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87Freessl%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6"><span class="nav-number">3.1.</span> <span class="nav-text">通过Freessl获取免费证书</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -248,89 +261,141 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+      <meta itemprop="name" content="XIotian Ye">
+      <meta itemprop="description" content="Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunleDog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一键配置SSL证书
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+
+      <time title="Created: 2020-12-15 20:38:18 / Modified: 20:56:23" itemprop="dateCreated datePublished" datetime="2020-12-15T20:38:18+08:00">2020-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客配置与搭建</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Github-Hexo博客一键配置证书"><a href="#Github-Hexo博客一键配置证书" class="headerlink" title="Github+Hexo博客一键配置证书"></a>Github+Hexo博客一键配置证书</h1><h1 id="一键配置"><a href="#一键配置" class="headerlink" title="一键配置"></a>一键配置</h1><ol>
+<li><p>进入GitHub，找到博客所部署的仓库</p>
+</li>
+<li><p>点击Setting</p>
+<p><img src="https://i.loli.net/2020/12/15/5SH98wXszenDiQW.png" alt="image-20201215204100107"></p>
+</li>
+<li><p>下拉找到GitHub Pages，勾选Enforce HTTPS</p>
+<p><img src="https://i.loli.net/2020/12/15/tzY2wFrpsNum3XE.png" alt="image-20201215204231362"></p>
+</li>
+<li><p>证书配置完毕</p>
+<p><img src="https://i.loli.net/2020/12/15/qXyrSZeQd7pW5Cv.png" alt="image-20201215204310992"></p>
+</li>
+</ol>
+<h1 id="还想bb两句"><a href="#还想bb两句" class="headerlink" title="还想bb两句"></a>还想bb两句</h1><h2 id="通过Freessl获取免费证书"><a href="#通过Freessl获取免费证书" class="headerlink" title="通过Freessl获取免费证书"></a>通过Freessl获取免费证书</h2><ol>
+<li><p>获取免费证书推荐通过FreeSSl<a target="_blank" rel="noopener" href="https://freessl.cn/">官网</a></p>
+</li>
+<li><p>输入你的域名，点击创建证书</p>
+<p><img src="https://i.loli.net/2020/12/15/Pg9wuTGWRZbpXrj.png" alt="image-20201215204649089"></p>
+</li>
+<li><p>之后应该会要求注册登录，输入邮箱为了快速方便选择浏览器生成(推荐chrome)</p>
+<p><img src="https://i.loli.net/2020/12/15/ZTPO5sM3qdgDHBk.png" alt="image-20201215204827876"></p>
+</li>
+<li><p>之后会自动将私钥下载到本地，并且页面会如图所示要求DNS验证</p>
+<p><img src="https://i.loli.net/2020/12/15/gxUdY75pABn2amo.png" alt="image-20201215205007751"></p>
+</li>
+<li><p>进入域名商网站配置域名(我用的是Godaddy<a target="_blank" rel="noopener" href="https://www.godaddy.com/">官网</a>，其他供应商大同小异)</p>
+<ul>
+<li><p>根据freessl提示配置TXT记录</p>
+<ul>
+<li><p>Type输入TXT</p>
+</li>
+<li><p>Name输入freessl的TXT记录内容</p>
+<p><img src="https://i.loli.net/2020/12/15/4AVpLatovb2TkhY.png" alt="image-20201215205413553"></p>
+</li>
+<li><p>Value输入freessl的记录值内容</p>
+<p><img src="https://i.loli.net/2020/12/15/9lPns1VMHfTkXyx.png" alt="image-20201215205458547"></p>
+</li>
+</ul>
+</li>
+<li><p>然后回到freessl点击 配置完成，检测一下</p>
+</li>
+<li><p>检查成功后可以点击 点击验证按钮，生成免费的SSL证书</p>
+</li>
+</ul>
+</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-12-15T20:38:18+08:00"
-              content="2020-12-15">
-          12-15
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" itemprop="url">
-            <span itemprop="name">一键配置SSL证书</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/14/Github-Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Windows%EF%BC%89/" rel="prev" title="Github+Hexo+NexT搭建个人博客（Windows）">
+                  <i class="fa fa-chevron-left"></i> Github+Hexo+NexT搭建个人博客（Windows）
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-12-14T22:32:56+08:00"
-              content="2020-12-14">
-          12-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/14/Github-Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Windows%EF%BC%89/" itemprop="url">
-            <span itemprop="name">Github+Hexo+NexT搭建个人博客（Windows）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-12-12T22:14:20+08:00"
-              content="2020-12-12">
-          12-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/12/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 
 <script>
