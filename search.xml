@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo博客增加live2d</title>
+    <url>/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/</url>
+    <content><![CDATA[<h1 id="Hexo博客增加live2d插件"><a href="#Hexo博客增加live2d插件" class="headerlink" title="Hexo博客增加live2d插件"></a>Hexo博客增加live2d插件</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ol>
+<li>cmd进入到你的博客文件夹路径下</li>
+<li>使用 <code>npm i hexo-helper-live2d --save</code> 安装依赖</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li><p>安装成功后博客的package.json文件下会自动加入该包</p>
+<p><img src="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png" alt="image-20201216215110041"></p>
+</li>
+</ol>
+<h1 id="live2d-Model下载"><a href="#live2d-Model下载" class="headerlink" title="live2d Model下载"></a>live2d Model下载</h1><ol>
+<li><p>进入GitHub下载<a href="https://github.com/xiazeyu/live2d-widget-models">live2d模型</a></p>
+<p><img src="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png" alt="image-20201216215300880"></p>
+</li>
+<li><p>解压出该文件夹中的packages文件</p>
+</li>
+<li><p>将packages文件中的model复制到博客文件夹下的node_modules文件夹中</p>
+<p><img src="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png" alt="image-20201216222846076"></p>
+</li>
+</ol>
+<h1 id="修改博客配置文件"><a href="#修改博客配置文件" class="headerlink" title="修改博客配置文件"></a>修改博客配置文件</h1><ol>
+<li><p>进入博客的配置文件_config.yml，增加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true #是否开启看板</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-hijiki #想切换模型直接修改为node_modules中的liv2d的各模型文件名称</span><br><span class="line">  display:</span><br><span class="line">    position: right #在右边显示</span><br><span class="line">    width: 150 #看板的宽</span><br><span class="line">    height: 345 #看板的高</span><br><span class="line">  mobile:</span><br><span class="line">    show: true  #是否在手机进行显示</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>想要预览live2d挑选喜欢的模型可以访问该<a href="https://huaji8.top/post/live2d-plugin-2.0/">网站</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>博客配置与搭建</category>
+      </categories>
+      <tags>
+        <tag>Live2d</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github+Hexo+NexT搭建个人博客（Windows）</title>
     <url>/2020/12/14/Github-Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Windows%EF%BC%89/</url>
     <content><![CDATA[<h1 id="Github-Hexo-NexT搭建个人博客（Windows）"><a href="#Github-Hexo-NexT搭建个人博客（Windows）" class="headerlink" title="Github+Hexo+NexT搭建个人博客（Windows）"></a>Github+Hexo+NexT搭建个人博客（Windows）</h1><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ol>

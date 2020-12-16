@@ -23,20 +23,25 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta name="description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客增加live2d">
+<meta property="og:url" content="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Developer">
+<meta property="og:description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-12-12T16:36:06.000Z">
-<meta property="article:modified_time" content="2020-12-12T16:36:06.593Z">
+<meta property="og:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png">
+<meta property="og:image" content="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png">
+<meta property="article:published_time" content="2020-12-16T13:37:45.000Z">
+<meta property="article:modified_time" content="2020-12-16T14:36:07.925Z">
 <meta property="article:author" content="XIotian Ye">
+<meta property="article:tag" content="Live2d">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
 
 
-<link rel="canonical" href="http://example.com/about/">
+<link rel="canonical" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
 
 
 <script class="page-configurations">
@@ -44,12 +49,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
-<title>about | SunleDog
-</title>
+<title>Hexo博客增加live2d | SunleDog</title>
   
 
 
@@ -174,7 +178,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -187,6 +191,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客增加live2d插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">插件安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#live2d-Model%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">live2d Model下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">修改博客配置文件</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -261,36 +266,122 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
 
-    
-    
-    
-    <div class="post-block" lang="zh-Hans"><header class="post-header">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+      <meta itemprop="name" content="XIotian Ye">
+      <meta itemprop="description" content="Developer">
+    </span>
 
-<h1 class="post-title" itemprop="name headline">about
-</h1>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunleDog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客增加live2d
+        </h1>
 
-<div class="post-meta-container">
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-16 21:37:45 / Modified: 22:36:07" itemprop="dateCreated datePublished" datetime="2020-12-16T21:37:45+08:00">2020-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客配置与搭建</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Hexo博客增加live2d插件"><a href="#Hexo博客增加live2d插件" class="headerlink" title="Hexo博客增加live2d插件"></a>Hexo博客增加live2d插件</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ol>
+<li>cmd进入到你的博客文件夹路径下</li>
+<li>使用 <code>npm i hexo-helper-live2d --save</code> 安装依赖</li>
+</ol>
+<a id="more"></a>
+
+<ol>
+<li><p>安装成功后博客的package.json文件下会自动加入该包</p>
+<p><img src="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png" alt="image-20201216215110041"></p>
+</li>
+</ol>
+<h1 id="live2d-Model下载"><a href="#live2d-Model下载" class="headerlink" title="live2d Model下载"></a>live2d Model下载</h1><ol>
+<li><p>进入GitHub下载<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">live2d模型</a></p>
+<p><img src="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png" alt="image-20201216215300880"></p>
+</li>
+<li><p>解压出该文件夹中的packages文件</p>
+</li>
+<li><p>将packages文件中的model复制到博客文件夹下的node_modules文件夹中</p>
+<p><img src="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png" alt="image-20201216222846076"></p>
+</li>
+</ol>
+<h1 id="修改博客配置文件"><a href="#修改博客配置文件" class="headerlink" title="修改博客配置文件"></a>修改博客配置文件</h1><ol>
+<li><p>进入博客的配置文件_config.yml，增加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true #是否开启看板</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-hijiki #想切换模型直接修改为node_modules中的liv2d的各模型文件名称</span><br><span class="line">  display:</span><br><span class="line">    position: right #在右边显示</span><br><span class="line">    width: 150 #看板的宽</span><br><span class="line">    height: 345 #看板的高</span><br><span class="line">  mobile:</span><br><span class="line">    show: true  #是否在手机进行显示</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>想要预览live2d挑选喜欢的模型可以访问该<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">网站</a></p>
+</li>
+</ol>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Live2d/" rel="tag"># Live2d</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" rel="prev" title="一键配置SSL证书">
+                  <i class="fa fa-chevron-left"></i> 一键配置SSL证书
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 
