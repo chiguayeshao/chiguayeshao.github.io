@@ -23,12 +23,12 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Webpack 基础配置五个概念 entry 入口 指示 webpack 从哪个文件开始打包   output 出口 打包完的文件输出到哪里去，以及如何命名   loader 加载器 webpack 本身只处理 js，json 等资源 其他资源需要借助 loader 才能解析   plugins 插件 扩展 webpack 功能">
+<meta name="description" content="Webpack基础配置五个概念 entry 入口 指示webpack从哪个文件开始打包   output 出口 打包完的文件输出到哪里去，以及如何命名   loader 加载器 webpack本身只处理js，json等资源 其他资源需要借助loader才能解析   plugins 插件 扩展webpack功能   mode 模式 开发模式 development 生产模式 production">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack基础配置">
 <meta property="og:url" content="http://example.com/2021/06/15/Webpack%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Webpack 基础配置五个概念 entry 入口 指示 webpack 从哪个文件开始打包   output 出口 打包完的文件输出到哪里去，以及如何命名   loader 加载器 webpack 本身只处理 js，json 等资源 其他资源需要借助 loader 才能解析   plugins 插件 扩展 webpack 功能">
+<meta property="og:description" content="Webpack基础配置五个概念 entry 入口 指示webpack从哪个文件开始打包   output 出口 打包完的文件输出到哪里去，以及如何命名   loader 加载器 webpack本身只处理js，json等资源 其他资源需要借助loader才能解析   plugins 插件 扩展webpack功能   mode 模式 开发模式 development 生产模式 production">
 <meta property="og:locale">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220606224701172.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220606224741833.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607001010979.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607154900222.png">
 <meta property="article:published_time" content="2021-06-15T13:41:31.000Z">
-<meta property="article:modified_time" content="2022-06-22T16:48:04.266Z">
+<meta property="article:modified_time" content="2022-06-22T17:15:20.417Z">
 <meta property="article:author" content="XIotian Ye">
 <meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Webpack 基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">五个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">开发模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%A0%B7%E5%BC%8F%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">处理样式资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.2.</span> <span class="nav-text">处理图片资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%BE%93%E5%87%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%90%8D%E7%A7%B0%E5%92%8C%E8%B7%AF%E5%BE%84"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改输出资源的名称和路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86-js-%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.4.</span> <span class="nav-text">处理 js 资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86-Html-%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.5.</span> <span class="nav-text">处理 Html 资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">生产模式</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Webpack基础配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">五个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">基础配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">开发模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%A0%B7%E5%BC%8F%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">处理样式资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.2.</span> <span class="nav-text">处理图片资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%BE%93%E5%87%BA%E8%B5%84%E6%BA%90%E7%9A%84%E5%90%8D%E7%A7%B0%E5%92%8C%E8%B7%AF%E5%BE%84"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改输出资源的名称和路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86js%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.4.</span> <span class="nav-text">处理js资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86Html%E8%B5%84%E6%BA%90"><span class="nav-number">1.3.5.</span> <span class="nav-text">处理Html资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">生产模式</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -327,9 +327,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Webpack-基础配置"><a href="#Webpack-基础配置" class="headerlink" title="Webpack 基础配置"></a>Webpack 基础配置</h1><h2 id="五个概念"><a href="#五个概念" class="headerlink" title="五个概念"></a>五个概念</h2><ol>
+        <h1 id="Webpack基础配置"><a href="#Webpack基础配置" class="headerlink" title="Webpack基础配置"></a>Webpack基础配置</h1><h2 id="五个概念"><a href="#五个概念" class="headerlink" title="五个概念"></a>五个概念</h2><ol>
 <li>entry 入口<ul>
-<li>指示 webpack 从哪个文件开始打包</li>
+<li>指示webpack从哪个文件开始打包</li>
 </ul>
 </li>
 <li>output 出口<ul>
@@ -337,18 +337,14 @@
 </ul>
 </li>
 <li>loader 加载器<ul>
-<li>webpack 本身只处理 js，json 等资源</li>
-<li>其他资源需要借助 loader 才能解析</li>
+<li>webpack本身只处理js，json等资源</li>
+<li>其他资源需要借助loader才能解析</li>
 </ul>
 </li>
 <li>plugins 插件<ul>
-<li>扩展 webpack 功能</li>
+<li>扩展webpack功能</li>
 </ul>
 </li>
-</ol>
-<span id="more"></span>
-
-<ol start="5">
 <li>mode 模式<ul>
 <li>开发模式 development</li>
 <li>生产模式 production</li>
@@ -361,7 +357,7 @@
 </ul>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// node.js的核心模块，专门处理文件路径</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口</span></span><br><span class="line">  entry: <span class="string">&quot;./src/main.js&quot;</span>,</span><br><span class="line">  <span class="comment">// 出口</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    <span class="comment">// path 文件输出目录，必须是绝对路径</span></span><br><span class="line">    <span class="comment">// path.resolve() 返回一个绝对路径</span></span><br><span class="line">    <span class="comment">// __dirname 当前文件所在绝对路径</span></span><br><span class="line">    path: path.resolve(__dirname, <span class="string">&quot;dist&quot;</span>),</span><br><span class="line">    filename: <span class="string">&quot;main.js&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 加载器</span></span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 插件</span></span><br><span class="line">  plugins: [],</span><br><span class="line">  <span class="comment">// 模式</span></span><br><span class="line">  mode: <span class="string">&quot;development&quot;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// node.js的核心模块，专门处理文件路径</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 入口</span></span><br><span class="line">    entry: <span class="string">&#x27;./src/main.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// 出口</span></span><br><span class="line">    output : &#123;</span><br><span class="line">        <span class="comment">// path 文件输出目录，必须是绝对路径</span></span><br><span class="line">        <span class="comment">// path.resolve() 返回一个绝对路径</span></span><br><span class="line">        <span class="comment">// __dirname 当前文件所在绝对路径</span></span><br><span class="line">        path: path.resolve(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        filename: <span class="string">&#x27;main.js&#x27;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 加载器</span></span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [],</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 插件</span></span><br><span class="line">    plugins: [],</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode : <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>运行 <code>npx webpack</code>进行打包</li>
@@ -386,9 +382,9 @@
 <h3 id="处理样式资源"><a href="#处理样式资源" class="headerlink" title="处理样式资源"></a>处理样式资源</h3><ol>
 <li><p>css</p>
 <ul>
-<li><p>下载两个 loader <code>npm i css-loader style-loader -D</code></p>
+<li><p>下载两个loader <code>npm i css-loader style-loader -D</code></p>
 </li>
-<li><p>配置 module</p>
+<li><p>配置module</p>
 <ul>
 <li><pre><code class="javascript">module: &#123;
         rules: [
@@ -398,9 +394,9 @@
             &#125;
         ],
     &#125;,
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     - ![image-<span class="number">20220606201544356</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606201544356</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. less</span><br><span class="line"></span><br><span class="line">   - 下载 less loader `npm i less-loader -D`</span><br><span class="line"></span><br><span class="line">   - 配置 module</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       &#123;</span><br><span class="line">               test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">               use: [<span class="string">&quot;style-loader&quot;</span>, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&quot;less-loader&quot;</span>],</span><br><span class="line">             &#125;,</span><br></pre></td></tr></table></figure></code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">     - ![image-<span class="number">20220606201544356</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606201544356</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. less </span><br><span class="line"></span><br><span class="line">   - 下载less loader `npm i less-loader -D`</span><br><span class="line"></span><br><span class="line">   - 配置module</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       &#123;</span><br><span class="line">               test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">               use: [<span class="string">&quot;style-loader&quot;</span>, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&quot;less-loader&quot;</span>],</span><br><span class="line">             &#125;,</span><br></pre></td></tr></table></figure></code></pre>
 </li>
-<li><p>use 中的 loader 是从后往前执行，因此 less-loader 需要放在 style-loader 与 css-loader 之后</p>
+<li><p>use中的loader是从后往前执行，因此less-loader 需要放在 style-loader 与 css-loader之后</p>
 </li>
 </ul>
 </li>
@@ -408,15 +404,15 @@
 </li>
 <li><p>sass/scss</p>
 <ul>
-<li><p>下载 sass-loader <code>npm i sass-loader sass -D</code></p>
+<li><p>下载sass-loader <code>npm i sass-loader sass -D</code></p>
 </li>
-<li><p>配置 module</p>
+<li><p>配置module</p>
 <ul>
 <li><pre><code class="javascript">&#123;
         test: /\.s[ac]ss$/,
         use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;sass-loader&quot;],
       &#125;,
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>. styl</span><br><span class="line"></span><br><span class="line">   - 下载 stylus-loader `npm i stylus-loader -D`</span><br><span class="line"></span><br><span class="line">   - 配置 module</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       &#123;</span><br><span class="line"><span class="title">               test:</span> /\.styl$/,</span><br><span class="line"><span class="title">               use:</span> [<span class="string">&quot;style-loader&quot;</span>, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&quot;stylus-loader&quot;</span>],</span><br><span class="line">             &#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>. styl</span><br><span class="line"></span><br><span class="line">   - 下载stylus-loader `npm i stylus-loader -D`</span><br><span class="line"></span><br><span class="line">   - 配置module</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       &#123;</span><br><span class="line"><span class="title">               test:</span> /\.styl$/,</span><br><span class="line"><span class="title">               use:</span> [<span class="string">&quot;style-loader&quot;</span>, <span class="string">&quot;css-loader&quot;</span>, <span class="string">&quot;stylus-loader&quot;</span>],</span><br><span class="line">             &#125;,</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
@@ -425,28 +421,28 @@
 </li>
 </ol>
 <h3 id="处理图片资源"><a href="#处理图片资源" class="headerlink" title="处理图片资源"></a>处理图片资源</h3><ol>
-<li><p>webpack5 已经内置了 file-loader 和 url-loader 两个 loader</p>
+<li><p>webpack5已经内置了 file-loader 和 url-loader  两个loader</p>
 </li>
-<li><p>只需要在 module 中进行配置即可</p>
+<li><p>只需要在module中进行配置即可</p>
 <ul>
 <li><pre><code class="javascript">&#123;
         test: /\.(png|jpe?g|gif|webp)$/,
         type: &quot;asset&quot;,
       &#125;,
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 优化图片资源</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 将小于某大小的图片转换为 data url （base64）</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 优点：减少请求数量</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 缺点：体积变大</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">     parser: &#123;</span></span><br><span class="line"><span class="code">       dataUrlCondition: &#123;</span></span><br><span class="line"><span class="code">         maxSize: 10 * 1024; // 小于10kb的图片会被base64处理</span></span><br><span class="line"><span class="code">       &#125;</span></span><br><span class="line"><span class="code">     &#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">3.</span> 优化图片资源</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 将小于某大小的图片转换为data url （base64）</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 优点：减少请求数量</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> 缺点：体积变大</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">     parser: &#123;</span></span><br><span class="line"><span class="code">               dataUrlCondition: &#123;</span></span><br><span class="line"><span class="code">                 maxSize: 10 * 1024 // 小于10kb的图片会被base64处理</span></span><br><span class="line"><span class="code">               &#125;</span></span><br><span class="line"><span class="code">             &#125;</span></span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
 </li>
 </ol>
 <h3 id="修改输出资源的名称和路径"><a href="#修改输出资源的名称和路径" class="headerlink" title="修改输出资源的名称和路径"></a>修改输出资源的名称和路径</h3><ol>
-<li><p>修改 js 文件路径</p>
+<li><p>修改js文件路径</p>
 <ul>
 <li><code>filename: &quot;static/js/main.js&quot;,</code></li>
 <li><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220606224701172.png" alt="image-20220606224701172"></li>
 </ul>
 </li>
-<li><p>修改 html 引入</p>
+<li><p>修改html引入</p>
 <ul>
 <li><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220606224741833.png" alt="image-20220606224741833"></li>
 </ul>
@@ -461,63 +457,62 @@
                     // [query]: 添加之前的query参数
                     filename: &quot;static/imgs/[hash:8][ext][query]&quot;,
                 &#125;,
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220606224852478</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606224852478</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 自动清空上次打包资源</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 配置 output</span><br><span class="line">   - `clean: true`</span><br><span class="line">   - ![image-<span class="number">20220606225727622</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606225727622</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 处理字体图标资源</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 配置 loader</span><br><span class="line"></span><br><span class="line">   - ```javascript</span><br><span class="line">     &#123;</span><br><span class="line">                     test: <span class="regexp">/\.(ttf|woff2?)$/</span>,</span><br><span class="line">                     type: <span class="string">&quot;asset/resource&quot;</span>,</span><br><span class="line">                     generator: &#123;</span><br><span class="line">                         filename: <span class="string">&quot;static/media/[hash:8][ext][query]&quot;</span>,</span><br><span class="line">                     &#125;,</span><br><span class="line">                 &#125;,</span><br></pre></td></tr></table></figure></code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220606224852478</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606224852478</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 自动清空上次打包资源</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 配置output</span><br><span class="line">   - `clean: true`</span><br><span class="line">   - ![image-<span class="number">20220606225727622</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220606225727622</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 处理字体图标资源</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 配置loader</span><br><span class="line"></span><br><span class="line">   - ```javascript</span><br><span class="line">     &#123;</span><br><span class="line">                     test: <span class="regexp">/\.(ttf|woff2?)$/</span>,</span><br><span class="line">                     type: <span class="string">&quot;asset/resource&quot;</span>,</span><br><span class="line">                     generator: &#123;</span><br><span class="line">                         filename: <span class="string">&quot;static/media/[hash:8][ext][query]&quot;</span>,</span><br><span class="line">                     &#125;,</span><br><span class="line">                 &#125;,</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 <li><p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220606230029205.png" alt="image-20220606230029205"></p>
 </li>
 </ul>
 </li>
 </ol>
-<h3 id="处理-js-资源"><a href="#处理-js-资源" class="headerlink" title="处理 js 资源"></a>处理 js 资源</h3><ol>
-<li><p>处理代码格式，使用 eslint</p>
+<h3 id="处理js资源"><a href="#处理js资源" class="headerlink" title="处理js资源"></a>处理js资源</h3><ol>
+<li><p>处理代码格式，使用eslint</p>
 <ol>
 <li><p>在根目录创建 .eslintrc.js 文件</p>
 </li>
-<li><p>配置 .eslintrc.js 文件</p>
+<li><p>配置 .eslintrc.js文件</p>
 </li>
 <li><pre><code class="javascript">module.exports = &#123;
-  // 解析选项
-  parserOptions: &#123;
-    ecmaVersion: 6, // ES 语法版本
-    sourceType: &quot;module&quot;, // ES 模块化
-    ecmaFeatures: &#123;
-      // ES 其他特性
-      jsx: true, // 如果是 React 项目，就需要开启 jsx 语法
+    // 解析选项
+    parserOptions: &#123;
+        ecmaVersion: 6, // ES 语法版本
+        sourceType: &quot;module&quot;, // ES 模块化
+        ecmaFeatures: &#123; // ES 其他特性
+            jsx: true // 如果是 React 项目，就需要开启 jsx 语法
+        &#125;
     &#125;,
-  &#125;,
-  // 继承其他规则，后期配置react项目可以继承react官方规则
-  extends: [&quot;react-app&quot;],
-  // 覆盖继承的规则，一个一个手rules写过于复杂
-  rules: &#123;
-    // 我们的规则会覆盖掉react-app的规则
-    semi: &quot;error&quot;, // 禁止使用分号
-    &quot;array-callback-return&quot;: &quot;warn&quot;, // 强制数组方法的回调函数中有 return 语句，否则警告
-    &quot;default-case&quot;: [
-      &quot;warn&quot;, // 要求 switch 语句中有 default 分支，否则警告
-      &#123; commentPattern: &quot;^no default$&quot; &#125;, // 允许在最后注释 no default, 就不会有警告了
-    ],
-    eqeqeq: [
-      &quot;warn&quot;, // 强制使用 === 和 !==，否则警告
-      &quot;smart&quot;, // https://eslint.bootcss.com/docs/rules/eqeqeq#smart 除了少数情况下不会有警告
-    ],
-  &#125;,
-  // ...
-  // 其他规则详见：https://eslint.bootcss.com/docs/user-guide/configuring
+    // 继承其他规则，后期配置react项目可以继承react官方规则
+    extends: [&quot;react-app&quot;],
+    // 覆盖继承的规则，一个一个手rules写过于复杂
+    rules: &#123;
+        // 我们的规则会覆盖掉react-app的规则
+        semi: &quot;error&quot;, // 禁止使用分号
+        &#39;array-callback-return&#39;: &#39;warn&#39;, // 强制数组方法的回调函数中有 return 语句，否则警告
+        &#39;default-case&#39;: [
+            &#39;warn&#39;, // 要求 switch 语句中有 default 分支，否则警告
+            &#123; commentPattern: &#39;^no default$&#39; &#125; // 允许在最后注释 no default, 就不会有警告了
+        ],
+        eqeqeq: [
+            &#39;warn&#39;, // 强制使用 === 和 !==，否则警告
+            &#39;smart&#39; // https://eslint.bootcss.com/docs/rules/eqeqeq#smart 除了少数情况下不会有警告
+        ],
+    &#125;,
+    // ...
+    // 其他规则详见：https://eslint.bootcss.com/docs/user-guide/configuring
 &#125;;
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">4.</span> ![<span class="string">image-20220607000245951</span>](<span class="link">https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607000245951.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> rules 具体规则</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;off&quot;`</span> 或 <span class="code">`0`</span> - 关闭规则</span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;warn&quot;`</span> 或 <span class="code">`1`</span> - 开启规则，使用警告级别的错误：<span class="code">`warn`</span> (不会导致程序退出)</span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;error&quot;`</span> 或 <span class="code">`2`</span> - 开启规则，使用错误级别的错误：<span class="code">`error`</span> (当被触发的时候，程序会退出)</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 下载包 <span class="code">`npm i eslint-webpack-plugin eslint -D`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 配置 webpack.config.js 文件</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">`const ESLintWebpackPlugin = require(&quot;eslint-webpack-plugin&quot;);`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">     plugins: [</span></span><br><span class="line"><span class="code">         new ESLintWebpackPlugin(&#123;</span></span><br><span class="line"><span class="code">           // 指定检查文件的根目录</span></span><br><span class="line"><span class="code">           context: path.resolve(__dirname, &quot;src&quot;),</span></span><br><span class="line"><span class="code">         &#125;),</span></span><br><span class="line"><span class="code">       ],</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">4.</span> ![<span class="string">image-20220607000245951</span>](<span class="link">https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607000245951.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> rules具体规则</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;off&quot;`</span> 或 <span class="code">`0`</span> - 关闭规则</span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;warn&quot;`</span> 或 <span class="code">`1`</span> - 开启规则，使用警告级别的错误：<span class="code">`warn`</span> (不会导致程序退出)</span><br><span class="line"><span class="bullet">   -</span> <span class="code">`&quot;error&quot;`</span> 或 <span class="code">`2`</span> - 开启规则，使用错误级别的错误：<span class="code">`error`</span> (当被触发的时候，程序会退出)</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 下载包 <span class="code">`npm i eslint-webpack-plugin eslint -D`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> 配置webpack.config.js文件</span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">`const ESLintWebpackPlugin = require(&quot;eslint-webpack-plugin&quot;);`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">   -</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">     plugins: [</span></span><br><span class="line"><span class="code">         new ESLintWebpackPlugin(&#123;</span></span><br><span class="line"><span class="code">           // 指定检查文件的根目录</span></span><br><span class="line"><span class="code">           context: path.resolve(__dirname, &quot;src&quot;),</span></span><br><span class="line"><span class="code">         &#125;),</span></span><br><span class="line"><span class="code">       ],</span></span><br></pre></td></tr></table></figure>
 
 - ![image-20220607000723823](https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607000723823.png)
 
 - ![image-20220607000745553](https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607000745553.png)</code></pre>
 </li>
-<li><p>为了更好的开发体验，可以下载 vscode 的 eslint 插件，并且配置 .eslintignore 文件，忽略 dist 文件夹</p>
+<li><p>为了更好的开发体验，可以下载vscode的eslint插件，并且配置 .eslintignore 文件，忽略dist文件夹</p>
 <ul>
 <li><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607001010979.png" alt="image-20220607001010979"></li>
 </ul>
 </li>
 </ol>
 </li>
-<li><p>处理兼容性，使用 babel</p>
+<li><p>处理兼容性，使用babel</p>
 <ol>
 <li><p>在根目录创建 babel.config.js 文件</p>
 </li>
@@ -533,10 +528,12 @@
 </ol>
 </li>
 <li><pre><code class="javascript">module.exports = &#123;
-  // 预设
-  presets: [&quot;@babel/preset-env&quot;],
+    // 预设
+    presets: [&quot;@babel/preset-env&quot;],
 &#125;;
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4</span>. 配置 webpack.config.js 文件</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span>. 排除 node_modules 文件夹</span><br><span class="line"></span><br><span class="line">   <span class="number">2</span>. ```javascript</span><br><span class="line">      &#123;</span><br><span class="line">              test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">              exclude: <span class="regexp">/node_modules/</span>, <span class="regexp">//</span> 排除node_modules代码不编译</span><br><span class="line">              loader: <span class="string">&quot;babel-loader&quot;</span>,</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+
 </code></pre>
 </li>
 </ol>
@@ -544,7 +541,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="处理-Html-资源"><a href="#处理-Html-资源" class="headerlink" title="处理 Html 资源"></a>处理 Html 资源</h3><ol>
+<h3 id="处理Html资源"><a href="#处理Html资源" class="headerlink" title="处理Html资源"></a>处理Html资源</h3><ol>
 <li><p>安装插件 <code>npm i html-webpack-plugin -D</code></p>
 </li>
 <li><p>配置 web pack.config.js 文件</p>
@@ -556,11 +553,11 @@
       // 新的html文件有两个特点：1. 内容和源文件一致 2. 自动引入打包生成的js等资源
       template: path.resolve(__dirname, &quot;public/index.html&quot;),
     &#125;),
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>. 打包后的 html 会自动引入 js 文件，因此 index.html 中不需要手动引入了</span><br><span class="line"><span class="number">4</span>. ![image-<span class="number">20220607150650273</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607150650273</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 开发服务器 &amp; 自动化</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 下载包 `npm i webpack-dev-server -D`</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 配置 webpack.config.js 文件</span><br><span class="line"></span><br><span class="line">   - ```javascript</span><br><span class="line">     <span class="regexp">//</span> 开发服务器</span><br><span class="line">       devServer: &#123;</span><br><span class="line">         host: <span class="string">&quot;localhost&quot;</span>, <span class="regexp">//</span> 启动服务器域名</span><br><span class="line">         port: <span class="string">&quot;3000&quot;</span>, <span class="regexp">//</span> 启动服务器端口号</span><br><span class="line">         open: true, <span class="regexp">//</span> 是否自动打开浏览器</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure></code></pre>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>. 打包后的html会自动引入js文件，因此index.html中不需要手动引入了</span><br><span class="line"><span class="number">4</span>. ![image-<span class="number">20220607150650273</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607150650273</span>.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 开发服务器 &amp; 自动化</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 下载包 `npm i webpack-dev-server -D`</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 配置 webpack.config.js 文件</span><br><span class="line"></span><br><span class="line">   - ```javascript</span><br><span class="line">     <span class="regexp">//</span> 开发服务器</span><br><span class="line">       devServer: &#123;</span><br><span class="line">         host: <span class="string">&quot;localhost&quot;</span>, <span class="regexp">//</span> 启动服务器域名</span><br><span class="line">         port: <span class="string">&quot;3000&quot;</span>, <span class="regexp">//</span> 启动服务器端口号</span><br><span class="line">         open: true, <span class="regexp">//</span> 是否自动打开浏览器</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ol>
 </li>
-<li><p>当启用开发服务器后，所有代码都在内存中编译打包，因此并不会输出到 dist 目录下</p>
+<li><p>当启用开发服务器后，所有代码都在内存中编译打包，因此并不会输出到dist目录下</p>
 </li>
 </ol>
 <h2 id="生产模式"><a href="#生产模式" class="headerlink" title="生产模式"></a>生产模式</h2><ul>
@@ -570,13 +567,13 @@
 </li>
 </ul>
 <ol>
-<li><p>分别配置开发环境与生产环境文件，存入 config 文件夹</p>
+<li><p>分别配置开发环境与生产环境文件，存入config文件夹</p>
 <ul>
 <li><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607154900222.png"></li>
-<li>因为存入了 config 文件夹，因此需要修改 webpack 配置文件中的路径</li>
+<li>因为存入了config文件夹，因此需要修改webpack配置文件中的路径</li>
 </ul>
 </li>
-<li><p>配置 package.json 简化命令</p>
+<li><p>配置package.json简化命令</p>
 <ul>
 <li><pre><code class="json">  // 其他省略
   &quot;scripts&quot;: &#123;
@@ -584,19 +581,19 @@
     &quot;dev&quot;: &quot;npx webpack serve --config ./config/webpack.dev.js&quot;,
     &quot;build&quot;: &quot;npx webpack --config ./config/webpack.prod.js&quot;
   &#125;
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607155141887</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607155141887</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### css 处理</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 目前 css 文件被打包到 js 文件中，当 js 文件加载时，会创建 style 标签来生成样式</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 网速慢的时候会产生屏闪现象</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>. 应该将 css 文件单独出来，用 link 标签加载，性能更好</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>. 配置 webpack 文件</span><br><span class="line"></span><br><span class="line">   - `const MiniCssExtractPlugin = require(<span class="string">&quot;mini-css-extract-plugin&quot;</span>);`</span><br><span class="line"></span><br><span class="line">   - 替换所有的 style-loader</span><br><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607155949418</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607155949418</span>.png)</span><br><span class="line"></span><br><span class="line">   - 提取 css 成单独文件</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       <span class="regexp">//</span> 提取css成单独文件</span><br><span class="line">           new MiniCssExtractPlugin(&#123;</span><br><span class="line">             <span class="regexp">//</span> 定义输出文件名和目录</span><br><span class="line">             filename: <span class="string">&quot;static/css/main.css&quot;</span>,</span><br><span class="line">           &#125;),</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607155141887</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607155141887</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="comment">### css处理</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 目前css文件被打包到js文件中，当js文件加载时，会创建style标签来生成样式</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 网速慢的时候会产生屏闪现象</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>. 应该将css文件单独出来，用link标签加载，性能更好</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>. 配置webpack文件</span><br><span class="line"></span><br><span class="line">   - `const MiniCssExtractPlugin = require(<span class="string">&quot;mini-css-extract-plugin&quot;</span>);`</span><br><span class="line"></span><br><span class="line">   - 替换所有的style-loader</span><br><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607155949418</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607155949418</span>.png)</span><br><span class="line"></span><br><span class="line">   - 提取css成单独文件</span><br><span class="line"></span><br><span class="line">     - ```javascript</span><br><span class="line">       <span class="regexp">//</span> 提取css成单独文件</span><br><span class="line">           new MiniCssExtractPlugin(&#123;</span><br><span class="line">             <span class="regexp">//</span> 定义输出文件名和目录</span><br><span class="line">             filename: <span class="string">&quot;static/css/main.css&quot;</span>,</span><br><span class="line">           &#125;),</span><br></pre></td></tr></table></figure>
 
 - ![image-20220607160048147](https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607160048147.png)</code></pre>
 </li>
 </ul>
 </li>
-<li><p>css 兼容性处理</p>
+<li><p>css兼容性处理</p>
 <ol>
 <li><p>下载包 <code>npm i postcss-loader postcss postcss-preset-env -D</code></p>
 </li>
-<li><p>配置 webpack 文件</p>
+<li><p>配置webpack文件</p>
 <ul>
-<li><p>在 css-loader 之后添加配置</p>
+<li><p>在css-loader之后添加配置</p>
 </li>
 <li><pre><code class="javascript">&#123;
             loader: &quot;postcss-loader&quot;,
@@ -608,7 +605,7 @@
               &#125;,
             &#125;,
           &#125;,
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607160452201</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607160452201</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>. 控制兼容性</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span>. 在 package.json 中配置 browserslist</span><br><span class="line"></span><br><span class="line">      - 兼容到 ie8</span><br><span class="line"></span><br><span class="line">        - ```json</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="regexp">//</span> 其他省略</span><br><span class="line">            <span class="string">&quot;browserslist&quot;</span>: [<span class="string">&quot;ie &gt;= 8&quot;</span>]</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - ![image-<span class="number">20220607160452201</span>](https:<span class="regexp">//</span>cdn.jsdelivr.net<span class="regexp">/gh/</span>chiguayeshao<span class="regexp">/pic-bed/im</span>age-<span class="number">20220607160452201</span>.png)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>. 控制兼容性</span><br><span class="line"></span><br><span class="line">   <span class="number">1</span>. 在package.json中配置 browserslist</span><br><span class="line"></span><br><span class="line">      - 兼容到 ie8</span><br><span class="line"></span><br><span class="line">        - ```json</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="regexp">//</span> 其他省略</span><br><span class="line">            <span class="string">&quot;browserslist&quot;</span>: [<span class="string">&quot;ie &gt;= 8&quot;</span>]</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
 
  - 不考虑旧版本浏览器
 
@@ -617,11 +614,11 @@
        // 其他省略
        &quot;browserslist&quot;: [&quot;last 2 version&quot;, &quot;&gt; 1%&quot;, &quot;not dead&quot;]
      &#125;
-     <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">      -</span> ![<span class="string">image-20220607161009633</span>](<span class="link">https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607161009633.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> css 压缩</span><br><span class="line"></span><br><span class="line"><span class="bullet">   1.</span> 下载插件包 <span class="code">`npm i css-minimizer-webpack-plugin -D`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">   2.</span> 配置 webpack 文件</span><br><span class="line"></span><br><span class="line"><span class="bullet">      1.</span> <span class="code">`const CssMinimizerPlugin = require(&quot;css-minimizer-webpack-plugin&quot;);`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">      2.</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">         // css压缩</span></span><br><span class="line"><span class="code">             new CssMinimizerPlugin(),</span></span><br></pre></td></tr></table></figure></code></pre>
+     <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">      -</span> ![<span class="string">image-20220607161009633</span>](<span class="link">https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220607161009633.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> css压缩</span><br><span class="line"></span><br><span class="line"><span class="bullet">   1.</span> 下载插件包 <span class="code">`npm i css-minimizer-webpack-plugin -D`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">   2.</span> 配置webpack文件</span><br><span class="line"></span><br><span class="line"><span class="bullet">      1.</span> <span class="code">`const CssMinimizerPlugin = require(&quot;css-minimizer-webpack-plugin&quot;);`</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">      2.</span> <span class="code">```javascript</span></span><br><span class="line"><span class="code">         // css压缩</span></span><br><span class="line"><span class="code">             new CssMinimizerPlugin(),</span></span><br></pre></td></tr></table></figure></code></pre>
 </li>
 </ul>
 </li>
-<li><p>html 压缩</p>
+<li><p>html压缩</p>
 <ol>
 <li>默认生产模式已经开启了：html 压缩和 js 压缩</li>
 <li>不需要额外进行配置</li>
