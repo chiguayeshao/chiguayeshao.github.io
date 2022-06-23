@@ -23,19 +23,19 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Webpack高级优化提升开发体验sourcemap 打包完后的代码不便与阅读  因此需要sourcemap来生成源代码与构建后代码的一一映射  会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系">
+<meta name="description" content="Webpack高级优化提升开发体验sourcemap 打包完后的代码不便与阅读  因此需要sourcemap来生成源代码与构建后代码的一一映射  会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系  如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置   使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack高级优化">
 <meta property="og:url" content="http://example.com/2021/06/16/Webpack%E9%AB%98%E7%BA%A7%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Webpack高级优化提升开发体验sourcemap 打包完后的代码不便与阅读  因此需要sourcemap来生成源代码与构建后代码的一一映射  会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系">
+<meta property="og:description" content="Webpack高级优化提升开发体验sourcemap 打包完后的代码不便与阅读  因此需要sourcemap来生成源代码与构建后代码的一一映射  会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系  如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置   使用">
 <meta property="og:locale">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220608114848178.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220608120638753.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220608120658005.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/image-20220608122751327.png">
 <meta property="article:published_time" content="2021-06-16T14:25:40.000Z">
-<meta property="article:modified_time" content="2022-06-22T17:17:21.738Z">
+<meta property="article:modified_time" content="2022-06-23T05:56:12.228Z">
 <meta property="article:author" content="XIotian Ye">
 <meta property="article:tag" content="Webpack">
 <meta name="twitter:card" content="summary">
@@ -332,14 +332,15 @@
 <li><p>因此需要sourcemap来生成源代码与构建后代码的一一映射</p>
 </li>
 <li><p>会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系</p>
+<ol>
+<li>如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置</li>
+</ol>
+</li>
+<li><p>使用</p>
 </li>
 </ol>
 <span id="more"></span>
 
-<ol>
-<li><p>如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置</p>
-</li>
-<li><p>使用</p>
 <ol>
 <li><p>开发模式</p>
 <ol>
@@ -358,8 +359,6 @@
 </code></pre>
 </li>
 </ul>
-</li>
-</ol>
 </li>
 </ol>
 </li>

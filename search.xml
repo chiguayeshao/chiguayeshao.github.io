@@ -308,15 +308,11 @@
 <li>打包完的文件输出到哪里去，以及如何命名</li>
 </ul>
 </li>
-<li>loader 加载器</li>
-</ol>
-<span id="more"></span>
-
-<ul>
+<li>loader 加载器<ul>
 <li>webpack本身只处理js，json等资源</li>
 <li>其他资源需要借助loader才能解析</li>
 </ul>
-<ol start="4">
+</li>
 <li>plugins 插件<ul>
 <li>扩展webpack功能</li>
 </ul>
@@ -327,6 +323,8 @@
 </ul>
 </li>
 </ol>
+<span id="more"></span>
+
 <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><ol>
 <li>基础配置文件<ul>
 <li>在根目录创建 <code>webpack.config.js</code>文件</li>
@@ -620,14 +618,15 @@
 <li><p>因此需要sourcemap来生成源代码与构建后代码的一一映射</p>
 </li>
 <li><p>会生成xxx.map文件，包含源代码与构建后代码每一行，每一列的映射关系</p>
+<ol>
+<li>如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置</li>
+</ol>
+</li>
+<li><p>使用</p>
 </li>
 </ol>
 <span id="more"></span>
 
-<ol>
-<li><p>如果构建代码出错，通过xxx.map文件可以定位到源代码出错位置</p>
-</li>
-<li><p>使用</p>
 <ol>
 <li><p>开发模式</p>
 <ol>
@@ -646,8 +645,6 @@
 </code></pre>
 </li>
 </ul>
-</li>
-</ol>
 </li>
 </ol>
 </li>
