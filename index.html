@@ -208,13 +208,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -283,7 +283,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">Webpack高级优化</a>
+          <a href="/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">JavaScript 箭头函数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -302,7 +302,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Webpack/" itemprop="url" rel="index"><span itemprop="name">Webpack</span></a>
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
         </span>
     </span>
 
@@ -321,41 +321,14 @@
 
 <p>相当于：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如果需要传入多个参数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value, num</span>) =&gt;</span> value * num;</span><br></pre></td></tr></table></figure>
-
-<p>上面箭头函数例子中都省略了<code>return</code>关键字和代码的花括号，在箭头函数中如果方法体中只有一行代码，可以省略关键字和方法体的花括号，直接简化成<code>value =&gt; value</code>。</p>
-<p>如果函数的代码块需要有多条语句：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value, num</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> value * num;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如果需要返回一个对象，箭头函数的方法体必须放在大括号<code>()</code>中，这样做的原因是：没有大括号，JS 引擎没办分区分是正常定义一个对象还是一个箭头函数体:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value, num</span>) =&gt;</span> (&#123; <span class="attr">value</span>: value, <span class="attr">num</span>: num &#125;); <span class="comment">//正确写法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value, num</span>) =&gt;</span> &#123; <span class="attr">value</span>: value, <span class="attr">num</span>: num &#125;; <span class="comment">//会报错</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="与普通函数的区别"><a href="#与普通函数的区别" class="headerlink" title="与普通函数的区别"></a>与普通函数的区别</h2><h3 id="1-没有-this"><a href="#1-没有-this" class="headerlink" title="1.没有 this"></a>1.没有 this</h3><p>箭头函数式的 this 需要通过查找作用域链来确定，它的 this 是指包在它外面的作用域的 this，我们来看下以下代码中的 this 分别指的是什么：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>); <span class="comment">// obj</span></span><br><span class="line">  &#125;,</span><br><span class="line">  b: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>); <span class="comment">// windows</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>obj.b 是一个箭头函数，它的 this 是包在它外层的词法作用域的 this（离它最近的词法作用域），obj 对象不是可执行代码，所以它不是离箭头函数最近的词法作用域，再往外就是全局作用域 window 了，所以 obj.b 的 this 指的是 windows。</p>
-<p>再来看一段代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pageHandler = &#123;</span><br><span class="line">  id: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line"></span><br><span class="line">  init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(</span><br><span class="line">      <span class="string">&quot;click&quot;</span>,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.doSomething(event.type); <span class="comment">// error</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="literal">false</span></span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  doSomething: <span class="function"><span class="keyword">function</span> (<span class="params">type</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Handling &quot;</span> + type + <span class="string">&quot; for &quot;</span> + <span class="built_in">this</span>.id);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>在调用<code>pageHandler.init</code>方法的时候会报错，报错的函数是个回调函数，这个回调函数的 this 指的全局变量 windows，在全局变量里没有 doSomething 这个方法，所以会报错。那么怎么才能让它不报错呢？</p>
-<p>第一种方式是通过 bind 来指定 this：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pageHandler = &#123;</span><br><span class="line">  id: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(</span><br><span class="line">      <span class="string">&quot;click&quot;</span>,</span><br><span class="line">      <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.doSomething(event.type);</span><br><span class="line">      &#125;.bind(<span class="built_in">this</span>),</span><br><span class="line">      <span class="literal">false</span></span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line">  doSomething: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Handling&quot;</span> + type + <span class="string">&quot; for &quot;</span> + <span class="built_in">this</span>.id);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>.bind(this)中的 this 是指 pageHandler 这个对象，通过 bind 生成一个 this 指向 pageHandler 的新函数，这样执行 init 方法的时候不会报错，看起来怪怪的有没有。</p>
-<p>第二种方式是通过箭头函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pageHandler = &#123;</span><br><span class="line">  id: <span class="string">&quot;12345&quot;</span>,</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(</span><br><span class="line">      <span class="string">&quot;click&quot;</span>,</span><br><span class="line">      () =&gt; &#123;</span><br><span class="line">        <span class="built_in">this</span>.doSomething();</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="literal">false</span></span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line">  doSomething: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;Handling&quot;</span> + type + <span class="string">&quot; for &quot;</span> + <span class="built_in">this</span>.id);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>把 init 中的回调函数改成了箭头函数，箭头函数的 this 是它最近的作用域链上的 this，也就是 init 这个方法的 this，也就是 pageHandler 这个对象，这样就可以达到目的不报错啦。</p>
-<p><strong>需要注意的是，箭头函数不能改变 this 的值，普通函数可以通过 call、apply、bind 来指定 this，但是箭头函数的 this 是不能改的。</strong></p>
-<h3 id="2-没有-arguments"><a href="#2-没有-arguments" class="headerlink" title="2.没有 arguments"></a>2.没有 arguments</h3><p>访问箭头函数的 arguments，其实也是访问包在它外面的非箭头函数的 arguments。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo(<span class="number">1</span>, <span class="number">2</span>)()); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-不能通过-new-关键字调用。"><a href="#3-不能通过-new-关键字调用。" class="headerlink" title="3.不能通过 new 关键字调用。"></a>3.不能通过 new 关键字调用。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Foo = <span class="function">() =&gt;</span> &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(); <span class="comment">// TypeError: Foo is not a constructor</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-没有原型"><a href="#4-没有原型" class="headerlink" title="4.没有原型"></a>4.没有原型</h3><p>没有<code>prototype</code>, 但是有<code>__proto__</code>指向 function。</p>
-<h3 id="5-没有-super，也是通过包在它外面的非箭头函数来决定的。"><a href="#5-没有-super，也是通过包在它外面的非箭头函数来决定的。" class="headerlink" title="5.没有 super，也是通过包在它外面的非箭头函数来决定的。"></a>5.没有 super，也是通过包在它外面的非箭头函数来决定的。</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

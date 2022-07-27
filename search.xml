@@ -960,13 +960,15 @@ module.exports = &#123;
       </tags>
   </entry>
   <entry>
-    <title>Webpack高级优化</title>
+    <title>JavaScript 箭头函数</title>
     <url>/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="JavaScript-箭头函数"><a href="#JavaScript-箭头函数" class="headerlink" title="JavaScript 箭头函数"></a>JavaScript 箭头函数</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>ES6 中箭头函数的基本语法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value</span>) =&gt;</span> value;</span><br></pre></td></tr></table></figure>
 
 <p>相当于：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <p>如果需要传入多个参数：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">value, num</span>) =&gt;</span> value * num;</span><br></pre></td></tr></table></figure>
@@ -1003,10 +1005,10 @@ module.exports = &#123;
 <h3 id="4-没有原型"><a href="#4-没有原型" class="headerlink" title="4.没有原型"></a>4.没有原型</h3><p>没有<code>prototype</code>, 但是有<code>__proto__</code>指向 function。</p>
 <h3 id="5-没有-super，也是通过包在它外面的非箭头函数来决定的。"><a href="#5-没有-super，也是通过包在它外面的非箭头函数来决定的。" class="headerlink" title="5.没有 super，也是通过包在它外面的非箭头函数来决定的。"></a>5.没有 super，也是通过包在它外面的非箭头函数来决定的。</h3>]]></content>
       <categories>
-        <category>Webpack</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Webpack</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
