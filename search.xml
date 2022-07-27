@@ -1018,6 +1018,8 @@ module.exports = &#123;
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 
 <p>这段代码输出的是 undefined，而不是 ReferenceError。这是因为 var 有变量提升，实际这段代码相当于：</p>
+<span id="more"></span>
+
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
 
 <p>还有在 for 循环中：</p>
@@ -1028,8 +1030,6 @@ module.exports = &#123;
 <li>函数内部</li>
 <li>块中(字符 { 和 } 之间的区域)</li>
 </ul>
-<span id="more"></span>
-
 <h2 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a>let 和 const</h2><p>let 和 const 是用来声明块级作用域变量，它们有以下特性：</p>
 <h3 id="1-不会被提升"><a href="#1-不会被提升" class="headerlink" title="1. 不会被提升"></a>1. 不会被提升</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//Uncaught ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
 
