@@ -23,25 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
+<meta name="description" content="JavaScript 展开运算符展开运算符 （…）展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 &#x2F; 数组构造的时候，将数组表达式 &#x2F; string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。 展开运算符只能用于可迭代对象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客增加live2d">
-<meta property="og:url" content="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/index.html">
+<meta property="og:title" content="JavaScript 展开运算符">
+<meta property="og:url" content="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
+<meta property="og:description" content="JavaScript 展开运算符展开运算符 （…）展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 &#x2F; 数组构造的时候，将数组表达式 &#x2F; string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。 展开运算符只能用于可迭代对象。">
 <meta property="og:locale">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png">
-<meta property="article:published_time" content="2020-12-16T13:37:45.000Z">
-<meta property="article:modified_time" content="2020-12-16T14:36:07.925Z">
+<meta property="article:published_time" content="2021-10-22T02:31:48.000Z">
+<meta property="article:modified_time" content="2022-07-28T03:45:52.300Z">
 <meta property="article:author" content="XIotian Ye">
-<meta property="article:tag" content="Live2d">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
 
 
-<link rel="canonical" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
+<link rel="canonical" href="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
 
 <script class="page-configurations">
@@ -53,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>Hexo博客增加live2d | SunleDog</title>
+<title>JavaScript 展开运算符 | SunleDog</title>
   
 
 
@@ -193,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客增加live2d插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">插件安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#live2d-Model%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">live2d Model下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">修改博客配置文件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 展开运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6-%EF%BC%88%E2%80%A6%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">展开运算符 （…）</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -279,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -292,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo博客增加live2d
+          JavaScript 展开运算符
         </h1>
 
         <div class="post-meta-container">
@@ -303,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-12-16 21:37:45" itemprop="dateCreated datePublished" datetime="2020-12-16T21:37:45+08:00">2020-12-16</time>
+      <time title="Created: 2021-10-22 10:31:48" itemprop="dateCreated datePublished" datetime="2021-10-22T10:31:48+08:00">2021-10-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,7 +307,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客配置与搭建</span></a>
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
         </span>
     </span>
 
@@ -325,34 +321,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Hexo博客增加live2d插件"><a href="#Hexo博客增加live2d插件" class="headerlink" title="Hexo博客增加live2d插件"></a>Hexo博客增加live2d插件</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ol>
-<li>cmd进入到你的博客文件夹路径下</li>
-<li>使用 <code>npm i hexo-helper-live2d --save</code> 安装依赖</li>
-</ol>
-<a id="more"></a>
+        <h1 id="JavaScript-展开运算符"><a href="#JavaScript-展开运算符" class="headerlink" title="JavaScript 展开运算符"></a>JavaScript 展开运算符</h1><h2 id="展开运算符-（…）"><a href="#展开运算符-（…）" class="headerlink" title="展开运算符 （…）"></a>展开运算符 （…）</h2><p>展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 / 数组构造的时候，将数组表达式 / string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。</p>
+<p>展开运算符只能用于可迭代对象。</p>
+<span id="more"></span>
 
-<ol>
-<li><p>安装成功后博客的package.json文件下会自动加入该包</p>
-<p><img src="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png" alt="image-20201216215110041"></p>
-</li>
-</ol>
-<h1 id="live2d-Model下载"><a href="#live2d-Model下载" class="headerlink" title="live2d Model下载"></a>live2d Model下载</h1><ol>
-<li><p>进入GitHub下载<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">live2d模型</a></p>
-<p><img src="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png" alt="image-20201216215300880"></p>
-</li>
-<li><p>解压出该文件夹中的packages文件</p>
-</li>
-<li><p>将packages文件中的model复制到博客文件夹下的node_modules文件夹中</p>
-<p><img src="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png" alt="image-20201216222846076"></p>
-</li>
-</ol>
-<h1 id="修改博客配置文件"><a href="#修改博客配置文件" class="headerlink" title="修改博客配置文件"></a>修改博客配置文件</h1><ol>
-<li><p>进入博客的配置文件_config.yml，增加以下配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#是否开启看板</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-hijiki</span> <span class="comment">#想切换模型直接修改为node_modules中的liv2d的各模型文件名称</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span> <span class="comment">#在右边显示</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span> <span class="comment">#看板的宽</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">345</span> <span class="comment">#看板的高</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span>  <span class="comment">#是否在手机进行显示</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>想要预览live2d挑选喜欢的模型可以访问该<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">网站</a></p>
-</li>
-</ol>
+<p><strong>函数调用：</strong></p>
+<p>假如你把<code>...</code>放在函数的参数里，就说明这个参数必须是<code>interable object</code>，然后这个对象会被展开成为函数的参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">  <span class="built_in">console</span>.log(y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> someIterable = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>];</span><br><span class="line">func(...someIterable);</span><br><span class="line"><span class="comment">// same as func(&#x27;a&#x27;, &#x27;b&#x27;)</span></span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// &#x27;a&#x27;</span></span><br><span class="line"><span class="comment">// &#x27;b&#x27;</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(-<span class="number">1</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">3</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(...[-<span class="number">1</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">3</span>])</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(-<span class="number">1</span>, ...[-<span class="number">5</span>, <span class="number">11</span>], <span class="number">3</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>];</span><br><span class="line">arr1.push(...arr2); <span class="comment">// [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>数组构造或字符串</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log([...numbers, <span class="string">&#x27;4&#x27;</span>, ...<span class="string">&#x27;hello&#x27;</span>, <span class="number">6</span>];) <span class="comment">// Array [1, 2, 3, &quot;4&quot;, &quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parts = [<span class="string">&#x27;shoulders&#x27;</span>, <span class="string">&#x27;knees&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> lyrics = [<span class="string">&#x27;head&#x27;</span>, ...parts, <span class="string">&#x27;and&#x27;</span>, <span class="string">&#x27;toes&#x27;</span>]; <span class="comment">//  [&quot;head&quot;, &quot;shoulders&quot;, &quot;knees&quot;, &quot;and&quot;, &quot;toes&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组拷贝</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr];</span><br><span class="line">arr2.push(<span class="number">4</span>); <span class="comment">// arr2 此时变成了 [1,2,3,4]. arr不受影响</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//连接多个数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> arr3 = [...arr1, ...arr2]; <span class="comment">// [0,1,2,3,4,5]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象拷贝（浅拷贝，并且不包含prototype）和合并</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">foo</span>:<span class="string">&#x27;bar&#x27;</span>, <span class="attr">x</span>:<span class="number">42</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">foo</span>:<span class="string">&#x27;baz&#x27;</span>, <span class="attr">y</span>:<span class="number">13</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> cloneObj = &#123;...obj1&#125;; <span class="comment">// &#123;foo:&#x27;bar&#x27;, x:42&#125;</span></span><br><span class="line"><span class="keyword">var</span> mergeObj = &#123;...obj1, ...obj2&#125;; <span class="comment">// &#123;foo:&#x27;baz&#x27;, x:42, y:13&#125;</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -362,21 +340,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Live2d/" rel="tag"># Live2d</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" rel="prev" title="一键配置SSL证书">
-                  <i class="fa fa-chevron-left"></i> 一键配置SSL证书
+                <a href="/2021/10/21/JavaScript%20Map%E5%92%8CSet/" rel="prev" title="JavaScript Map 和 Set">
+                  <i class="fa fa-chevron-left"></i> JavaScript Map 和 Set
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/06/15/Webpack%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" rel="next" title="Webpack基础配置">
-                  Webpack基础配置 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
