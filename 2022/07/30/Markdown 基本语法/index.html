@@ -23,18 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SunleDog">
-<meta property="og:url" content="http://example.com/archives/page/2/index.html">
+<meta name="description" content="Markdown 基本语法基本语法标题 一级标题 # 二级标题 ## 三级标题 ### 四级标题 #### 以此类推">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 基本语法">
+<meta property="og:url" content="http://example.com/2022/07/30/Markdown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Developer">
+<meta property="og:description" content="Markdown 基本语法基本语法标题 一级标题 # 二级标题 ## 三级标题 ### 四级标题 #### 以此类推">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-07-30T09:38:24.168Z">
+<meta property="article:modified_time" content="2022-07-30T09:38:42.327Z">
 <meta property="article:author" content="Xiaotian Ye">
+<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/archives/page/2/">
+<link rel="canonical" href="http://example.com/2022/07/30/Markdown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
 
 
 <script class="page-configurations">
@@ -42,11 +45,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
-<title>Archive | SunleDog</title>
+<title>Markdown 基本语法 | SunleDog</title>
   
 
 
@@ -173,7 +176,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -186,6 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Markdown 基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-number">1.0.0.0.1.1.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">1.0.0.0.1.2.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%92%8C%E5%9B%BE%E7%89%87"><span class="nav-number">1.0.0.0.1.3.</span> <span class="nav-text">链接和图片</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.0.0.1.4.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%B2%97%E4%BD%93%E5%92%8C%E6%96%9C%E4%BD%93"><span class="nav-number">1.0.0.0.1.5.</span> <span class="nav-text">粗体和斜体</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.0.0.1.6.</span> <span class="nav-text">代码引用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">1.0.0.0.1.7.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.0.0.0.1.8.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -260,232 +264,166 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 23 posts in total. Keep on posting.</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/30/Markdown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+      <meta itemprop="name" content="Xiaotian Ye">
+      <meta itemprop="description" content="Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunleDog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown 基本语法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-30 17:38:24" itemprop="dateCreated datePublished" datetime="2022-07-30T17:38:24+08:00">2022-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Markdown-基本语法"><a href="#Markdown-基本语法" class="headerlink" title="Markdown 基本语法"></a>Markdown 基本语法</h1><h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><h6 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h6><ul>
+<li>一级标题 #</li>
+<li>二级标题 ##</li>
+<li>三级标题 ###</li>
+<li>四级标题 ####</li>
+<li>以此类推</li>
+</ul>
+<span id="more"></span>
+
+<h6 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h6><ul>
+<li>有序列表</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">1</span>. 文本<span class="number">1</span></span><br><span class="line"><span class="attribute">2</span>. 文本<span class="number">2</span></span><br><span class="line"><span class="attribute">3</span>. 文本<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序列表</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>文本1</span><br><span class="line"><span class="bullet">- </span>文本2</span><br><span class="line"><span class="bullet">- </span>文本3</span><br></pre></td></tr></table></figure>
+
+<h6 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h6><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">链接：</span><br><span class="line"><span class="selector-attr">[文本]</span>（<span class="selector-tag">http</span>:<span class="comment">//*****.com）</span></span><br><span class="line">图片</span><br><span class="line">！<span class="selector-attr">[]</span>(<span class="attribute">http</span>:<span class="comment">//upload-images***)</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><ul>
+<li><p>在我们写作的时候经常需要引用他人的文字，这个时候引用这个格式就很有必要了，在 Markdown 中，你只需要在你希望引用的文字前面加上 <code>&gt;</code> 就好了，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 我帅，我说什么都对！</span><br></pre></td></tr></table></figure>
+
+<p>最终显示的结果是</p>
+<blockquote>
+<p>我帅，我说什么都对！</p>
+</blockquote>
+</li>
+</ul>
+<h6 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h6><ul>
+<li>Markdown 的粗体和斜体也非常简单，用两个 <code>*</code> 包含一段文本就是粗体的语法，用一个 <code>*</code> 包含一段文本就是斜体的语法。例如：</li>
+</ul>
+<p>粗体：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="strong">*我帅，我说什么都对！*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+
+<p>结果:</p>
+<p><strong>我帅，我说什么都对！</strong></p>
+<p>斜体：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">*我帅，我说什么都对！*</span></span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<pre><code>*我帅，我说什么都对！*</code></pre>
+<h6 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h6><p>需要引用代码时，如果引用的语句只有一段，不分行，可以用 ` 将语句包起来。 如果引用的语句为多行，可以将```置于这段代码的首行和末行。</p>
+<ul>
+<li><p>一段不分行：</p>
+<pre><code>`hello word!`</code></pre>
+</li>
+<li><p>多段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一段代码</span><br><span class="line">第二段代码</span><br><span class="line">第三段代码</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h6 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h6><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> 表格 </span>|<span class="string"> first </span>|<span class="string"> second </span>|</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<table>
+<thead>
+<tr>
+<th>表格</th>
+<th>first</th>
+<th>second</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><pre><code>掌握了这些基本语法基本上可以愉快的用Markdown写文章了！</code></pre>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-22T10:31:48+08:00"
-              content="2021-10-22">
-          10-22
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/" itemprop="url">
-            <span itemprop="name">JavaScript 展开运算符</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/30/JavaScript%20%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%20apply%20bind%E6%96%B9%E6%B3%95/" rel="prev" title="JavaScript 模拟实现call apply bind方法">
+                  <i class="fa fa-chevron-left"></i> JavaScript 模拟实现call apply bind方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-21T22:21:19+08:00"
-              content="2021-10-21">
-          10-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/21/JavaScript%20Map%E5%92%8CSet/" itemprop="url">
-            <span itemprop="name">JavaScript Map 和 Set</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-18T23:15:09+08:00"
-              content="2021-10-18">
-          10-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/18/JavaScript%20%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url">
-            <span itemprop="name">JavaScript 核心基础知识点</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-08T17:35:04+08:00"
-              content="2021-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/08/JavaScript%20%E8%AF%A6%E8%A7%A3Event-Loop%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" itemprop="url">
-            <span itemprop="name">JavaScript 详解Event Loop运行机制</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-26T17:01:56+08:00"
-              content="2021-07-26">
-          07-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/26/JavaScript%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3this/" itemprop="url">
-            <span itemprop="name">JavaScript 深入理解this</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-17T17:25:35+08:00"
-              content="2021-07-17">
-          07-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/17/JavaScript%20%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" itemprop="url">
-            <span itemprop="name">JavaScript 深浅拷贝</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-16T13:35:15+08:00"
-              content="2021-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/16/JavaScript%20let%E5%92%8Cconst/" itemprop="url">
-            <span itemprop="name">JavaScript let和const</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-16T12:01:20+08:00"
-              content="2021-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url">
-            <span itemprop="name">JavaScript 箭头函数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-16T22:25:40+08:00"
-              content="2021-06-16">
-          06-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/16/Webpack%E9%AB%98%E7%BA%A7%E4%BC%98%E5%8C%96/" itemprop="url">
-            <span itemprop="name">Webpack高级优化</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-06-15T21:41:31+08:00"
-              content="2021-06-15">
-          06-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/15/Webpack%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">Webpack基础配置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+
+
+
 
 
 <script>
