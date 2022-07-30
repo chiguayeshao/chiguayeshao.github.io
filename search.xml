@@ -2328,4 +2328,75 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux 02 常用命令与用户管理</title>
+    <url>/2018/03/11/Linux%2002%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="Linux-02-常用命令与用户管理"><a href="#Linux-02-常用命令与用户管理" class="headerlink" title="Linux 02 常用命令与用户管理"></a>Linux 02 常用命令与用户管理</h1><p>man :显示命令手册</p>
+<p>我们以 ls 命令为例，输入 man ls ,出现如下图关于 ls 命令的所有使用方法，按 q 退出。</p>
+<span id="more"></span>
+
+<p><img src="https://img-blog.csdn.net/20180401124145863?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>tar :解压命令，可参考上一篇解压安装 VmwareTools</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040447.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>diff :比较出两个文件内容的不同</p>
+<p>这里我随意比较 /bin 和 /dev 两个文件夹</p>
+<p>输入 diff /bin /dev</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040483.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>whereis :寻找文件的位置</p>
+<p>这里寻找 rpm 的位置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040529.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>find :模糊查找</p>
+<p>如图查找/bin 下面 sh 结尾的文件</p>
+<p><img src="https://img-blog.csdn.net/20180401124259317?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>date 与 cal :显示时间和日期，想要 cal 显示特定的日期需要输入月份和年份</p>
+<p><img src="https://img-blog.csdn.net/2018040112431099?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>df :查看分区的占用情况</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040639.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>ps :查看系统进程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040658.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>kill :终止命令，类似于 window 任务管理器里面的结束进程。</p>
+<p>前台用 ctrl+c 可以强制终止</p>
+<p>top :监控进程，5 秒刷新一次</p>
+<p>top -d 20 则是每 20 秒刷新一次</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040709.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>shutdown 关机 -r 重启</p>
+<p>init6 重启</p>
+<p>reboot 重启</p>
+<p>halt 停止系统，不关电源</p>
+<p>poweroff 停止系统，关闭电源</p>
+<p>用户相关配置文件有 passwd 和 shadow，我们通过 cat 命令查看，如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040746.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>每一个用户都有一个唯一的身份标识，称为用户 ID（UID）；每一个用户组也有一个唯一的身份标识，称为用户组 ID（GID）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040818.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>useradd :新建用户</p>
+<p>useradd yy，新建一个名为 yy 的用户，passwd yy 给用户设定密码</p>
+<p>在 passwd 中查看</p>
+<p><img src="https://img-blog.csdn.net/20180401133659321?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在 shadow 中查看，冒号中的为加密密码，可以修改</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040912.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040926.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑可以正常登陆</p>
+<p>可以用 vi 命令修改 shadow 文件修改用户信息，如图</p>
+<p>vi/etc/shadow 按 i 开始编辑，Esc 退出编辑，</p>
+<p>shift+：wq！ 然后 Enter 强制保存退出</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180040961.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><strong>用户帐户文件：</strong></p>
+<p>/etc/passwd 文件：用户帐户信息</p>
+<p>/etc/shadow 文件：用户口令</p>
+<p><strong>组群文件：</strong></p>
+<p>/etc/group 文件：组群帐户信息</p>
+<p>/etc/gshadow 文件：组群口令、管理员等管理信息</p>
+<p><strong>创建一个新的用户组文件</strong>：</p>
+<p>groupadd :新建用户组文件</p>
+<p><img src="https://img-blog.csdn.net/2018041709294114?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>gpasswd -a 用户名 testgroup :将用户加入到组文件</p>
+<p>gpasswd -A 用户名 testgroup：将用户指派为管理员</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730180041021.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
