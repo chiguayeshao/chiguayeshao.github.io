@@ -2219,4 +2219,113 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux 基础02</title>
+    <url>/2019/05/17/Linux%20%E5%9F%BA%E7%A1%8002/</url>
+    <content><![CDATA[<h1 id="Linux-基础-02"><a href="#Linux-基础-02" class="headerlink" title="Linux 基础 02"></a>Linux 基础 02</h1><h2 id="实用指令"><a href="#实用指令" class="headerlink" title="实用指令"></a>实用指令</h2><h3 id="man"><a href="#man" class="headerlink" title="man"></a>man</h3><ul>
+<li><code>man [命令或配置文件]</code> （功能描述：获得帮助信息）</li>
+</ul>
+<h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3><ul>
+<li><code>help [命令] </code>（功能描述：获得 shell 内置命令的帮助信息）</li>
+</ul>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><ul>
+<li><code>pwd</code>（功能描述：显示当前工作目录的绝对路径）</li>
+</ul>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><span id="more"></span>
+
+<ul>
+<li><code>ls [选项] [目录或文件]</code></li>
+<li>常用选项：</li>
+<li><code>-a</code>：显示当前目录所有的文件和目录，包括隐藏的</li>
+<li><code>-l</code>：以列表的方式显示信息</li>
+</ul>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><ul>
+<li><code>cd [参数]</code>（功能描述：切换到指定目录）</li>
+<li><code>cd ~</code>：回到自己的家目录</li>
+<li><code>cd..</code>：回到当前目录的上一级目录</li>
+<li>ps：绝对路径与相对路线</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/15766abc9797e701f27eed38ae244043.jpeg" alt="img"></p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><ul>
+<li><code>mkdir [选项] 要创建的目录</code>（功能描述：用于创建目录 make directory）</li>
+</ul>
+<h4 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-p</code>：创建多级目录</li>
+</ul>
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h3><ul>
+<li><code>rmdir [选项] 要删除的空目录</code>（功能描述：删除空目录）</li>
+<li>ps：rmdir 删除的是空目录，如果目录下有内容时无法删除</li>
+<li>ps：如果需要删除非空目录，则需要使用 <code>rm -rf [要删除的目录]</code></li>
+</ul>
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><ul>
+<li><code>touch [文件名称]</code> （功能描述：创建空文件）</li>
+</ul>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><ul>
+<li><code>cp [选项] source desk</code>（功能描述：拷贝文件到指定目录）</li>
+</ul>
+<h4 id="常用选项-1"><a href="#常用选项-1" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-r</code>：递归复制整个文件夹</li>
+<li>ps ：<code>\cp -r xxx/ yyy/</code>：将 xxx 文件夹复制到 yyy 文件夹，如果 yyy 文件夹已有 xxx 文件夹则直接覆盖，并且不提示（因为<code>cp</code>前加了<code>\</code>）</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
+<li><code>rm [选项] 要删除的文件夹或目录</code>（功能描述：移除【删除】文件夹或目录）</li>
+</ul>
+<h4 id="常用选项-2"><a href="#常用选项-2" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-r</code>：递归删除整个文件夹</li>
+<li><code>-f</code>：强制删除并且不提示</li>
+</ul>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><ul>
+<li><code>mv oldNameFile newNameFile</code>（功能描述：重命名）</li>
+<li><code>mv /temp/movefile /targetFolder</code>（功能描述：移动文件夹）</li>
+</ul>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
+<li><code>cat [选项] 要查看的文件</code>（功能描述：查看文件内容，以只读的方式打开）</li>
+</ul>
+<h4 id="常用选项-3"><a href="#常用选项-3" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-n</code>：显示行号</li>
+<li>ps：cat 只能浏览文件，而不能修改文件，为了浏览方便，一般会带上管道指令<code>|more</code>：<code>cat 文件名 |more</code></li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><ul>
+<li><code>more 要查看的文件</code> （功能描述：它以全屏幕的方式按页显示文本文件内容）</li>
+<li>ps：快捷键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/2ba96d2e9c12ee8def9347a2bbdcf0e7.jpeg" alt="img"></p>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><ul>
+<li><code>less 要查看的指令</code> （功能描述：用来分屏查看文件内容，与 more 类似，但比 more 的指令更加强大，由于并不是将整个文件加载后才显示，所以对于显示大型文件具有更高的效率）</li>
+<li>ps：快捷键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/e08cb2a071d78c20d8e9ba2ece2b69c8.jpeg" alt="img"></p>
+<h3 id="gt-指令-和-gt-gt-指令"><a href="#gt-指令-和-gt-gt-指令" class="headerlink" title="&gt;指令 和 &gt;&gt;指令"></a>&gt;指令 和 &gt;&gt;指令</h3><ul>
+<li><code>&gt;</code> （功能描述：输出重定向，将与哪来的文件内容覆盖）</li>
+<li><code>&gt;&gt;</code> （功能描述：不会覆盖原来文件的内容，而是追加到文件的尾部）</li>
+</ul>
+<h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><ul>
+<li><code>echo [选项] [输出内容]</code>（功能描述：输出内容到控制台）</li>
+</ul>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
+<li><code>head 文件</code> （功能描述：查看文件头 10 行内容）</li>
+<li><code>head -n 5 文件</code> （功能描述：查看文件头 5 行内容）</li>
+</ul>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><ul>
+<li><code>tail 文件</code> （功能描述：查看文件后 10 行内容）</li>
+<li><code>tail -n 5 文件</code> （功能描述：查看文件后 5 行内容）</li>
+<li><code>tail -f 文件</code> （功能描述：实时追踪该文档的所有更新，工作中常用）</li>
+</ul>
+<h3 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h3><ul>
+<li><code>ln -s [原文件或目录] [软链接名]</code> （功能描述：给原文件创建一个软连接（类似于 windows 中的快捷方式））</li>
+<li>ps：想要删除软链接名 <code>rm -fr 软链接名</code> （软链接名后面不能有\）</li>
+</ul>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><ul>
+<li><code>history</code> （功能描述：查看已经执行过的历史指令）</li>
+<li><code>history 10</code> （功能描述：查看最近使用的 10 个指令）</li>
+<li><code>![history中历史指令的编号]</code> （功能描述：再次执行该编号指令）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>

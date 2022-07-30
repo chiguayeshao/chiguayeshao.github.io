@@ -23,50 +23,25 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Linux01 RedHat 的安装与设置虚拟机安装 RedHat以下是截图演示，所有没有截图的均为直接点击下一步">
+<meta name="description" content="Linux 基础 02实用指令man man [命令或配置文件] （功能描述：获得帮助信息）  help help [命令] （功能描述：获得 shell 内置命令的帮助信息）  pwd pwd（功能描述：显示当前工作目录的绝对路径）  ls">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux 01 RedHat的安装与设置">
-<meta property="og:url" content="http://example.com/2018/03/10/Linux%2001%20RedHat%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE/index.html">
+<meta property="og:title" content="Linux 基础02">
+<meta property="og:url" content="http://example.com/2019/05/17/Linux%20%E5%9F%BA%E7%A1%8002/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Linux01 RedHat 的安装与设置虚拟机安装 RedHat以下是截图演示，所有没有截图的均为直接点击下一步">
+<meta property="og:description" content="Linux 基础 02实用指令man man [命令或配置文件] （功能描述：获得帮助信息）  help help [命令] （功能描述：获得 shell 内置命令的帮助信息）  pwd pwd（功能描述：显示当前工作目录的绝对路径）  ls">
 <meta property="og:locale">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548313.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548397.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://img-blog.csdn.net/20180310105018463?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://img-blog.csdn.net/2018031010503778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548640.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548736.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://img-blog.csdn.net/20180310105129115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548925.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://img-blog.csdn.net/20180310105159134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549034.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549112.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549158.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549269.png">
-<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
-<meta property="article:published_time" content="2018-03-10T03:00:30.000Z">
-<meta property="article:modified_time" content="2022-07-30T09:49:56.246Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/15766abc9797e701f27eed38ae244043.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/2ba96d2e9c12ee8def9347a2bbdcf0e7.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/e08cb2a071d78c20d8e9ba2ece2b69c8.jpeg">
+<meta property="article:published_time" content="2019-05-17T11:38:45.000Z">
+<meta property="article:modified_time" content="2022-07-30T09:56:32.431Z">
 <meta property="article:author" content="Xiaotian Ye">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/15766abc9797e701f27eed38ae244043.jpeg">
 
 
-<link rel="canonical" href="http://example.com/2018/03/10/Linux%2001%20RedHat%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE/">
+<link rel="canonical" href="http://example.com/2019/05/17/Linux%20%E5%9F%BA%E7%A1%8002/">
 
 
 <script class="page-configurations">
@@ -78,7 +53,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>Linux 01 RedHat的安装与设置 | SunleDog</title>
+<title>Linux 基础02 | SunleDog</title>
   
 
 
@@ -218,7 +193,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux01-RedHat-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Linux01 RedHat 的安装与设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85-RedHat"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟机安装 RedHat</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-%E5%9F%BA%E7%A1%80-02"><span class="nav-number">1.</span> <span class="nav-text">Linux 基础 02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">实用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#man"><span class="nav-number">1.1.1.</span> <span class="nav-text">man</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#help"><span class="nav-number">1.1.2.</span> <span class="nav-text">help</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd"><span class="nav-number">1.1.3.</span> <span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls"><span class="nav-number">1.1.4.</span> <span class="nav-text">ls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cd"><span class="nav-number">1.1.5.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">1.1.6.</span> <span class="nav-text">mkdir</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">常用选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmdir"><span class="nav-number">1.1.7.</span> <span class="nav-text">rmdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">1.1.8.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">1.1.9.</span> <span class="nav-text">cp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9-1"><span class="nav-number">1.1.9.1.</span> <span class="nav-text">常用选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">1.1.10.</span> <span class="nav-text">rm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9-2"><span class="nav-number">1.1.10.1.</span> <span class="nav-text">常用选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">1.1.11.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">1.1.12.</span> <span class="nav-text">cat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9-3"><span class="nav-number">1.1.12.1.</span> <span class="nav-text">常用选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">1.1.13.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less"><span class="nav-number">1.1.14.</span> <span class="nav-text">less</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-%E6%8C%87%E4%BB%A4-%E5%92%8C-gt-gt-%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.15.</span> <span class="nav-text">&gt;指令 和 &gt;&gt;指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#echo"><span class="nav-number">1.1.16.</span> <span class="nav-text">echo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#head"><span class="nav-number">1.1.17.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail"><span class="nav-number">1.1.18.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ln"><span class="nav-number">1.1.19.</span> <span class="nav-text">ln</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">1.1.20.</span> <span class="nav-text">history</span></a></li></ol></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -304,7 +279,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/03/10/Linux%2001%20RedHat%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/05/17/Linux%20%E5%9F%BA%E7%A1%8002/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -317,7 +292,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux 01 RedHat的安装与设置
+          Linux 基础02
         </h1>
 
         <div class="post-meta-container">
@@ -328,7 +303,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2018-03-10 11:00:30" itemprop="dateCreated datePublished" datetime="2018-03-10T11:00:30+08:00">2018-03-10</time>
+      <time title="Created: 2019-05-17 19:38:45" itemprop="dateCreated datePublished" datetime="2019-05-17T19:38:45+08:00">2019-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -350,32 +325,104 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Linux01-RedHat-的安装与设置"><a href="#Linux01-RedHat-的安装与设置" class="headerlink" title="Linux01 RedHat 的安装与设置"></a>Linux01 RedHat 的安装与设置</h1><h2 id="虚拟机安装-RedHat"><a href="#虚拟机安装-RedHat" class="headerlink" title="虚拟机安装 RedHat"></a>虚拟机安装 RedHat</h2><p>以下是截图演示，所有没有截图的均为直接点击下一步</p>
-<span id="more"></span>
+        <h1 id="Linux-基础-02"><a href="#Linux-基础-02" class="headerlink" title="Linux 基础 02"></a>Linux 基础 02</h1><h2 id="实用指令"><a href="#实用指令" class="headerlink" title="实用指令"></a>实用指令</h2><h3 id="man"><a href="#man" class="headerlink" title="man"></a>man</h3><ul>
+<li><code>man [命令或配置文件]</code> （功能描述：获得帮助信息）</li>
+</ul>
+<h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3><ul>
+<li><code>help [命令] </code>（功能描述：获得 shell 内置命令的帮助信息）</li>
+</ul>
+<h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><ul>
+<li><code>pwd</code>（功能描述：显示当前工作目录的绝对路径）</li>
+</ul>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><span id="more"></span>
 
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548313.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>这里的名字密码个人喜好</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548397.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://img-blog.csdn.net/20180310105018463?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>桥接等同于与自己的电脑共用 ip，此处我选择 NAT</p>
-<p><img src="https://img-blog.csdn.net/2018031010503778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548640.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>由于我是新手，安装中文版，所以连接选择使用物理驱动器，便于下面的语言选择</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548736.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://img-blog.csdn.net/20180310105129115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>选择 Skip</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548925.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://img-blog.csdn.net/20180310105159134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>直接跳过安装号码，23333……</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549034.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>这里是 root 账户的密码，建议复杂一些</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549112.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549158.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549269.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
-<p>虚拟机安装 RedHat 演示完毕！</p>
-<p><strong>后记：Ctrl+alt +(F1~F6)为六个命令界面</strong></p>
-<p><strong>Ctrl+alt + F7 可视桌面</strong></p>
+<ul>
+<li><code>ls [选项] [目录或文件]</code></li>
+<li>常用选项：</li>
+<li><code>-a</code>：显示当前目录所有的文件和目录，包括隐藏的</li>
+<li><code>-l</code>：以列表的方式显示信息</li>
+</ul>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><ul>
+<li><code>cd [参数]</code>（功能描述：切换到指定目录）</li>
+<li><code>cd ~</code>：回到自己的家目录</li>
+<li><code>cd..</code>：回到当前目录的上一级目录</li>
+<li>ps：绝对路径与相对路线</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/15766abc9797e701f27eed38ae244043.jpeg" alt="img"></p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><ul>
+<li><code>mkdir [选项] 要创建的目录</code>（功能描述：用于创建目录 make directory）</li>
+</ul>
+<h4 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-p</code>：创建多级目录</li>
+</ul>
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h3><ul>
+<li><code>rmdir [选项] 要删除的空目录</code>（功能描述：删除空目录）</li>
+<li>ps：rmdir 删除的是空目录，如果目录下有内容时无法删除</li>
+<li>ps：如果需要删除非空目录，则需要使用 <code>rm -rf [要删除的目录]</code></li>
+</ul>
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><ul>
+<li><code>touch [文件名称]</code> （功能描述：创建空文件）</li>
+</ul>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><ul>
+<li><code>cp [选项] source desk</code>（功能描述：拷贝文件到指定目录）</li>
+</ul>
+<h4 id="常用选项-1"><a href="#常用选项-1" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-r</code>：递归复制整个文件夹</li>
+<li>ps ：<code>\cp -r xxx/ yyy/</code>：将 xxx 文件夹复制到 yyy 文件夹，如果 yyy 文件夹已有 xxx 文件夹则直接覆盖，并且不提示（因为<code>cp</code>前加了<code>\</code>）</li>
+</ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
+<li><code>rm [选项] 要删除的文件夹或目录</code>（功能描述：移除【删除】文件夹或目录）</li>
+</ul>
+<h4 id="常用选项-2"><a href="#常用选项-2" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-r</code>：递归删除整个文件夹</li>
+<li><code>-f</code>：强制删除并且不提示</li>
+</ul>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><ul>
+<li><code>mv oldNameFile newNameFile</code>（功能描述：重命名）</li>
+<li><code>mv /temp/movefile /targetFolder</code>（功能描述：移动文件夹）</li>
+</ul>
+<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><ul>
+<li><code>cat [选项] 要查看的文件</code>（功能描述：查看文件内容，以只读的方式打开）</li>
+</ul>
+<h4 id="常用选项-3"><a href="#常用选项-3" class="headerlink" title="常用选项"></a>常用选项</h4><ul>
+<li><code>-n</code>：显示行号</li>
+<li>ps：cat 只能浏览文件，而不能修改文件，为了浏览方便，一般会带上管道指令<code>|more</code>：<code>cat 文件名 |more</code></li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><ul>
+<li><code>more 要查看的文件</code> （功能描述：它以全屏幕的方式按页显示文本文件内容）</li>
+<li>ps：快捷键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/2ba96d2e9c12ee8def9347a2bbdcf0e7.jpeg" alt="img"></p>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><ul>
+<li><code>less 要查看的指令</code> （功能描述：用来分屏查看文件内容，与 more 类似，但比 more 的指令更加强大，由于并不是将整个文件加载后才显示，所以对于显示大型文件具有更高的效率）</li>
+<li>ps：快捷键</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/e08cb2a071d78c20d8e9ba2ece2b69c8.jpeg" alt="img"></p>
+<h3 id="gt-指令-和-gt-gt-指令"><a href="#gt-指令-和-gt-gt-指令" class="headerlink" title="&gt;指令 和 &gt;&gt;指令"></a>&gt;指令 和 &gt;&gt;指令</h3><ul>
+<li><code>&gt;</code> （功能描述：输出重定向，将与哪来的文件内容覆盖）</li>
+<li><code>&gt;&gt;</code> （功能描述：不会覆盖原来文件的内容，而是追加到文件的尾部）</li>
+</ul>
+<h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><ul>
+<li><code>echo [选项] [输出内容]</code>（功能描述：输出内容到控制台）</li>
+</ul>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><ul>
+<li><code>head 文件</code> （功能描述：查看文件头 10 行内容）</li>
+<li><code>head -n 5 文件</code> （功能描述：查看文件头 5 行内容）</li>
+</ul>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><ul>
+<li><code>tail 文件</code> （功能描述：查看文件后 10 行内容）</li>
+<li><code>tail -n 5 文件</code> （功能描述：查看文件后 5 行内容）</li>
+<li><code>tail -f 文件</code> （功能描述：实时追踪该文档的所有更新，工作中常用）</li>
+</ul>
+<h3 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h3><ul>
+<li><code>ln -s [原文件或目录] [软链接名]</code> （功能描述：给原文件创建一个软连接（类似于 windows 中的快捷方式））</li>
+<li>ps：想要删除软链接名 <code>rm -fr 软链接名</code> （软链接名后面不能有\）</li>
+</ul>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><ul>
+<li><code>history</code> （功能描述：查看已经执行过的历史指令）</li>
+<li><code>history 10</code> （功能描述：查看最近使用的 10 个指令）</li>
+<li><code>![history中历史指令的编号]</code> （功能描述：再次执行该编号指令）</li>
+</ul>
 
     </div>
 
@@ -392,10 +439,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2019/05/16/Linux%20%E5%9F%BA%E7%A1%8001/" rel="prev" title="Linux 基础01">
+                  <i class="fa fa-chevron-left"></i> Linux 基础01
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/05/16/Linux%20%E5%9F%BA%E7%A1%8001/" rel="next" title="Linux 基础01">
-                  Linux 基础01 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/12/14/Github-Hexo-NexT%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Windows%EF%BC%89/" rel="next" title="Github+Hexo+NexT搭建个人博客（Windows）">
+                  Github+Hexo+NexT搭建个人博客（Windows） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
