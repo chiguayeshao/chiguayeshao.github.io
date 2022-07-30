@@ -2866,4 +2866,230 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>MySQL 基础01</title>
+    <url>/2019/05/28/MySQL%20%E5%9F%BA%E7%A1%8001/</url>
+    <content><![CDATA[<h1 id="MySQL-基础01"><a href="#MySQL-基础01" class="headerlink" title="MySQL 基础01"></a>MySQL 基础01</h1><p>学习自尚硅谷MySQL核心技术，练习所用的数据均来自尚硅谷MySQL核心技术：<a href="http://www.atguigu.com/download_detail.shtml?v=3">http://www.atguigu.com/download_detail.shtml?v=3</a></p>
+<h2 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h2><h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><p><code>select 查询列表 from 表名;</code></p>
+<ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>查询列表可以是：表中的字段，常量，表达式，函数</li>
+<li>查询的结果是一个虚拟的表格</li>
+</ol>
+<h3 id="查询表中的单个字段"><a href="#查询表中的单个字段" class="headerlink" title="查询表中的单个字段"></a>查询表中的单个字段</h3><p><code>SELECT last_name From employees;</code></p>
+<h3 id="查询表中的多个字段"><a href="#查询表中的多个字段" class="headerlink" title="查询表中的多个字段"></a>查询表中的多个字段</h3><span id="more"></span>
+
+<p><code>SELECT last_name,salary,email FROM employees;</code></p>
+<h3 id="查询表中的所有字段"><a href="#查询表中的所有字段" class="headerlink" title="查询表中的所有字段"></a>查询表中的所有字段</h3><p><code>SELECT * FROM employees;</code></p>
+<h3 id="查询常量值"><a href="#查询常量值" class="headerlink" title="查询常量值"></a>查询常量值</h3><p><code>SELECT 100;</code><br><code>SELECT &#39;jhon&#39;;</code></p>
+<h3 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h3><p><code>SELECT 100*98;</code></p>
+<h3 id="查询函数"><a href="#查询函数" class="headerlink" title="查询函数"></a>查询函数</h3><p><code>SELECT VERSION();</code></p>
+<h2 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h2><ol>
+<li>便于理解</li>
+<li>如果要查询的字段有重名的情况，使用别名可以区分开</li>
+</ol>
+<h3 id="方式一：使用AS"><a href="#方式一：使用AS" class="headerlink" title="方式一：使用AS"></a>方式一：使用AS</h3><p><code>SELECT 100%98 AS 结果;</code><br><code>SELECT last_name AS 姓,first_name AS 名 FROM employees;</code></p>
+<h3 id="方式二：使用空格"><a href="#方式二：使用空格" class="headerlink" title="方式二：使用空格"></a>方式二：使用空格</h3><p><code>SELECT last_name 姓,first_name 名 FROM employees;</code></p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ul>
+<li>查询salary,显式结果为out put<br><code>SELECT salary AS &quot;out put&quot; FROM employees;</code></li>
+</ul>
+<h3 id="DISTINCT去重"><a href="#DISTINCT去重" class="headerlink" title="DISTINCT去重"></a>DISTINCT去重</h3><h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><ul>
+<li>查询员工表中所有的部门编号<br><code>SELECT DISTINCT department_id FROM employees;</code></li>
+</ul>
+<h3 id="号的作用"><a href="#号的作用" class="headerlink" title="+号的作用"></a>+号的作用</h3><ul>
+<li>仅仅只有一个功能：运算符</li>
+</ul>
+<ol>
+<li><p>两个操作数都为数值型，则做加法运算：<code>select 100+50; </code></p>
+</li>
+<li><p>其中一方为字符型，试图将字符型数值转换成数值型，<br>如果转换成功则继续做加法运算<code>select &#39;123&#39;+90;</code><br>如果转换失败，则将字符型数组转换成0<code>elect &#39;jhon&#39;+90;    </code></p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="number">3.</span> 只要其中一方结果为<span class="literal">null</span>，则结果肯定为`<span class="literal">null</span>select <span class="literal">null</span>+<span class="number">10</span>;`</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h4><ul>
+<li><p>查询员工名和姓连接成一个字段，并显示为姓名</p>
+<p><code>SELECT CONCAT(&#39;a&#39;,&#39;b&#39;,&#39;c&#39;) AS 结果；</code></p>
+<p><code>SELECT CONCAT(last_name,first_name) AS 姓名 FROM employees;</code></p>
+</li>
+</ul>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><h3 id="语法：-1"><a href="#语法：-1" class="headerlink" title="语法："></a>语法：</h3><p><code>elsect 查询列表 from 表名 where 筛选条件;</code></p>
+<h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ol>
+<li>按条件表达式筛选<br>条件运算符：&gt; &lt; = &gt;= &lt;= &lt;&gt; !=</li>
+<li>按逻辑表达式筛选<br>逻辑运算符：<pre><code>作用：用于连接条件表达式
+&amp;&amp; || ！
+and or not</code></pre>
+</li>
+<li>模糊查询：<br>like<pre><code>between and
+in
+is null</code></pre>
+</li>
+</ol>
+<h3 id="按条件表达式筛选"><a href="#按条件表达式筛选" class="headerlink" title="按条件表达式筛选"></a>按条件表达式筛选</h3><h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询工资&gt;12000的员工信息</p>
+<p><code>SELECT * FROM employees WHERE salary&gt;12000;</code></p>
+</li>
+</ul>
+<h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询部门编号不等于90号的员工名和部门编号</p>
+<p><code>SELECT last_name,department_id </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE department_id&lt;&gt;90;</code></p>
+</li>
+</ul>
+<h3 id="按逻辑表达式筛选"><a href="#按逻辑表达式筛选" class="headerlink" title="按逻辑表达式筛选"></a>按逻辑表达式筛选</h3><h4 id="案例一-1"><a href="#案例一-1" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询工资在10000-20000之间的员工名，工资以及奖金</p>
+<p><code>SELECT last_name,salary,commission_pct </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE salary&gt;10000 AND salary&lt;20000;</code></p>
+</li>
+</ul>
+<h4 id="案例二-1"><a href="#案例二-1" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询部门编号不是在90-110之间的，或者工资高于15000的员工信息</p>
+<p><code>SELECT * </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE department_id&lt;90 OR department_id&gt;110 </code></p>
+<p><code>OR salary&gt;15000;</code></p>
+</li>
+</ul>
+<h2 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h2><p>like<br>between and<br>in<br>is null|is not null</p>
+<h3 id="like"><a href="#like" class="headerlink" title="like"></a>like</h3><ul>
+<li>特点：一般和通配符搭配使用</li>
+<li>通配符%：任意多个字符</li>
+<li>通配符_：任意单个字符</li>
+</ul>
+<h4 id="案例一-2"><a href="#案例一-2" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询员工名中包含字符a的员工信息</p>
+<p><code>SELECT * FROM employees WHERE last_name LIKE &#39;%a%&#39;;</code></p>
+</li>
+</ul>
+<h4 id="案例二-2"><a href="#案例二-2" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询员工名中第三个字符为e，第五个字符为a的员工名和工资</p>
+<p><code>SELECT last_name,salary </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE last_name LIKE &#39;__e_a%&#39;;</code></p>
+</li>
+</ul>
+<h4 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h4><ul>
+<li><p>查询员工名中第二个字符为下划线的员工名</p>
+<p><code>SELECT last_name </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE last_name LIKE &#39;_\_%&#39;;</code></p>
+<p>或者</p>
+<p><code>SELECT last_name </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE last_name LIKE &#39;_$_%&#39;</code></p>
+<p><code>ESCAPE &#39;$&#39;;</code></p>
+</li>
+</ul>
+<h3 id="in"><a href="#in" class="headerlink" title="in"></a>in</h3><ul>
+<li>含义：判断某字段的值是否属于in列表中的一项</li>
+<li>特点: <ol>
+<li>使用in比使用or提高语句整洁度</li>
+<li>in列表的值类型必须统一或兼容</li>
+</ol>
+</li>
+</ul>
+<h4 id="案例-3"><a href="#案例-3" class="headerlink" title="案例"></a>案例</h4><ul>
+<li><p>查询员工的工种编号是IT_PROG,AD_VP,AD_PRES中的一个员工名的工种编号</p>
+<p>使用or:</p>
+<p><code>SELECT last_name,job_id </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE job_id=&#39;IT_PROG&#39; </code></p>
+<p><code>OR job_id=&#39;AD_VP&#39; </code></p>
+<p><code>OR job_id=&#39;AD_PRES&#39;;</code></p>
+<p>使用in:</p>
+<p><code>SELECT last_name,job_id </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE job_id </code></p>
+<p><code>IN (&#39;IT_PROG&#39; ,&#39;AD_VP&#39; ,&#39;AD_PRES&#39;);</code></p>
+</li>
+</ul>
+<h3 id="is-null"><a href="#is-null" class="headerlink" title="is null"></a>is null</h3><ul>
+<li>=或&lt;&gt;不能用于判断null值</li>
+<li>is null或is not null 可以判断null值</li>
+</ul>
+<h4 id="案例一-3"><a href="#案例一-3" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询没有奖金的员工名和奖金率</p>
+<p><code>SELECT last_name,commission_pct </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE commission_pct IS NULL;</code></p>
+</li>
+</ul>
+<h4 id="案例二-3"><a href="#案例二-3" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询有奖金的员工名和奖金率</p>
+<p><code>SELECT last_name,commission_pct </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE commission_pct IS NOT NULL;</code></p>
+</li>
+</ul>
+<h3 id="安全等于-lt-gt"><a href="#安全等于-lt-gt" class="headerlink" title="安全等于: &lt;=&gt;"></a>安全等于: &lt;=&gt;</h3><h4 id="案例一-4"><a href="#案例一-4" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询没有奖金的员工名和奖金率</p>
+<p><code>SELECT last_name,commission_pct </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE commission_pct &lt;=&gt; NULL;</code></p>
+</li>
+</ul>
+<h4 id="案例二-4"><a href="#案例二-4" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询工资为12000的员工信息</p>
+<p><code>SELECT last_name,salary </code></p>
+<p><code>FROM employees </code></p>
+<p><code>WHERE salary &lt;=&gt; 12000;</code></p>
+</li>
+</ul>
+<h2 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h2><h3 id="语法：-2"><a href="#语法：-2" class="headerlink" title="语法："></a>语法：</h3><p><code>selsect 查询列表 </code></p>
+<p><code>from 【表 where 筛选条件】 </code></p>
+<p><code>order by 排序列表 【asc|desc】</code></p>
+<ul>
+<li>特点：<ul>
+<li>asc升序，desc降序<br>如果不写默认升序</li>
+<li>order by 子句中可以支持单个字段，多个字段，表达式，函数，别名</li>
+<li>order by 子句一般是放在查询语句的最后面，但limit子句除外</li>
+</ul>
+</li>
+</ul>
+<h4 id="案例一-5"><a href="#案例一-5" class="headerlink" title="案例一"></a>案例一</h4><ul>
+<li><p>查询员工信息，要求工资从高到低排序</p>
+<p><code>SELECT * FROM employees ORDER BY salary DESC;</code></p>
+</li>
+</ul>
+<h4 id="案例二-5"><a href="#案例二-5" class="headerlink" title="案例二"></a>案例二</h4><ul>
+<li><p>查询部门编号&gt;=90的员工信息，按入职时间先后进行排序</p>
+<p><code>SELECT * FROM employees </code></p>
+<p><code>WHERE department_id&gt;=90 </code></p>
+<p><code>ORDER BY hiredate ASC;</code></p>
+</li>
+</ul>
+<h4 id="案例三-1"><a href="#案例三-1" class="headerlink" title="案例三"></a>案例三</h4><ul>
+<li><p>按年薪的高低显示员工的信息和年薪【按表达式排序】</p>
+<p><code>SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪 FROM employees  ORDER BY salary*12*(1+IFNULL(commission_pct,0)) DESC;</code></p>
+</li>
+</ul>
+<h4 id="案例四"><a href="#案例四" class="headerlink" title="案例四"></a>案例四</h4><ul>
+<li><p>按年薪的高低显示员工的信息和年薪【按别名排序】</p>
+<p><code>SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪 FROM employees  ORDER BY 年薪 DESC;</code></p>
+</li>
+</ul>
+<h4 id="案例五"><a href="#案例五" class="headerlink" title="案例五"></a>案例五</h4><ul>
+<li><p>按姓名的长度显示员工的姓名和工资【按函数排序】</p>
+<p><code>SELECT LENGTH(last_name) 字节长度,last_name,salary FROM employees ORDER BY LENGTH(last_name) DESC;</code></p>
+</li>
+</ul>
+<h4 id="案例六"><a href="#案例六" class="headerlink" title="案例六"></a>案例六</h4><ul>
+<li><p>查询员工信息，要求先按工资升序排序，再按员工编号降序排序【按多个字段排序】</p>
+<p><code>SELECT * FROM employees  ORDER BY salary ASC,employee_id DESC;</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
 </search>
