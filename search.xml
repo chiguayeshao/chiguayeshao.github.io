@@ -2399,4 +2399,471 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux 03 文件系统和磁盘管理</title>
+    <url>/2018/03/15/Linux%2003%20%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="Linux-03-文件系统和磁盘管理"><a href="#Linux-03-文件系统和磁盘管理" class="headerlink" title="Linux 03 文件系统和磁盘管理"></a>Linux 03 文件系统和磁盘管理</h1><p>文件系统和磁盘管理</p>
+<p>权限问题</p>
+<p>执行 ls –l 命令后所显示的结果.最前面的第 2~10 个字符用来标示权限;第 1 个字符用于区别文件和目录. 如图</p>
+<span id="more"></span>
+
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181720138.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rwx–rwx–rwx (r:读 w:写 x:执行)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181720230.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>第一个 rwx 表示文件或目录的拥有者所拥有的权限，代号为 u(User)</p>
+<p>第二个 rwx 表示同组的用户对该文件和目录的权限，代号为 g(group)</p>
+<p>第三个 rwx 表示其他用户对该文件和目录的权限，代号为 o(other)</p>
+<p>磁盘管理</p>
+<p>首先我们先给虚拟机添加一块磁盘（我添加了 10G），如图，无脑下一步就行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181720432.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>fdisk 是一个功能强大的磁盘管理工具</p>
+<p>fdisk -l :查看磁盘设备</p>
+<p><img src="https://img-blog.csdn.net/20180418210314502?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>sda1 与 sda2 是当前已经分区的磁盘，刚刚加上的磁盘由于没有分区所以并不会在这里显示</p>
+<p>df:显示磁盘分区上可使用的磁盘空间，sdb 没有挂载所以不会显示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181720681.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>fdisk /dev/sdb :调用分区工具对硬盘分区</p>
+<p><img src="https://img-blog.csdn.net/20180418210340122?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>m 显示命令帮助</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181720947.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181721058.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>输入 n 新建分区(e 是扩展分区，p 是主分区)</p>
+<p><img src="https://img-blog.csdn.net/20180418210421679?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>分配盘符(1~4)，分配空间，按提示操作</p>
+<p><img src="https://img-blog.csdn.net/20180418210444800?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>我建了三个主分区一个扩展分区</p>
+<p><img src="https://img-blog.csdn.net/20180418210453843?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>最后输入 w 保存，然后重启虚拟机使其生效</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181721477.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>重启后 fdisk-l，显示出了 sdb</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181721655.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然而 df 依旧没有显示，是由于磁盘没有挂载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181721858.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>挂载首先要建立文件系统，使用 mkfs 命令建立文件系统（建立文件系统的过程类似于格式化）</p>
+<p>格式：mkfs [磁盘格式]&lt;设备名&gt;，linux 中磁盘格式为 ext3</p>
+<p>mkfs -t ext3 /dev/sdb1 如图成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181722031.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>mkdir /test :新建一个 test 文件夹（为挂载 sdb1 做准备）</p>
+<p>mount /dev/sdb1 /test :挂载 sdb1 到/test</p>
+<p><img src="https://img-blog.csdn.net/20180418210649790?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>现在如此重启后就不会显示挂载了，我们必须修改配置文件。</p>
+<p>vi /etc/fstab</p>
+<p><img src="https://img-blog.csdn.net/20180527222905323?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后重新挂载</p>
+<p>mount -o remount /test</p>
+<p>然后重启就会显示了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181722557.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181722734.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>磁盘配额</p>
+<p>软限制：超过配额后警告，但仍可以使用</p>
+<p>硬限制：不可以超过配额</p>
+<p>宽限期：用户超过软限制后文件仍可以使用的期限，一般为 7 天</p>
+<p>创建四个用户做实验，分别为 test1，test2，test3，test4</p>
+<p>创建一个用户组 group1，将 test1，test2，test3 加入组中</p>
+<p>quotacheck -cmug /test :生成用户与组的配额文件</p>
+<p>quotaon /test :开启配额功能</p>
+<p>edquota -g group1 :编辑组的配额</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181722811.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>第一个 soft 和 hard 是限制文件大小（大小为 k）</p>
+<p>第二个 soft 和 hard 是限制文件数量</p>
+<p>edquota -u test4 :编辑用户的配额</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181722911.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后我们测试</p>
+<p>dd if=/dev/zero of=/data/newfilebs=16k count=1</p>
+<p>16k&gt;15k（软限制），所以会 warning 警报</p>
+<p><img src="https://img-blog.csdn.net/20180509234347842?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>dd if=/dev/zero of=/data/newfilebs=40k count=1</p>
+<p>40k&gt;20k（硬限制），所以会 writefailed 写入失败</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181723198.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 04 网络配置与FTP</title>
+    <url>/2018/03/19/Linux%2004%20%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E4%B8%8EFTP/</url>
+    <content><![CDATA[<h1 id="Linux-04-网络配置与-FTP"><a href="#Linux-04-网络配置与-FTP" class="headerlink" title="Linux 04 网络配置与 FTP"></a>Linux 04 网络配置与 FTP</h1><p>网络配置</p>
+<p>/etc/sysconfig/network</p>
+<p>主要用于设置基本网络配置，包括主机名称、网关等</p>
+<span id="more"></span>
+
+<p>/etc/sysconfig/nework-scripts/ifcfg-ethN</p>
+<p>该配置文件是网卡配置文件，保存了网卡设备名、IP 地址、子网掩码、网关等配置信息。</p>
+<p>可视化界面查看网卡步骤如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181940619.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>显示 eth0 一块网卡</p>
+<p><img src="https://img-blog.csdn.net/20180509233427984?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>现在是 DHCP 自动分配 ip</p>
+<p><img src="https://img-blog.csdn.net/20180509233439927?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>我们要再添加一块网卡，可视化步骤如下：</p>
+<p>新建然后一直点前进</p>
+<p><img src="https://img-blog.csdn.net/20180509233526244?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180509233546595?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>这里我们可以尝试手动配置 ip 地址等</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181940843.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180509233611701?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>点击激活即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181940895.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service network restart :重置网络服务</p>
+<p><img src="https://img-blog.csdn.net/20180509233637128?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>这样可视化添加网卡就完成了</p>
+<p>命令行添加网卡</p>
+<p>cd /etc/sysconfig/network-scripts/ :进入配置文件</p>
+<p><img src="https://img-blog.csdn.net/20180509233710804?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>找到 ifcfg-eth0 文件后</p>
+<p>cp ifcfg-eth0 ifcfg-eth0:1 : 复制一份文件出来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181940997.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>vi ifcfg-eth0:1 :修改 eth0:1 配置</p>
+<p>顺便给它配个 ip</p>
+<p><img src="https://img-blog.csdn.net/20180509233734433?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>ifup eth0:1 :激活网卡 eth0:1</p>
+<p>service network restart :重置服务</p>
+<p><img src="https://img-blog.csdn.net/20180509233753696?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>ifconfig :显示状态</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941077.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>显示出 eth0:1 配置完成</p>
+<p><strong>FTP 服务器配置</strong></p>
+<p>简单的来说 ftp 就是传文件的，具体可以百度</p>
+<p>百度百科：</p>
+<p><a href="https://baike.baidu.com/item/FTP%E6%9C%8D%E5%8A%A1%E5%99%A8">FTP 服务器_百度百科</a></p>
+<p>wikipedia：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE</a></p>
+<p>在 Linux 中比较普遍运用的是 vsftpd</p>
+<p>rpm -q vsftpd :首先我们测试是否安装了 vsftpd</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941092.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>mount /dev/sr1 /mnt/ftp</p>
+<p>首先将光盘挂载到 /mnt/ftp（ftp 是我做自己建的文件夹）</p>
+<p><img src="https://img-blog.csdn.net/20180514221322433?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>cd /mnt/ftp :进入 ftp 文件夹</p>
+<p>ls :列出内部文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941152.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>cd Server : 进入 Server 文件夹</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941184.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>find vsf* : 寻找 vsf 前缀的文件</p>
+<p><img src="https://img-blog.csdn.net/20180514221445841?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh vsftpd-2.0.5-24.el5.i386.rpm ：安装相应的软件包（可以先写 vsft 然后按 tab 键自动补全）</p>
+<p><img src="https://img-blog.csdn.net/20180514221455389?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service vsftpd start : 启动 ftp 服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941255.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service iptables stop :关闭防火墙</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941272.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>测试实体机与虚拟机之间能否 ping 通</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941338.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941414.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>此时已经可以访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941431.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941449.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><strong>配置 FTP</strong></p>
+<p>/etc/vsftpd/vsftpd.conf :vsftpd 的主配置文件，配置 ftp 的主要工作要通过修改此文件来完成</p>
+<p>配置监听地址与控制端口</p>
+<p>vi /etc/vsftpd/vsftpd.conf :编辑配置文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941492.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>有时候不用 FTP 默认的 21 端口，这个时候就要修改//配置文件，我们想要设置 2121 端口就要在 listen=YES 下添加一行：</p>
+<p>listen_port=2121</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941524.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后重新启动</p>
+<p>配置匿名用户</p>
+<p>默认匿名用户是开启的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941542.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>匿名登录用户和密码都可以是 ftp</p>
+<p><img src="https://img-blog.csdn.net/20180521225515439?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>接下来配置匿名用户的根目录</p>
+<p>现在/var 下建一个 ftp666 并在 ftp666 下建个文件作为验证作为匿名用户的根目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941603.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后编辑配置文件</p>
+<p>anon_root=/var/ftp/ftp666 :添加路径</p>
+<p>anon_upload_enable=YES :允许匿名用户上传文件</p>
+<p><img src="https://img-blog.csdn.net/20180521225604700?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>重启 vsftpd，然后匿名登录</p>
+<p><img src="https://img-blog.csdn.net/20180521225617896?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>登录可见验证文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941690.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>配置本地用户</p>
+<p>关闭匿名登录</p>
+<p><img src="https://img-blog.csdn.net/20180522223544505?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>本地用户默认开启，指定本地用户目录</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941722.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>限制用户目录只能在本人目录内，在配置文件中修改</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941737.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>编辑 chroot_list 文件，在其中添加限制用户</p>
+<p><img src="https://img-blog.csdn.net/20180522223602458?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后重启服务，用限制用户登录验证</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730181941773.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 05 DHCP与DNS</title>
+    <url>/2018/03/22/Linux%2005%20DHCP%E4%B8%8EDNS/</url>
+    <content><![CDATA[<h1 id="Linux-05-DHCP-与-DNS"><a href="#Linux-05-DHCP-与-DNS" class="headerlink" title="Linux 05 DHCP 与 DNS"></a>Linux 05 DHCP 与 DNS</h1><p><strong>DHCP 服务器配置</strong></p>
+<p>简单的来说 DHCP 就是自动分配 ip 地址的</p>
+<p>百度百科 ：</p>
+<p><a href="https://baike.baidu.com/item/DHCP">DHCP_百度百科</a></p>
+<p>wikipedia：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE">https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE</a></p>
+<p>安装 DHCP</p>
+<p>先在/mnt 下建一个 dhcp</p>
+<span id="more"></span>
+
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182204494.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后将光盘挂载到/mount/dhcp</p>
+<p><img src="https://img-blog.csdn.net/20180522224003771?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>cd 进入 dhcp 下的 Server</p>
+<p><img src="https://img-blog.csdn.net/20180522224012674?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>找到 DHCP 的程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182204710.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>安装 DHCP 程序</p>
+<p><img src="https://img-blog.csdn.net/20180522224103607?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182204876.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>当 DHCP 主程序包安装好后会自动生成主配置文件的范本文件/usr/share/doc/dhcp-3.0.5/dhcpd. conf.sample，而在/etc 目录下会建立一个空白的 dhcpd.conf 主配置文件。现在我们将范本配置文件复制到/etc 目录下替换掉空白的 dhcpd.conf 主配置文件。</p>
+<p>cp /usr/share/doc/dhcp-3.0.5/dhcpd.conf.sample /etc/dhcpd.conf</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182204925.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>接下来修改配置文件</p>
+<p>vi /etc/dhcpd.conf</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182204997.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service dhcpd start :启动 dhcp 服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182205052.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><strong>DNS 没有写完，可以先不看</strong></p>
+<p><strong>DNS 服务器配置</strong></p>
+<p>简单的来说 DNS 是解析域名的</p>
+<p>百度百科 ：</p>
+<p><a href="https://baike.baidu.com/item/DNS/427444">https://baike.baidu.com/item/DNS/427444</a></p>
+<p>wikipedia：</p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F</a></p>
+<p>首先检查是否安装 DNS 服务</p>
+<p>rpm -qa | grep bind</p>
+<p><img src="https://img-blog.csdn.net/20180524174824698?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在/mnt 下建一个 dns 文件夹，将光盘挂载到/mnt/dns</p>
+<p>mount /dev/sr1 /mnt/dns :挂载</p>
+<p>然后进入 dns 下的 Server</p>
+<p><img src="https://img-blog.csdn.net/20180524174859694?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>find bind* :寻找与 bind 的相关的安装包</p>
+<p><img src="https://img-blog.csdn.net/20180524174851477?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh bind-9.3.6-20.P1.el5.i386.rpm :安装主程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182205668.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh bind-utils-9.3.6-20.P1.el5.i386.rpm :DNS 测试工具，包括 dig，host 与 nslookup 等</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182205771.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh bind-chroot-9.3.6-20.P1.el5.i386.rpm :使 BIND 运行在指定的目录中的安全增强工具</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182205859.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh caching-nameserver-9.3.6-20.P1.el5.i386.rpm :高速缓存 DNS 服务器的基本配置文件，建议一定安装</p>
+<p><img src="https://img-blog.csdn.net/20180524174952669?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>DNS 的配置文件在 /var/named/chroot/etc 目录下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182206074.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>为了方便配置，我们将 named.caching-nameserver.conf cp 为 named.config</p>
+<p>cp -p named.caching-nameserver.conf named.config （一定要加参数<strong>p</strong>，保留该文件的权限）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182206151.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180524175032934?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 06 Apache服务器配置</title>
+    <url>/2018/04/02/Linux%2006%20Apache%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Linux-06-Apache-服务器配置"><a href="#Linux-06-Apache-服务器配置" class="headerlink" title="Linux 06 Apache 服务器配置"></a>Linux 06 Apache 服务器配置</h1><p>Apache 服务器配置</p>
+<p>Apache 是世界使用排名第一的 Web<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>软件。</p>
+<p>百度百科 ：</p>
+<p><a href="https://baike.baidu.com/item/Apache/6265">https://baike.baidu.com/item/Apache/6265</a></p>
+<p>wikipedia：</p>
+<p><a href="https://zh.wikipedia.org/wiki/Apache_HTTP_Server">https://zh.wikipedia.org/wiki/Apache_HTTP_Server</a></p>
+<p>安装 Apache 服务</p>
+<p>与之前类似，先将光盘挂载</p>
+<span id="more"></span>
+
+<p><img src="https://img-blog.csdn.net/20180524214435844?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>进入 Server 寻找安装包</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437461.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh httpd-2.2.3-63.el5.i386.rpm :安装主程序包</p>
+<p>（这里可能会出现安装失败，要求安装依赖关系，按照提示安装好依赖关系后，<strong>再次</strong>安装主程序即可）</p>
+<p>我之前安装过，所以不会出现这个问题</p>
+<p><img src="https://img-blog.csdn.net/20180524214452851?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service httpd start :启动服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437612.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>下一步我们要验证是否成功，在浏览器中输入虚拟机的 ip 地址，出现 Apache 欢迎页则成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437684.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>接下来安装 webmin</p>
+<p>我们将 webmin 直接拉入到虚拟机</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437726.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437821.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>webmin 在/root/Desktop 下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437901.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh /root/Desktop/webmin-1.350-1.noarch.rpm :安装</p>
+<p><img src="https://img-blog.csdn.net/20180524214604907?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>重启 httpd 服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182437998.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在浏览器中输入 ip：10000，出现如下界面</p>
+<p><img src="https://img-blog.csdn.net/20180524214618909?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>root 用户登录，修改一下语言</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438105.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>开始主服务器配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438170.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>大概意思如下图</p>
+<p><img src="https://img-blog.csdn.net/2018052421464185?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180524214647132?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438413.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>超时时间设置为 300 秒</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438589.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>设置客户连接数最大为 500</p>
+<p><img src="https://img-blog.csdn.net/20180524214711555?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>这里是管理员的邮件地址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438681.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>没有域名可以改为 ip 地址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438713.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>更改首页名称，也可以设置多个文件，他们用空格分开</p>
+<p><img src="https://img-blog.csdn.net/20180524214739676?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>设置服务器默认编码为 GB2312</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438866.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>新建用户 ht ，在/home/ht 下建立 public_html，给与文件权限</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438952.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在 public_html 下编写主页文件，内容随意</p>
+<p>vi index.html</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182438985.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180524214810870?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>setenforce 0 :临时关闭 selinux</p>
+<p><img src="https://img-blog.csdn.net/20180524214817586?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service httpd restart :重启服务</p>
+<p><img src="https://img-blog.csdn.net/2018052421482431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在网页上输入 192.168.154.128/~ht/验证</p>
+<p><img src="https://img-blog.csdn.net/20180524214830936?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>访问限制</p>
+<p>默认情况下允许所以客户端访问，在此我们可以修改</p>
+<p><img src="https://img-blog.csdn.net/20180524223349170?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>Order allow,deny</p>
+<p>Deny from192.168.100.100 拒绝 ip 的访问</p>
+<p>Deny from .bad.com 拒绝来自.bad.com 域的访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182439201.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>在此基础上可以个人发挥。</p>
+<p>仅允许 192.168.0.0/24 网段，但其中 192.168.0.100 不能访问</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182439228.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>除了<a href="http://www.test.com/">www.test.com</a>不能访问，别的都能访问</p>
+<p><img src="https://img-blog.csdn.net/20180524223412229?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>只允许 10.0.0.0 网段的主机访问服务器</p>
+<p><img src="https://img-blog.csdn.net/20180524223419176?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>虚拟主机的配置</p>
+<p>在/var/www/下建立 ip1，在 ip1 下建立 index.html 文件</p>
+<p><img src="https://img-blog.csdn.net/20180524223431116?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>修改配置文件，复制上面的然后修改 ip<strong>等</strong></p>
+<p><img src="https://img-blog.csdn.net/20180524223440365?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>重启服务，输入网址验证</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182439484.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>基于端口号的虚拟主机</p>
+<p>创建/var/www/port8080</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182439503.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>创建 index.html 文件内容为 8080</p>
+<p><img src="https://img-blog.csdn.net/20180526145919546?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>接下来修改配置文件</p>
+<p>listen 添加 8080 端口</p>
+<p><img src="https://img-blog.csdn.net/20180526145928358?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>添加配置文件</p>
+<p><img src="https://img-blog.csdn.net/20180526145940538?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>保存，重启服务，输入验证</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182439684.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 07 Samba与iptables配置</title>
+    <url>/2018/04/07/Linux%2007%20Samba%E4%B8%8Eiptables%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Linux-07-Samba-与-iptables-配置"><a href="#Linux-07-Samba-与-iptables-配置" class="headerlink" title="Linux 07 Samba 与 iptables 配置"></a>Linux 07 Samba 与 iptables 配置</h1><p><strong>samba 服务器</strong></p>
+<p>作用是实现 Lniux 与 windows 之间的资源共享</p>
+<p>百度百科 ：</p>
+<p><a href="https://baike.baidu.com/item/Samba">samba（软件）_百度百科</a></p>
+<p>wikipedia：</p>
+<p><a href="https://zh.wikipedia.org/zh/Samba">https://zh.wikipedia.org/zh/Samba</a></p>
+<p>samba 服务器的安装</p>
+<span id="more"></span>
+
+<p>rpm -qa|grep samba :检查是否安装</p>
+<p>老套路，挂载光盘，寻找服务以及安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648674.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh samba-3.0.33-3.37.el5.i386.rpm :安装主程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648708.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>提示必须先安装依赖关系，按照提示寻找</p>
+<p>find perl*</p>
+<p><img src="https://img-blog.csdn.net/20180527171303239?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>rpm -ivh perl-Convert-ASN1-0.20-1.1.noarch.rpm :安装依赖关系</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648818.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后安装主程序成功</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648894.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>service smb start :启动服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648925.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>Samba 服务的配置文件主要包括 ：</p>
+<p>主配置文件 /etc/samba/smb.conf</p>
+<p>密码文件 /etc/samba/smbpasswd</p>
+<p>用户映射文件 /etc/samba/smbusers</p>
+<p>日志文件存放 /var/log/samba/</p>
+<p>Samba 服务器有 share、user、server、domain 和 ads 5 种安全模式，用来适应不同的企业服务器的需求。</p>
+<p>我自己建立了一个/share ，在/share 下有个 vi 了一个 123 做验证 <strong>（这个只是一个名字，你们随便建）</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648952.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>然后修改 smb 的配置文件，在/etc/samba 下的 smb.conf</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182648991.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>组名改为 WORKGROUP</p>
+<p><img src="https://img-blog.csdn.net/20180527171353349?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>WORKGROUP 就是自己电脑的工作组</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649134.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>安全模式改为 share</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649162.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>接下来就要添加共享文件的信息</p>
+<p>comment 是备注</p>
+<p>path 是路径</p>
+<p>public 允许匿名访问</p>
+<p>writable 是允许写入</p>
+<p>具体格式按照配置文件写</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649194.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>保存退出，关闭防火墙与 selinux,，重启服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649235.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>输入\+ip 地址验证</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649268.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>设置用户</p>
+<p>用 vi 建 smbpasswd 文件作为 samba 用户的密码文件</p>
+<p><img src="https://img-blog.csdn.net/20180527180446841?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>新建一个用户名为 reading</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649380.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>将 reading 添加为 samba 账户</p>
+<p><img src="https://img-blog.csdn.net/20180527180459971?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>编辑配置文件，安全模式改为 user，第二行注释掉，添加 smb passwd file =/etc/samba/smbpasswd 密码文件路径</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649446.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>valid users ：添加用户，不同用户用逗号隔开，添加组用@</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649477.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>保存重启验证</p>
+<p>登录 reading</p>
+<p><img src="https://img-blog.csdn.net/20180527180520418?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>设置虚拟用户</p>
+<p>在配置文件中添加</p>
+<p>username map =/etc/samba/smbusers</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649537.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>编辑 smbusers 文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649572.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>yy 就是 reading 用户的映射</p>
+<p>保存重启用 yy 验证</p>
+<p><img src="https://img-blog.csdn.net/20180527180611447?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTQzNjgy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730182649681.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>Linux 访问 windows 共享文件</p>
+<p>命令格式：smbclient //ip/共享文件名</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
