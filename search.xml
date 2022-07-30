@@ -2069,4 +2069,41 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux 01 RedHat的安装与设置</title>
+    <url>/2018/03/10/Linux%2001%20RedHat%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Linux01-RedHat-的安装与设置"><a href="#Linux01-RedHat-的安装与设置" class="headerlink" title="Linux01 RedHat 的安装与设置"></a>Linux01 RedHat 的安装与设置</h1><h2 id="虚拟机安装-RedHat"><a href="#虚拟机安装-RedHat" class="headerlink" title="虚拟机安装 RedHat"></a>虚拟机安装 RedHat</h2><p>以下是截图演示，所有没有截图的均为直接点击下一步</p>
+<span id="more"></span>
+
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548313.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>这里的名字密码个人喜好</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548397.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180310105018463?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>桥接等同于与自己的电脑共用 ip，此处我选择 NAT</p>
+<p><img src="https://img-blog.csdn.net/2018031010503778?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548640.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>由于我是新手，安装中文版，所以连接选择使用物理驱动器，便于下面的语言选择</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548736.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180310105129115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>选择 Skip</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174548925.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://img-blog.csdn.net/20180310105159134?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzk5NDM2ODI=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>直接跳过安装号码，23333……</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549034.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>这里是 root 账户的密码，建议复杂一些</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549112.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549158.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/70-20220730174549269.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动">编辑</p>
+<p>虚拟机安装 RedHat 演示完毕！</p>
+<p><strong>后记：Ctrl+alt +(F1~F6)为六个命令界面</strong></p>
+<p><strong>Ctrl+alt + F7 可视桌面</strong></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
