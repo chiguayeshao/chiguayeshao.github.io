@@ -2106,4 +2106,117 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
         <tag>Linux</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux 基础01</title>
+    <url>/2019/05/16/Linux%20%E5%9F%BA%E7%A1%8001/</url>
+    <content><![CDATA[<h1 id="Linux-基础01"><a href="#Linux-基础01" class="headerlink" title="Linux 基础01"></a>Linux 基础01</h1><p>学自尚硅谷——韩顺平Linux教程，个人感觉这套教程深入浅出，非常适合Linux初学者，以下是学下过程中的笔记，以备日后复习使用</p>
+<h2 id="vi和vim的基本介绍"><a href="#vi和vim的基本介绍" class="headerlink" title="vi和vim的基本介绍"></a>vi和vim的基本介绍</h2><h3 id="正常模式"><a href="#正常模式" class="headerlink" title="正常模式"></a>正常模式</h3><ul>
+<li>用vim打开一个文档直接进入正常模式</li>
+</ul>
+<h3 id="插入-编辑模式"><a href="#插入-编辑模式" class="headerlink" title="插入/编辑模式"></a>插入/编辑模式</h3><span id="more"></span>
+
+<ul>
+<li>按下i，I，o，O，a，A，r，R等任意一个字母进入此模式，一般来说按i即可。</li>
+</ul>
+<h3 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h3><ul>
+<li>在此模式下，可以提供你相关指令，完成读取，存盘，替换，离开vim，显示行号等动作。</li>
+</ul>
+<h3 id="vi和vim三种模式的相互转化图"><a href="#vi和vim三种模式的相互转化图" class="headerlink" title="vi和vim三种模式的相互转化图"></a>vi和vim三种模式的相互转化图</h3><p><img src="https://cdn.jsdelivr.net/gh/chiguayeshao/pic-bed/824e1118ee754dc4211884de640c9dd3.jpeg" alt="img"></p>
+<h3 id="快捷键的使用"><a href="#快捷键的使用" class="headerlink" title="快捷键的使用"></a>快捷键的使用</h3><ol>
+<li>拷贝当前行 <code>yy</code> ，拷贝当前行向下的5行 <code>5yy</code> ,并粘贴<code>p</code></li>
+<li>删除当前行 <code>dd</code>，删除当前行向下的5行 <code>5dd</code></li>
+<li>查询某个关键词 <code>/关键词</code> ，回车查找，按n就是查找下一个</li>
+<li>设置文件的行号，取消文件的行号，命令行下 <code>:set nu</code> 和 <code>:set nonu</code></li>
+<li>使用快捷键到文档最末行 <code>G</code> ，到文章首行<code>gg</code></li>
+<li>撤销输入，正常模式下输入<code>u</code></li>
+<li>将光标定位到第20行 ：<code>set nu</code> 显示行号，输入<code>20</code>，按shift+g</li>
+</ol>
+<h2 id="关机重启命令"><a href="#关机重启命令" class="headerlink" title="关机重启命令"></a>关机重启命令</h2><h3 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h3><ul>
+<li><p><code>shutdown -h now</code>    立即关机</p>
+<p><code>shutdown -h 1</code>        表示1分钟后关机<br> <code>shutdown -r now</code>        立即重启</p>
+</li>
+</ul>
+<h3 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h3><ul>
+<li>直接使用，等价于关机</li>
+</ul>
+<h3 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h3><ul>
+<li>重启系统</li>
+</ul>
+<h3 id="syn"><a href="#syn" class="headerlink" title="syn"></a>syn</h3><ul>
+<li>将内存数据同步到磁盘</li>
+</ul>
+<h2 id="用户登录和注销"><a href="#用户登录和注销" class="headerlink" title="用户登录和注销"></a>用户登录和注销</h2><ol>
+<li><code>su - 用户名</code>，切换到指定用户</li>
+</ol>
+<ul>
+<li>ps:从权限高的切换到权限低的，不需要输入密码，反之需要，当返回到原来用户时使用exit</li>
+</ul>
+<ol>
+<li><code>logout</code>即可注销用户</li>
+</ol>
+<h3 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h3><ul>
+<li><code>useradd 用户名</code></li>
+<li>ps:当创建用户成功后，会自动创建和用户同名的家目录</li>
+<li>也可通过 <code>useradd -d </code>指定目录 新用户吗，给新创建的用户指定家目录</li>
+</ul>
+<h3 id="给用户指定或修改密码"><a href="#给用户指定或修改密码" class="headerlink" title="给用户指定或修改密码"></a>给用户指定或修改密码</h3><p><code>passwd 用户名</code></p>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><ul>
+<li><p><code>userdel 用户名</code>        删除用户，但保留家目录</p>
+<p><code>userdel -r 用户名</code>        删除用户以及用户主目录</p>
+</li>
+<li><p>ps:在删除用户时，我们一般不会将家目录删除</p>
+</li>
+</ul>
+<h3 id="查询用户信息"><a href="#查询用户信息" class="headerlink" title="查询用户信息"></a>查询用户信息</h3><ul>
+<li><code>id 用户名</code></li>
+</ul>
+<h2 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h2><h3 id="增加组"><a href="#增加组" class="headerlink" title="增加组"></a>增加组</h3><ul>
+<li><code>groupadd 组名</code></li>
+</ul>
+<h3 id="删除组"><a href="#删除组" class="headerlink" title="删除组"></a>删除组</h3><ul>
+<li><code>groupdel 组名</code></li>
+</ul>
+<h3 id="增加用户时直接加上组"><a href="#增加用户时直接加上组" class="headerlink" title="增加用户时直接加上组"></a>增加用户时直接加上组</h3><ul>
+<li><code>useradd -g 用户组 用户名</code></li>
+</ul>
+<h3 id="修改用户组"><a href="#修改用户组" class="headerlink" title="修改用户组"></a>修改用户组</h3><ul>
+<li><code>usermod -g 用户组 用户名</code></li>
+</ul>
+<h3 id="etc-passwd文件"><a href="#etc-passwd文件" class="headerlink" title="/etc/passwd文件"></a>/etc/passwd文件</h3><ol>
+<li>用户(user)的配置文件，记录用户的各种信息</li>
+<li>每行的含义：用户名：口令：用户标识号：组标识号：注释性描述：主目录：登录 Shell</li>
+</ol>
+<h3 id="etc-shadow文件"><a href="#etc-shadow文件" class="headerlink" title="/etc/shadow文件"></a>/etc/shadow文件</h3><ol>
+<li>口令的配置文件</li>
+<li>每行的含义：登录名：加密口令：最后一次修改时间：最大时间间隔：警告时间：不活动时间：失效时间：标志</li>
+</ol>
+<h3 id="etc-group文件"><a href="#etc-group文件" class="headerlink" title="/etc/group文件"></a>/etc/group文件</h3><ol>
+<li>组(group)的配置文件，记录Linux包含的组的信息</li>
+<li>每行的含义：组名：口令：组标识符：组内用户列表</li>
+</ol>
+<h2 id="指定运行级别"><a href="#指定运行级别" class="headerlink" title="指定运行级别"></a>指定运行级别</h2><h3 id="运行级别说明"><a href="#运行级别说明" class="headerlink" title="运行级别说明"></a>运行级别说明</h3><ul>
+<li>0：关机</li>
+<li>1：单用户【找回丢失密码】</li>
+<li>2：多用户状态没有网络服务</li>
+<li>3：多用户状态有网络服务</li>
+<li>4：保留，还没有开发</li>
+<li>5：图形界面</li>
+<li>6：系统重启</li>
+<li>ps：常用运行级别是3和5，要修改默认运行基本可修改文件/etc/inittab中的id:5:initdefault;这一行的数字</li>
+</ul>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
+<li>通过init来切换不同的运行级别，例如<code>init 3</code></li>
+</ul>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><ul>
+<li>找回root密码：</li>
+<li>答案：开机-&gt;引导时 按回车-&gt;看到一个界面 按e-&gt;看到一个新的界面，选中第二行（编辑内核） 按e-&gt;在最后一行输入 1，按回车-&gt;按b 进入单用户模式-&gt;passwd root</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
 </search>
