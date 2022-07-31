@@ -3186,4 +3186,25 @@ is null</code></pre>
         <tag>React</tag>
       </tags>
   </entry>
+  <entry>
+    <title>React Hooks 03</title>
+    <url>/2022/05/11/React%20Hooks%2003/</url>
+    <content><![CDATA[<h1 id="React-Hooks-03"><a href="#React-Hooks-03" class="headerlink" title="React Hooks 03"></a>React Hooks 03</h1><h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo()"></a>useMemo()</h2><p>记忆组件</p>
+<p>与 useCallback()的区别</p>
+<ol>
+<li>useCallback()不会执行第一个参数函数，而是将它返回</li>
+<li>useMemo()则是执行第一个函数参数，将函数的执行结果返回</li>
+</ol>
+<p>代码</p>
+<span id="more"></span>
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给list增加996</span></span><br><span class="line"><span class="comment">// 没用memo的情况下，当别的状态改变的时候都重新触发该函数</span></span><br><span class="line"><span class="comment">// let list996 = lists.map((v) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&quot;fuck&quot;);</span></span><br><span class="line"><span class="comment">//   return v + &quot;996&quot;;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用memo的情况下</span></span><br><span class="line"><span class="comment">// 只有当依赖中的lists发生改变的时候，才会重新计算</span></span><br><span class="line"><span class="keyword">const</span> list996 = useMemo(</span><br><span class="line">  () =&gt;</span><br><span class="line">    lists.map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> v + <span class="string">&quot;996&quot;</span>;</span><br><span class="line">    &#125;),</span><br><span class="line">  [lists]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>
