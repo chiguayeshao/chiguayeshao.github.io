@@ -23,25 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
+<meta name="description" content="React 应用 SOLID 原则 03里氏替换原则（LSP）里氏替换原则可以理解为对象之间的一种关系，子类型对象可以替换为超类型对象。这个原则严重依赖类继承来定义超类型和子类型关系，但它在 React 中可能不太适用，因为我们几乎不会处理类，更不用说类继承了。虽然远离类继承会不可避免地将这一原则转变为完全不同的东西，但使用继承编写 React 代码会使代码变得糟糕（React 团队不推荐使用继承">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客增加live2d">
-<meta property="og:url" content="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/index.html">
+<meta property="og:title" content="React 应用SOLID原则03">
+<meta property="og:url" content="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9903/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Hexo博客增加live2d插件插件安装 cmd进入到你的博客文件夹路径下 使用 npm i hexo-helper-live2d --save 安装依赖">
+<meta property="og:description" content="React 应用 SOLID 原则 03里氏替换原则（LSP）里氏替换原则可以理解为对象之间的一种关系，子类型对象可以替换为超类型对象。这个原则严重依赖类继承来定义超类型和子类型关系，但它在 React 中可能不太适用，因为我们几乎不会处理类，更不用说类继承了。虽然远离类继承会不可避免地将这一原则转变为完全不同的东西，但使用继承编写 React 代码会使代码变得糟糕（React 团队不推荐使用继承">
 <meta property="og:locale">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png">
-<meta property="og:image" content="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png">
-<meta property="article:published_time" content="2020-12-16T13:37:45.000Z">
-<meta property="article:modified_time" content="2020-12-16T14:36:07.925Z">
+<meta property="article:published_time" content="2022-06-23T02:28:18.000Z">
+<meta property="article:modified_time" content="2022-08-01T13:25:59.570Z">
 <meta property="article:author" content="Xiaotian Ye">
-<meta property="article:tag" content="Live2d">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png">
 
 
-<link rel="canonical" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
+<link rel="canonical" href="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9903/">
 
 
 <script class="page-configurations">
@@ -53,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>Hexo博客增加live2d | SunleDog</title>
+<title>React 应用SOLID原则03 | SunleDog</title>
   
 
 
@@ -193,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客增加live2d插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">插件安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#live2d-Model%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">live2d Model下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">修改博客配置文件</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E5%BA%94%E7%94%A8-SOLID-%E5%8E%9F%E5%88%99-03"><span class="nav-number">1.</span> <span class="nav-text">React 应用 SOLID 原则 03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%EF%BC%88LSP%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">里氏替换原则（LSP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99%EF%BC%88ISP%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">接口隔离原则（ISP）</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -279,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/16/Hexo%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0live2d/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9903/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -292,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo博客增加live2d
+          React 应用SOLID原则03
         </h1>
 
         <div class="post-meta-container">
@@ -303,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2020-12-16 21:37:45" itemprop="dateCreated datePublished" datetime="2020-12-16T21:37:45+08:00">2020-12-16</time>
+      <time title="Created: 2022-06-23 10:28:18" itemprop="dateCreated datePublished" datetime="2022-06-23T10:28:18+08:00">2022-06-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,7 +307,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客配置与搭建</span></a>
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
         </span>
     </span>
 
@@ -325,34 +321,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Hexo博客增加live2d插件"><a href="#Hexo博客增加live2d插件" class="headerlink" title="Hexo博客增加live2d插件"></a>Hexo博客增加live2d插件</h1><h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ol>
-<li>cmd进入到你的博客文件夹路径下</li>
-<li>使用 <code>npm i hexo-helper-live2d --save</code> 安装依赖</li>
-</ol>
-<a id="more"></a>
+        <h1 id="React-应用-SOLID-原则-03"><a href="#React-应用-SOLID-原则-03" class="headerlink" title="React 应用 SOLID 原则 03"></a>React 应用 SOLID 原则 03</h1><h2 id="里氏替换原则（LSP）"><a href="#里氏替换原则（LSP）" class="headerlink" title="里氏替换原则（LSP）"></a>里氏替换原则（LSP）</h2><p>里氏替换原则可以理解为<strong>对象之间的一种关系，子类型对象可以替换为超类型对象</strong>。这个原则严重依赖类继承来定义超类型和子类型关系，但它在 React 中可能不太适用，因为我们几乎不会处理类，更不用说类继承了。虽然远离类继承会不可避免地将这一原则转变为完全不同的东西，但使用继承编写 React 代码会使代码变得糟糕（<strong>React 团队不推荐使用继承</strong>）。因此，对于这一原则不在过多解释。</p>
+<h2 id="接口隔离原则（ISP）"><a href="#接口隔离原则（ISP）" class="headerlink" title="接口隔离原则（ISP）"></a>接口隔离原则（ISP）</h2><p>定义：<strong>客户端不应该依赖它不需要的接口</strong></p>
+<span id="more"></span>
 
-<ol>
-<li><p>安装成功后博客的package.json文件下会自动加入该包</p>
-<p><img src="https://i.loli.net/2020/12/16/M3UrCJqVPN6Zp8K.png" alt="image-20201216215110041"></p>
-</li>
-</ol>
-<h1 id="live2d-Model下载"><a href="#live2d-Model下载" class="headerlink" title="live2d Model下载"></a>live2d Model下载</h1><ol>
-<li><p>进入GitHub下载<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">live2d模型</a></p>
-<p><img src="https://i.loli.net/2020/12/16/VZtsIemwj1h3TDl.png" alt="image-20201216215300880"></p>
-</li>
-<li><p>解压出该文件夹中的packages文件</p>
-</li>
-<li><p>将packages文件中的model复制到博客文件夹下的node_modules文件夹中</p>
-<p><img src="https://i.loli.net/2020/12/16/6sZixo5y9IRnktT.png" alt="image-20201216222846076"></p>
-</li>
-</ol>
-<h1 id="修改博客配置文件"><a href="#修改博客配置文件" class="headerlink" title="修改博客配置文件"></a>修改博客配置文件</h1><ol>
-<li><p>进入博客的配置文件_config.yml，增加以下配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#是否开启看板</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-hijiki</span> <span class="comment">#想切换模型直接修改为node_modules中的liv2d的各模型文件名称</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span> <span class="comment">#在右边显示</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">150</span> <span class="comment">#看板的宽</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">345</span> <span class="comment">#看板的高</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span>  <span class="comment">#是否在手机进行显示</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>想要预览live2d挑选喜欢的模型可以访问该<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">网站</a></p>
-</li>
-</ol>
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">type Video = &#123;</span><br><span class="line">  title: string</span><br><span class="line">  duration: number</span><br><span class="line">  coverUrl: string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function"><span class="params">item</span> =&gt;</span></span><br><span class="line">        &lt;Thumbnail</span><br><span class="line">          key=&#123;item.title&#125;</span><br><span class="line">          video=&#123;item&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Thumbnail 组件的实现</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  video: Video,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Thumbnail = <span class="function">(<span class="params">&#123; video &#125;: Props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;video.coverUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Thumbnail 这个组件非常简单，但它有一个问题，他希望将完整的视频对象作为 props 传入，但是仅有效的使用其属性之一（coverUrl）</p>
+<p>除了视频，我们还需要渲染直播的缩略图，这两种媒体资源会混合在同一个列表中</p>
+<p>定义直播类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> LiveStream = &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  previewUrl: <span class="built_in">string</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>更新 VideoList 组件：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video | LiveStream&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;coverUrl&quot;</span> <span class="keyword">in</span> item) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">video</span>=<span class="string">&#123;item&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 直播组件，该怎么写？</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这时候就发现了一个问题，我们可以轻松区分视频和直播对象，但是不能将后者传递给 Thumbnail 组件，因为 video 和 liveStream 类型不兼容。他们包含了不同的属性来保存缩略图。视频对象调用 coverUrl，直播对象调用 previewUrl。这就使组件依赖了比实际更多的 props 的原因所在。</p>
+<p>下面来重构 Thumbnail</p>
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video | LiveStream&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;coverUrl&quot;</span> <span class="keyword">in</span> item) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">coverUrl</span>=<span class="string">&#123;item.coverUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">coverUrl</span>=<span class="string">&#123;item.previewUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>接口隔离主张最小化系统组件直接的依赖关系，使他们的耦合度降低，从而提高可复用性。</p>
 
     </div>
 
@@ -362,21 +354,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Live2d/" rel="tag"># Live2d</a>
+              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/12/15/%E4%B8%80%E9%94%AE%E9%85%8D%E7%BD%AESSL%E8%AF%81%E4%B9%A6/" rel="prev" title="一键配置SSL证书">
-                  <i class="fa fa-chevron-left"></i> 一键配置SSL证书
+                <a href="/2022/06/22/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9902/" rel="prev" title="React 应用SOLID原则02">
+                  <i class="fa fa-chevron-left"></i> React 应用SOLID原则02
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/21/Markdown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="next" title="Markdown 基本语法">
-                  Markdown 基本语法 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

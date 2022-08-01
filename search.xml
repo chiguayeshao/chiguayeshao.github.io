@@ -3356,4 +3356,39 @@ is null</code></pre>
         <tag>React</tag>
       </tags>
   </entry>
+  <entry>
+    <title>React 应用SOLID原则03</title>
+    <url>/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9903/</url>
+    <content><![CDATA[<h1 id="React-应用-SOLID-原则-03"><a href="#React-应用-SOLID-原则-03" class="headerlink" title="React 应用 SOLID 原则 03"></a>React 应用 SOLID 原则 03</h1><h2 id="里氏替换原则（LSP）"><a href="#里氏替换原则（LSP）" class="headerlink" title="里氏替换原则（LSP）"></a>里氏替换原则（LSP）</h2><p>里氏替换原则可以理解为<strong>对象之间的一种关系，子类型对象可以替换为超类型对象</strong>。这个原则严重依赖类继承来定义超类型和子类型关系，但它在 React 中可能不太适用，因为我们几乎不会处理类，更不用说类继承了。虽然远离类继承会不可避免地将这一原则转变为完全不同的东西，但使用继承编写 React 代码会使代码变得糟糕（<strong>React 团队不推荐使用继承</strong>）。因此，对于这一原则不在过多解释。</p>
+<h2 id="接口隔离原则（ISP）"><a href="#接口隔离原则（ISP）" class="headerlink" title="接口隔离原则（ISP）"></a>接口隔离原则（ISP）</h2><p>定义：<strong>客户端不应该依赖它不需要的接口</strong></p>
+<span id="more"></span>
+
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">type Video = &#123;</span><br><span class="line">  title: string</span><br><span class="line">  duration: number</span><br><span class="line">  coverUrl: string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function"><span class="params">item</span> =&gt;</span></span><br><span class="line">        &lt;Thumbnail</span><br><span class="line">          key=&#123;item.title&#125;</span><br><span class="line">          video=&#123;item&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Thumbnail 组件的实现</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  video: Video,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Thumbnail = <span class="function">(<span class="params">&#123; video &#125;: Props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;video.coverUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Thumbnail 这个组件非常简单，但它有一个问题，他希望将完整的视频对象作为 props 传入，但是仅有效的使用其属性之一（coverUrl）</p>
+<p>除了视频，我们还需要渲染直播的缩略图，这两种媒体资源会混合在同一个列表中</p>
+<p>定义直播类型：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> LiveStream = &#123;</span><br><span class="line">  name: <span class="built_in">string</span>;</span><br><span class="line">  previewUrl: <span class="built_in">string</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>更新 VideoList 组件：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video | LiveStream&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;coverUrl&quot;</span> <span class="keyword">in</span> item) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">video</span>=<span class="string">&#123;item&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 直播组件，该怎么写？</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这时候就发现了一个问题，我们可以轻松区分视频和直播对象，但是不能将后者传递给 Thumbnail 组件，因为 video 和 liveStream 类型不兼容。他们包含了不同的属性来保存缩略图。视频对象调用 coverUrl，直播对象调用 previewUrl。这就使组件依赖了比实际更多的 props 的原因所在。</p>
+<p>下面来重构 Thumbnail</p>
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  items: <span class="built_in">Array</span>&lt;Video | LiveStream&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VideoList = <span class="function">(<span class="params">&#123; items &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;coverUrl&quot;</span> <span class="keyword">in</span> item) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">coverUrl</span>=<span class="string">&#123;item.coverUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Thumbnail</span> <span class="attr">coverUrl</span>=<span class="string">&#123;item.previewUrl&#125;</span> /&gt;</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>接口隔离主张最小化系统组件直接的依赖关系，使他们的耦合度降低，从而提高可复用性。</p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>
