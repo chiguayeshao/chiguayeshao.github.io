@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta name="description" content="React Hooks 04useRef()绑在 html 上保存 dom 节点 绑在组件上保存组件对象 代码：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Hooks 03">
-<meta property="og:url" content="http://example.com/2022/05/11/React%20Hooks%2003/index.html">
+<meta property="og:title" content="React Hooks 04">
+<meta property="og:url" content="http://example.com/2022/05/12/React%20Hooks%2004/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta property="og:description" content="React Hooks 04useRef()绑在 html 上保存 dom 节点 绑在组件上保存组件对象 代码：">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-05-11T12:11:31.000Z">
-<meta property="article:modified_time" content="2022-07-31T17:49:37.693Z">
+<meta property="article:published_time" content="2022-05-12T04:12:08.000Z">
+<meta property="article:modified_time" content="2022-08-01T05:34:54.786Z">
 <meta property="article:author" content="Xiaotian Ye">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+<link rel="canonical" href="http://example.com/2022/05/12/React%20Hooks%2004/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>React Hooks 03 | SunleDog</title>
+<title>React Hooks 04 | SunleDog</title>
   
 
 
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Hooks-03"><span class="nav-number">1.</span> <span class="nav-text">React Hooks 03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#useMemo"><span class="nav-number">1.1.</span> <span class="nav-text">useMemo()</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Hooks-04"><span class="nav-number">1.</span> <span class="nav-text">React Hooks 04</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#useRef"><span class="nav-number">1.1.</span> <span class="nav-text">useRef()</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -275,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/12/React%20Hooks%2004/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -288,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React Hooks 03
+          React Hooks 04
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-05-11 20:11:31" itemprop="dateCreated datePublished" datetime="2022-05-11T20:11:31+08:00">2022-05-11</time>
+      <time title="Created: 2022-05-12 12:12:08" itemprop="dateCreated datePublished" datetime="2022-05-12T12:12:08+08:00">2022-05-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,16 +321,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="React-Hooks-03"><a href="#React-Hooks-03" class="headerlink" title="React Hooks 03"></a>React Hooks 03</h1><h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo()"></a>useMemo()</h2><p>记忆组件</p>
-<p>与 useCallback()的区别</p>
-<ol>
-<li>useCallback()不会执行第一个参数函数，而是将它返回</li>
-<li>useMemo()则是执行第一个函数参数，将函数的执行结果返回</li>
-</ol>
-<p>代码</p>
+        <h1 id="React-Hooks-04"><a href="#React-Hooks-04" class="headerlink" title="React Hooks 04"></a>React Hooks 04</h1><h2 id="useRef"><a href="#useRef" class="headerlink" title="useRef()"></a>useRef()</h2><p>绑在 html 上保存 dom 节点</p>
+<p>绑在组件上保存组件对象</p>
+<p>代码：</p>
 <span id="more"></span>
 
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给list增加996</span></span><br><span class="line"><span class="comment">// 没用memo的情况下，当别的状态改变的时候都重新触发该函数</span></span><br><span class="line"><span class="comment">// let list996 = lists.map((v) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&quot;fuck&quot;);</span></span><br><span class="line"><span class="comment">//   return v + &quot;996&quot;;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用memo的情况下</span></span><br><span class="line"><span class="comment">// 只有当依赖中的lists发生改变的时候，才会重新计算</span></span><br><span class="line"><span class="keyword">const</span> list996 = useMemo(</span><br><span class="line">  () =&gt;</span><br><span class="line">    lists.map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> v + <span class="string">&quot;996&quot;</span>;</span><br><span class="line">    &#125;),</span><br><span class="line">  [lists]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;</span><br><span class="line">  useCallback,</span><br><span class="line">  useEffect,</span><br><span class="line">  useMemo,</span><br><span class="line">  useRef,</span><br><span class="line">  useState,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ToDoList = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 初始化text与lists</span></span><br><span class="line">  <span class="comment">// const [text, setText] = useState(&quot;&quot;);</span></span><br><span class="line">  <span class="keyword">const</span> [lists, setLists] = useState([]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> myText = useRef();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// const handleChange = useCallback((evt) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   setText(evt.target.value);</span></span><br><span class="line">  <span class="comment">// &#125;, []);</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleClickAdd = useCallback(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// dom节点</span></span><br><span class="line">    <span class="built_in">console</span>.log(myText);</span><br><span class="line">    <span class="built_in">console</span>.log(myText.current.value);</span><br><span class="line">    setLists([...lists, myText.current.value]);</span><br><span class="line">    <span class="comment">// 不能使用push修改原数组，因为修改数组不会重新渲染页面</span></span><br><span class="line">    <span class="comment">// setLists([...lists, text]);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清空input</span></span><br><span class="line">    <span class="comment">// setText(&quot;&quot;);</span></span><br><span class="line">    myText.current.value = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  &#125;, [lists]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleClickDelete = useCallback(</span><br><span class="line">    (index) =&gt; &#123;</span><br><span class="line">      <span class="comment">// 创建新数组接收lists</span></span><br><span class="line">      <span class="keyword">let</span> newLists = [...lists];</span><br><span class="line">      <span class="comment">// 根据id删除</span></span><br><span class="line">      newLists.splice(index, <span class="number">1</span>);</span><br><span class="line">      setLists(newLists);</span><br><span class="line">    &#125;,</span><br><span class="line">    [lists]</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 当lists发生改变的时候打印 fuck 996</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;fuck 996&quot;</span>);</span><br><span class="line">  &#125;, [lists]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// useeffect return</span></span><br><span class="line">  <span class="comment">// useEffect(() =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   window.onresize = () =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//     console.log(&quot;resize&quot;);</span></span><br><span class="line">  <span class="comment">//   &#125;;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//   let timer = setInterval(() =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//     console.log(&quot;fuck&quot;);</span></span><br><span class="line">  <span class="comment">//   &#125;, 1000);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//   // 闭包</span></span><br><span class="line">  <span class="comment">//   return () =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//     console.log(&quot;组件销毁时执行&quot;);</span></span><br><span class="line">  <span class="comment">//     window.onresize = null;</span></span><br><span class="line">  <span class="comment">//     timer = clearInterval;</span></span><br><span class="line">  <span class="comment">//   &#125;;</span></span><br><span class="line">  <span class="comment">// &#125;, []);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 给list增加996</span></span><br><span class="line">  <span class="comment">// 没用memo的情况下，当别的状态改变的时候都重新触发该函数</span></span><br><span class="line">  <span class="comment">// let list996 = lists.map((v) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&quot;fuck&quot;);</span></span><br><span class="line">  <span class="comment">//   return v + &quot;996&quot;;</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 使用memo的情况下</span></span><br><span class="line">  <span class="comment">// 只有当依赖中的lists发生改变的时候，才会重新计算</span></span><br><span class="line">  <span class="keyword">const</span> list996 = useMemo(</span><br><span class="line">    () =&gt;</span><br><span class="line">      lists.map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> v + <span class="string">&quot;996&quot;</span>;</span><br><span class="line">      &#125;),</span><br><span class="line">    [lists]</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input ref=&#123;myText&#125; /&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleClickAdd&#125;&gt;add to <span class="keyword">do</span> list&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &#123;list996.map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> (</span><br><span class="line">            &lt;div key=&#123;index&#125;&gt;</span><br><span class="line">              &lt;div&gt;&#123;value&#125;&lt;/div&gt;</span><br><span class="line">              &lt;button</span><br><span class="line">                onClick=&#123;<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                  handleClickDelete(index);</span><br><span class="line">                &#125;&#125;</span><br><span class="line">              &gt;</span><br><span class="line">                <span class="keyword">delete</span></span><br><span class="line">              &lt;/button&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          );</span><br><span class="line">        &#125;)&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ToDoList;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -347,13 +343,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/10/React%20Hooks%2002/" rel="prev" title="React Hooks 02">
-                  <i class="fa fa-chevron-left"></i> React Hooks 02
+                <a href="/2022/05/11/React%20Hooks%2003/" rel="prev" title="React Hooks 03">
+                  <i class="fa fa-chevron-left"></i> React Hooks 03
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/12/React%20Hooks%2004/" rel="next" title="React Hooks 04">
-                  React Hooks 04 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/06/15/%E6%97%A0%E9%9A%9C%E7%A2%8D%E5%8C%96%20%E5%AF%BC%E8%88%AA%E6%A0%8F%E4%B8%8E%E5%8F%AF%E5%B1%95%E5%BC%80%E6%8C%89%E9%92%AE/" rel="next" title="无障碍化 导航栏与可展开按钮">
+                  无障碍化 导航栏与可展开按钮 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
