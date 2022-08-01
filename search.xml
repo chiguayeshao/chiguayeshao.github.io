@@ -3331,4 +3331,29 @@ is null</code></pre>
         <tag>React</tag>
       </tags>
   </entry>
+  <entry>
+    <title>React 应用SOLID原则02</title>
+    <url>/2022/06/22/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9902/</url>
+    <content><![CDATA[<h1 id="React-应用-SOLID-原则-02"><a href="#React-应用-SOLID-原则-02" class="headerlink" title="React 应用 SOLID 原则 02"></a>React 应用 SOLID 原则 02</h1><h2 id="开放封闭原则（OCP）"><a href="#开放封闭原则（OCP）" class="headerlink" title="开放封闭原则（OCP）"></a>开放封闭原则（OCP）</h2><p>定义：一个软件实体（类，模块，函数）应该对扩展开放，对修改关闭。主张在不更改源代码的情况下扩展组件的方式来构造组件</p>
+<p>以下代码构建了一个 Header 组件，根据页面不同，Header 组件的 UI 也有些不同</p>
+<span id="more"></span>
+
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Header = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; pathname &#125; = useRouter();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">      &lt;Logo /&gt;</span><br><span class="line">      &lt;Actions&gt;</span><br><span class="line">        &#123;pathname === <span class="string">&quot;/dashboard&quot;</span> &amp;&amp; (</span><br><span class="line">          &lt;Link to=<span class="string">&quot;/events/new&quot;</span>&gt;Create event&lt;/Link&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">        &#123;pathname === <span class="string">&quot;/&quot;</span> &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/dashboard&quot;</span>&gt;</span>Go to dashboard<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span>&#125;</span><br><span class="line">      &lt;/Actions&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HomePage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;OtherHomeStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DashboardPage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;OtherDashboardStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>根据所在页面的不同，呈现指向不同页面组件的链接。但是如果将该 Header 组件添加到更多的页面中，每次创建新页面的时候，都需要引用 Header 组件，改变其内部实现。这种方法使 Header 组件与他的上下文紧密耦合，违背了开放封闭原则</p>
+<p>为了解决这个问题，我们可以使用组件组合。Header 组件不需要关系它内部的渲染是什么，相反，它可以将此责任委托给将使用 Children 属性的组件</p>
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Header = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;Logo /&gt;</span><br><span class="line">    &lt;Actions&gt;&#123;children&#125;&lt;/Actions&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HomePage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &lt;Link to=<span class="string">&quot;/dashboard&quot;</span>&gt;Go to dashboard&lt;/Link&gt;</span><br><span class="line">    &lt;/Header&gt;</span><br><span class="line">    &lt;OtherHomeStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DashboardPage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &lt;Link to=<span class="string">&quot;/events/new&quot;</span>&gt;Create event&lt;/Link&gt;</span><br><span class="line">    &lt;/Header&gt;</span><br><span class="line">    &lt;OtherDashboardStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>使用这种方法，我们完全删除了 Header 组件内部的变量逻辑。现在可以使用组合将任何内容放在 Header 中，而无需修改组件本身。</p>
+<p>遵循开放封闭原则可以减少组件之间的耦合，使他更具有可扩展性和可重用性。</p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>

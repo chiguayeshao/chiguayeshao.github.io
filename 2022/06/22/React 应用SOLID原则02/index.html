@@ -23,18 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Developer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SunleDog">
-<meta property="og:url" content="http://example.com/tags/JavaScript/index.html">
+<meta name="description" content="React 应用 SOLID 原则 02开放封闭原则（OCP）定义：一个软件实体（类，模块，函数）应该对扩展开放，对修改关闭。主张在不更改源代码的情况下扩展组件的方式来构造组件 以下代码构建了一个 Header 组件，根据页面不同，Header 组件的 UI 也有些不同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 应用SOLID原则02">
+<meta property="og:url" content="http://example.com/2022/06/22/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9902/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="Developer">
+<meta property="og:description" content="React 应用 SOLID 原则 02开放封闭原则（OCP）定义：一个软件实体（类，模块，函数）应该对扩展开放，对修改关闭。主张在不更改源代码的情况下扩展组件的方式来构造组件 以下代码构建了一个 Header 组件，根据页面不同，Header 组件的 UI 也有些不同">
 <meta property="og:locale">
+<meta property="article:published_time" content="2022-06-22T11:20:08.000Z">
+<meta property="article:modified_time" content="2022-08-01T13:09:16.946Z">
 <meta property="article:author" content="Xiaotian Ye">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/tags/JavaScript/">
+<link rel="canonical" href="http://example.com/2022/06/22/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9902/">
 
 
 <script class="page-configurations">
@@ -42,11 +45,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
-<title>Tag: JavaScript | SunleDog</title>
+<title>React 应用SOLID原则02 | SunleDog</title>
   
 
 
@@ -173,7 +176,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -186,6 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E5%BA%94%E7%94%A8-SOLID-%E5%8E%9F%E5%88%99-02"><span class="nav-number">1.</span> <span class="nav-text">React 应用 SOLID 原则 02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%88OCP%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">开放封闭原则（OCP）</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -260,213 +264,108 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">JavaScript
-          <small>Tag</small>
-        </h2>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/22/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9902/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+      <meta itemprop="name" content="Xiaotian Ye">
+      <meta itemprop="description" content="Developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SunleDog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React 应用SOLID原则02
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-22 19:20:08" itemprop="dateCreated datePublished" datetime="2022-06-22T19:20:08+08:00">2022-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="React-应用-SOLID-原则-02"><a href="#React-应用-SOLID-原则-02" class="headerlink" title="React 应用 SOLID 原则 02"></a>React 应用 SOLID 原则 02</h1><h2 id="开放封闭原则（OCP）"><a href="#开放封闭原则（OCP）" class="headerlink" title="开放封闭原则（OCP）"></a>开放封闭原则（OCP）</h2><p>定义：一个软件实体（类，模块，函数）应该对扩展开放，对修改关闭。主张在不更改源代码的情况下扩展组件的方式来构造组件</p>
+<p>以下代码构建了一个 Header 组件，根据页面不同，Header 组件的 UI 也有些不同</p>
+<span id="more"></span>
+
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Header = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; pathname &#125; = useRouter();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">      &lt;Logo /&gt;</span><br><span class="line">      &lt;Actions&gt;</span><br><span class="line">        &#123;pathname === <span class="string">&quot;/dashboard&quot;</span> &amp;&amp; (</span><br><span class="line">          &lt;Link to=<span class="string">&quot;/events/new&quot;</span>&gt;Create event&lt;/Link&gt;</span><br><span class="line">        )&#125;</span><br><span class="line">        &#123;pathname === <span class="string">&quot;/&quot;</span> &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/dashboard&quot;</span>&gt;</span>Go to dashboard<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span>&#125;</span><br><span class="line">      &lt;/Actions&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HomePage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;OtherHomeStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DashboardPage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;OtherDashboardStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>根据所在页面的不同，呈现指向不同页面组件的链接。但是如果将该 Header 组件添加到更多的页面中，每次创建新页面的时候，都需要引用 Header 组件，改变其内部实现。这种方法使 Header 组件与他的上下文紧密耦合，违背了开放封闭原则</p>
+<p>为了解决这个问题，我们可以使用组件组合。Header 组件不需要关系它内部的渲染是什么，相反，它可以将此责任委托给将使用 Children 属性的组件</p>
+<p>代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Header = <span class="function">(<span class="params">&#123; children &#125;</span>) =&gt;</span> (</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;Logo /&gt;</span><br><span class="line">    &lt;Actions&gt;&#123;children&#125;&lt;/Actions&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> HomePage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &lt;Link to=<span class="string">&quot;/dashboard&quot;</span>&gt;Go to dashboard&lt;/Link&gt;</span><br><span class="line">    &lt;/Header&gt;</span><br><span class="line">    &lt;OtherHomeStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DashboardPage = <span class="function">() =&gt;</span> (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &lt;Link to=<span class="string">&quot;/events/new&quot;</span>&gt;Create event&lt;/Link&gt;</span><br><span class="line">    &lt;/Header&gt;</span><br><span class="line">    &lt;OtherDashboardStuff /&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>使用这种方法，我们完全删除了 Header 组件内部的变量逻辑。现在可以使用组合将任何内容放在 Header 中，而无需修改组件本身。</p>
+<p>遵循开放封闭原则可以减少组件之间的耦合，使他更具有可扩展性和可重用性。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-04-08T18:21:56+08:00"
-              content="2022-04-08">
-          04-08
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/08/JavaScript%20%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%20apply%20bind%E6%96%B9%E6%B3%95/" itemprop="url">
-            <span itemprop="name">JavaScript 模拟实现call apply bind方法</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/20/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9901/" rel="prev" title="React 应用SOLID原则01">
+                  <i class="fa fa-chevron-left"></i> React 应用SOLID原则01
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-22T10:31:48+08:00"
-              content="2021-10-22">
-          10-22
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/" itemprop="url">
-            <span itemprop="name">JavaScript 展开运算符</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-21T22:21:19+08:00"
-              content="2021-10-21">
-          10-21
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/21/JavaScript%20Map%E5%92%8CSet/" itemprop="url">
-            <span itemprop="name">JavaScript Map 和 Set</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-18T23:15:09+08:00"
-              content="2021-10-18">
-          10-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/18/JavaScript%20%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url">
-            <span itemprop="name">JavaScript 核心基础知识点</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-10-08T17:35:04+08:00"
-              content="2021-10-08">
-          10-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/10/08/JavaScript%20%E8%AF%A6%E8%A7%A3Event-Loop%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" itemprop="url">
-            <span itemprop="name">JavaScript 详解Event Loop运行机制</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-26T17:01:56+08:00"
-              content="2021-07-26">
-          07-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/26/JavaScript%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3this/" itemprop="url">
-            <span itemprop="name">JavaScript 深入理解this</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-17T17:25:35+08:00"
-              content="2021-07-17">
-          07-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/17/JavaScript%20%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" itemprop="url">
-            <span itemprop="name">JavaScript 深浅拷贝</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-16T13:35:15+08:00"
-              content="2021-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/16/JavaScript%20let%E5%92%8Cconst/" itemprop="url">
-            <span itemprop="name">JavaScript let和const</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-07-16T12:01:20+08:00"
-              content="2021-07-16">
-          07-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/16/JavaScript%20%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" itemprop="url">
-            <span itemprop="name">JavaScript 箭头函数</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 
 <script>
