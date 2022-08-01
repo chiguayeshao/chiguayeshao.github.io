@@ -3280,7 +3280,7 @@ is null</code></pre>
   </entry>
   <entry>
     <title>React 应用SOLID原则01</title>
-    <url>/2022/07/31/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9901/</url>
+    <url>/2022/06/20/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9901/</url>
     <content><![CDATA[<h1 id="React-应用-SOLID-原则-01"><a href="#React-应用-SOLID-原则-01" class="headerlink" title="React 应用 SOLID 原则 01"></a>React 应用 SOLID 原则 01</h1><p>在面向对象编程中，SOLID 原则是设计模式的基础，每个字母分别对应如下：</p>
 <ul>
 <li>单一职责原则（SRP）</li>
