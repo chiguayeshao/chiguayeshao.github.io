@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="JavaScript 展开运算符展开运算符 （…）展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 &#x2F; 数组构造的时候，将数组表达式 &#x2F; string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。 展开运算符只能用于可迭代对象。">
+<meta name="description" content="React 应用 SOLID 原则 04定义：依赖倒置原则指出“要依赖于抽象，不要依赖于具体”。换句话说一个组件不应该依赖于另一个组件，而是他们应该依赖于一些共同的抽象。这里“组件”是指应用程序的任何部分，可以是 React 组件，函数，模块或第三方库。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 展开运算符">
-<meta property="og:url" content="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
+<meta property="og:title" content="React 应用SOLID原则04">
+<meta property="og:url" content="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9904/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="JavaScript 展开运算符展开运算符 （…）展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 &#x2F; 数组构造的时候，将数组表达式 &#x2F; string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。 展开运算符只能用于可迭代对象。">
+<meta property="og:description" content="React 应用 SOLID 原则 04定义：依赖倒置原则指出“要依赖于抽象，不要依赖于具体”。换句话说一个组件不应该依赖于另一个组件，而是他们应该依赖于一些共同的抽象。这里“组件”是指应用程序的任何部分，可以是 React 组件，函数，模块或第三方库。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-10-22T02:31:48.000Z">
-<meta property="article:modified_time" content="2022-07-28T03:45:52.300Z">
+<meta property="article:published_time" content="2022-06-23T07:18:29.000Z">
+<meta property="article:modified_time" content="2022-08-01T13:47:36.576Z">
 <meta property="article:author" content="Xiaotian Ye">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/">
+<link rel="canonical" href="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9904/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>JavaScript 展开运算符 | SunleDog</title>
+<title>React 应用SOLID原则04 | SunleDog</title>
   
 
 
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 展开运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6-%EF%BC%88%E2%80%A6%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">展开运算符 （…）</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E5%BA%94%E7%94%A8-SOLID-%E5%8E%9F%E5%88%99-04"><span class="nav-number">1.</span> <span class="nav-text">React 应用 SOLID 原则 04</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -275,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/22/JavaScript%20%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9904/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -288,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript 展开运算符
+          React 应用SOLID原则04
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-10-22 10:31:48" itemprop="dateCreated datePublished" datetime="2021-10-22T10:31:48+08:00">2021-10-22</time>
+      <time title="Created: 2022-06-23 15:18:29" itemprop="dateCreated datePublished" datetime="2022-06-23T15:18:29+08:00">2022-06-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
         </span>
     </span>
 
@@ -321,16 +321,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="JavaScript-展开运算符"><a href="#JavaScript-展开运算符" class="headerlink" title="JavaScript 展开运算符"></a>JavaScript 展开运算符</h1><h2 id="展开运算符-（…）"><a href="#展开运算符-（…）" class="headerlink" title="展开运算符 （…）"></a>展开运算符 （…）</h2><p>展开运算符，是 ES6 中的新语法，是把可迭代的对象（string，object，数组）展开，可以用在函数调用 / 数组构造的时候，将数组表达式 / string 在语法层面展开，还可以将对象表达式按照 key-value 的方式展开。</p>
-<p>展开运算符只能用于可迭代对象。</p>
+        <h1 id="React-应用-SOLID-原则-04"><a href="#React-应用-SOLID-原则-04" class="headerlink" title="React 应用 SOLID 原则 04"></a>React 应用 SOLID 原则 04</h1><p>定义：依赖倒置原则指出<strong>“要依赖于抽象，不要依赖于具体”</strong>。换句话说一个组件不应该依赖于另一个组件，而是他们应该依赖于一些共同的抽象。这里“组件”是指应用程序的任何部分，可以是 React 组件，函数，模块或第三方库。</p>
 <span id="more"></span>
 
-<p><strong>函数调用：</strong></p>
-<p>假如你把<code>...</code>放在函数的参数里，就说明这个参数必须是<code>interable object</code>，然后这个对象会被展开成为函数的参数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">  <span class="built_in">console</span>.log(y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> someIterable = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>];</span><br><span class="line">func(...someIterable);</span><br><span class="line"><span class="comment">// same as func(&#x27;a&#x27;, &#x27;b&#x27;)</span></span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// &#x27;a&#x27;</span></span><br><span class="line"><span class="comment">// &#x27;b&#x27;</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(-<span class="number">1</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">3</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(...[-<span class="number">1</span>, <span class="number">5</span>, <span class="number">11</span>, <span class="number">3</span>])</span><br><span class="line"><span class="number">11</span></span><br><span class="line">&gt; <span class="built_in">Math</span>.max(-<span class="number">1</span>, ...[-<span class="number">5</span>, <span class="number">11</span>], <span class="number">3</span>)</span><br><span class="line"><span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>];</span><br><span class="line">arr1.push(...arr2); <span class="comment">// [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;,&#x27;d&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>代码演示：</p>
+<p>有一个 LoginForm 组件，他在提交表单时将用户凭据发生到某些 API</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">&quot;~/common/api&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LoginForm = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [email, setEmail] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [password, setPassword] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (evt) =&gt; &#123;</span><br><span class="line">    evt.preventDefault();</span><br><span class="line">    <span class="keyword">await</span> api.login(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;form onSubmit=&#123;handleSubmit&#125;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;email&quot;</span></span><br><span class="line">        value=&#123;email&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setEmail(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;password&quot;</span></span><br><span class="line">        value=&#123;password&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setPassword(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;Log <span class="keyword">in</span>&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p><strong>数组构造或字符串</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log([...numbers, <span class="string">&#x27;4&#x27;</span>, ...<span class="string">&#x27;hello&#x27;</span>, <span class="number">6</span>];) <span class="comment">// Array [1, 2, 3, &quot;4&quot;, &quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> parts = [<span class="string">&#x27;shoulders&#x27;</span>, <span class="string">&#x27;knees&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> lyrics = [<span class="string">&#x27;head&#x27;</span>, ...parts, <span class="string">&#x27;and&#x27;</span>, <span class="string">&#x27;toes&#x27;</span>]; <span class="comment">//  [&quot;head&quot;, &quot;shoulders&quot;, &quot;knees&quot;, &quot;and&quot;, &quot;toes&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//数组拷贝</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr];</span><br><span class="line">arr2.push(<span class="number">4</span>); <span class="comment">// arr2 此时变成了 [1,2,3,4]. arr不受影响</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//连接多个数组</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> arr3 = [...arr1, ...arr2]; <span class="comment">// [0,1,2,3,4,5]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象拷贝（浅拷贝，并且不包含prototype）和合并</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">foo</span>:<span class="string">&#x27;bar&#x27;</span>, <span class="attr">x</span>:<span class="number">42</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="attr">foo</span>:<span class="string">&#x27;baz&#x27;</span>, <span class="attr">y</span>:<span class="number">13</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> cloneObj = &#123;...obj1&#125;; <span class="comment">// &#123;foo:&#x27;bar&#x27;, x:42&#125;</span></span><br><span class="line"><span class="keyword">var</span> mergeObj = &#123;...obj1, ...obj2&#125;; <span class="comment">// &#123;foo:&#x27;baz&#x27;, x:42, y:13&#125;</span></span><br></pre></td></tr></table></figure>
+<p>在这段代码中，LoginForm 组件直接引用了 api 模块，因此他们直接存在紧密耦合。这种依赖关系会导致一个组件的更改会影响其他组件。依赖倒置原则就是提倡打破这种耦合。</p>
+<p>如何优化：</p>
+<p>首先从 LoginForm 中删除对 api 模块的直接引用，允许通过 props 传入所需回调函数</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  onSubmit: <span class="function">(<span class="params">email: string, password: string</span>) =&gt;</span> <span class="built_in">Promise</span>&lt;<span class="keyword">void</span>&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LoginForm = <span class="function">(<span class="params">&#123; onSubmit &#125;: Props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [email, setEmail] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [password, setPassword] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (evt) =&gt; &#123;</span><br><span class="line">    evt.preventDefault();</span><br><span class="line">    <span class="keyword">await</span> onSubmit(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;form onSubmit=&#123;handleSubmit&#125;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;email&quot;</span></span><br><span class="line">        value=&#123;email&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setEmail(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;password&quot;</span></span><br><span class="line">        value=&#123;password&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setPassword(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;Log <span class="keyword">in</span>&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>通过这样修改，LoginFrom 组件不再依赖于 api 模块，向 api 提交凭证的逻辑是通过 onsubmit 毁掉函数抽象出来，现在由父组件负责提供该逻辑的具体实现。</p>
+<p>为此创建一个 ConnectedLoginForm 组件来将表单提交逻辑委托给 api 模块</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">&quot;~/common/api&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ConnectedLoginForm = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (email, password) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> api.login(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">LoginForm</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>ConnectedLoginForm 组件充当 api 和 LoginForm 之间的粘合剂，而他们本身保持完全独立，这样就可以对这两个组件进行单独的修改和维护，而不必担心修改会影响其他组件。</p>
+<p>依赖倒置原则就是为了最小化应用程序不同组件之间的耦合。</p>
+<p>总结：</p>
+<p>应用 SOLID 原则使我们的 React 代码更易于维护和健壮，但需要注意的是，过分遵循这些原则可能会造成破坏并导致代码过度设计。因此我们需要学会识别对组件进一步分解或解耦在什么时候会导致复杂度上升而没有带来任何好处。</p>
 
     </div>
 
@@ -340,21 +350,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/React/" rel="tag"># React</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/10/21/JavaScript%20Map%E5%92%8CSet/" rel="prev" title="JavaScript Map 和 Set">
-                  <i class="fa fa-chevron-left"></i> JavaScript Map 和 Set
+                <a href="/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9903/" rel="prev" title="React 应用SOLID原则03">
+                  <i class="fa fa-chevron-left"></i> React 应用SOLID原则03
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/11/07/CSS%20%E5%9C%BA%E6%99%AF%E5%BA%94%E7%94%A8%E5%9F%BA%E7%A1%8001/" rel="next" title="CSS 场景应用基础01">
-                  CSS 场景应用基础01 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

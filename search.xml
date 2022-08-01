@@ -3391,4 +3391,35 @@ is null</code></pre>
         <tag>React</tag>
       </tags>
   </entry>
+  <entry>
+    <title>React 应用SOLID原则04</title>
+    <url>/2022/06/23/React%20%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%9904/</url>
+    <content><![CDATA[<h1 id="React-应用-SOLID-原则-04"><a href="#React-应用-SOLID-原则-04" class="headerlink" title="React 应用 SOLID 原则 04"></a>React 应用 SOLID 原则 04</h1><p>定义：依赖倒置原则指出<strong>“要依赖于抽象，不要依赖于具体”</strong>。换句话说一个组件不应该依赖于另一个组件，而是他们应该依赖于一些共同的抽象。这里“组件”是指应用程序的任何部分，可以是 React 组件，函数，模块或第三方库。</p>
+<span id="more"></span>
+
+<p>代码演示：</p>
+<p>有一个 LoginForm 组件，他在提交表单时将用户凭据发生到某些 API</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">&quot;~/common/api&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LoginForm = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [email, setEmail] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [password, setPassword] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (evt) =&gt; &#123;</span><br><span class="line">    evt.preventDefault();</span><br><span class="line">    <span class="keyword">await</span> api.login(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;form onSubmit=&#123;handleSubmit&#125;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;email&quot;</span></span><br><span class="line">        value=&#123;email&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setEmail(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;password&quot;</span></span><br><span class="line">        value=&#123;password&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setPassword(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;Log <span class="keyword">in</span>&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在这段代码中，LoginForm 组件直接引用了 api 模块，因此他们直接存在紧密耦合。这种依赖关系会导致一个组件的更改会影响其他组件。依赖倒置原则就是提倡打破这种耦合。</p>
+<p>如何优化：</p>
+<p>首先从 LoginForm 中删除对 api 模块的直接引用，允许通过 props 传入所需回调函数</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">type Props = &#123;</span><br><span class="line">  onSubmit: <span class="function">(<span class="params">email: string, password: string</span>) =&gt;</span> <span class="built_in">Promise</span>&lt;<span class="keyword">void</span>&gt;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LoginForm = <span class="function">(<span class="params">&#123; onSubmit &#125;: Props</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [email, setEmail] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [password, setPassword] = useState(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (evt) =&gt; &#123;</span><br><span class="line">    evt.preventDefault();</span><br><span class="line">    <span class="keyword">await</span> onSubmit(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;form onSubmit=&#123;handleSubmit&#125;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;email&quot;</span></span><br><span class="line">        value=&#123;email&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setEmail(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type=<span class="string">&quot;password&quot;</span></span><br><span class="line">        value=&#123;password&#125;</span><br><span class="line">        onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> setPassword(e.target.value)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;Log <span class="keyword">in</span>&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>通过这样修改，LoginFrom 组件不再依赖于 api 模块，向 api 提交凭证的逻辑是通过 onsubmit 毁掉函数抽象出来，现在由父组件负责提供该逻辑的具体实现。</p>
+<p>为此创建一个 ConnectedLoginForm 组件来将表单提交逻辑委托给 api 模块</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> api <span class="keyword">from</span> <span class="string">&quot;~/common/api&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ConnectedLoginForm = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> handleSubmit = <span class="keyword">async</span> (email, password) =&gt; &#123;</span><br><span class="line">    <span class="keyword">await</span> api.login(email, password);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">LoginForm</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>ConnectedLoginForm 组件充当 api 和 LoginForm 之间的粘合剂，而他们本身保持完全独立，这样就可以对这两个组件进行单独的修改和维护，而不必担心修改会影响其他组件。</p>
+<p>依赖倒置原则就是为了最小化应用程序不同组件之间的耦合。</p>
+<p>总结：</p>
+<p>应用 SOLID 原则使我们的 React 代码更易于维护和健壮，但需要注意的是，过分遵循这些原则可能会造成破坏并导致代码过度设计。因此我们需要学会识别对组件进一步分解或解耦在什么时候会导致复杂度上升而没有带来任何好处。</p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>
