@@ -1953,7 +1953,7 @@ ECMAScript规范： 严格模式时，函数内的this绑定严格指向传入�
   </entry>
   <entry>
     <title>JavaScript 模拟实现call apply bind方法</title>
-    <url>/2022/06/30/JavaScript%20%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%20apply%20bind%E6%96%B9%E6%B3%95/</url>
+    <url>/2022/04/08/JavaScript%20%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0call%20apply%20bind%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="JavaScript-模拟实现-call-apply-bind-方法"><a href="#JavaScript-模拟实现-call-apply-bind-方法" class="headerlink" title="JavaScript 模拟实现 call apply bind 方法"></a>JavaScript 模拟实现 call apply bind 方法</h1><p>首先来说下这三个的区别：</p>
 <ul>
 <li><code>call</code> <code>apply</code>都是为了解决 this 的指向，默认第一参数是 this 的指向，剩下的参数是函数形参，<code>call</code>接收的形参是一个列表用逗号隔开，<code>apply</code>接收的是一个参数数组。</li>
