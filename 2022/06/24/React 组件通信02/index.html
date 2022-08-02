@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta name="description" content="React 组件通信 02跨级组件通信跨级组件通信就是父组件与子组件的子组件或者更深层次的通信。我们可以让父组件传给子组件，再让子组件传递给他的子组件，一次逐级传递。但是这种传递方式当层级关系超过两层的时候会过于臃肿，不好维护。Contex 通过组件树提供了一个传递数据的方法，从而避免在每个层级之间手动传递 props 属性。 祖先代码示例：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Hooks 03">
-<meta property="og:url" content="http://example.com/2022/05/11/React%20Hooks%2003/index.html">
+<meta property="og:title" content="React 组件通信02">
+<meta property="og:url" content="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A102/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta property="og:description" content="React 组件通信 02跨级组件通信跨级组件通信就是父组件与子组件的子组件或者更深层次的通信。我们可以让父组件传给子组件，再让子组件传递给他的子组件，一次逐级传递。但是这种传递方式当层级关系超过两层的时候会过于臃肿，不好维护。Contex 通过组件树提供了一个传递数据的方法，从而避免在每个层级之间手动传递 props 属性。 祖先代码示例：">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-05-11T12:11:31.000Z">
-<meta property="article:modified_time" content="2022-07-31T17:49:37.693Z">
+<meta property="article:published_time" content="2022-06-24T09:37:42.000Z">
+<meta property="article:modified_time" content="2022-08-02T04:26:04.671Z">
 <meta property="article:author" content="Xiaotian Ye">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+<link rel="canonical" href="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A102/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>React Hooks 03 | SunleDog</title>
+<title>React 组件通信02 | SunleDog</title>
   
 
 
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Hooks-03"><span class="nav-number">1.</span> <span class="nav-text">React Hooks 03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#useMemo"><span class="nav-number">1.1.</span> <span class="nav-text">useMemo()</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-02"><span class="nav-number">1.</span> <span class="nav-text">React 组件通信 02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E7%BA%A7%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1"><span class="nav-number">1.1.</span> <span class="nav-text">跨级组件通信</span></a></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -275,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A102/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -288,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React Hooks 03
+          React 组件通信02
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-05-11 20:11:31" itemprop="dateCreated datePublished" datetime="2022-05-11T20:11:31+08:00">2022-05-11</time>
+      <time title="Created: 2022-06-24 17:37:42" itemprop="dateCreated datePublished" datetime="2022-06-24T17:37:42+08:00">2022-06-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,16 +321,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="React-Hooks-03"><a href="#React-Hooks-03" class="headerlink" title="React Hooks 03"></a>React Hooks 03</h1><h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo()"></a>useMemo()</h2><p>记忆组件</p>
-<p>与 useCallback()的区别</p>
-<ol>
-<li>useCallback()不会执行第一个参数函数，而是将它返回</li>
-<li>useMemo()则是执行第一个函数参数，将函数的执行结果返回</li>
-</ol>
-<p>代码</p>
+        <h1 id="React-组件通信-02"><a href="#React-组件通信-02" class="headerlink" title="React 组件通信 02"></a>React 组件通信 02</h1><h2 id="跨级组件通信"><a href="#跨级组件通信" class="headerlink" title="跨级组件通信"></a>跨级组件通信</h2><p>跨级组件通信就是父组件与子组件的子组件或者更深层次的通信。我们可以让父组件传给子组件，再让子组件传递给他的子组件，一次逐级传递。但是这种传递方式当层级关系超过两层的时候会过于臃肿，不好维护。Contex 通过组件树提供了一个传递数据的方法，从而避免在每个层级之间手动传递 props 属性。</p>
+<p>祖先代码示例：</p>
 <span id="more"></span>
 
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给list增加996</span></span><br><span class="line"><span class="comment">// 没用memo的情况下，当别的状态改变的时候都重新触发该函数</span></span><br><span class="line"><span class="comment">// let list996 = lists.map((v) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&quot;fuck&quot;);</span></span><br><span class="line"><span class="comment">//   return v + &quot;996&quot;;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用memo的情况下</span></span><br><span class="line"><span class="comment">// 只有当依赖中的lists发生改变的时候，才会重新计算</span></span><br><span class="line"><span class="keyword">const</span> list996 = useMemo(</span><br><span class="line">  () =&gt;</span><br><span class="line">    lists.map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> v + <span class="string">&quot;996&quot;</span>;</span><br><span class="line">    &#125;),</span><br><span class="line">  [lists]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">&quot;prop-types&quot;</span>; <span class="comment">// 用于属性校验，想了解更多见文末的扩展阅读。</span></span><br><span class="line"><span class="keyword">import</span> Sub <span class="keyword">from</span> <span class="string">&quot;./Sub.js&quot;</span>; <span class="comment">// 中间组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 在父组件定义上下文（Context）</span></span><br><span class="line">  <span class="keyword">static</span> childContextTypes = &#123;</span><br><span class="line">    <span class="comment">// 声明静态属性 必须要写</span></span><br><span class="line">    color: PropTypes.string, <span class="comment">// PropTypes 用于校验属性类型</span></span><br><span class="line">    callback: PropTypes.func, <span class="comment">// 回调函数</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="function"><span class="title">getChildContext</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 用于返回上下文（Context）的值便于后代获取</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      color: <span class="string">&quot;pink&quot;</span>,</span><br><span class="line">      callback: <span class="built_in">this</span>.callback.bind(<span class="built_in">this</span>), <span class="comment">// 需要绑定this</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">callback</span>(<span class="params">msg</span>)</span> &#123;</span><br><span class="line">    alert(msg);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Sub</span> /&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>中间组件代码示例：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> SubSub <span class="keyword">from</span> <span class="string">&quot;./SubSub.js&quot;</span>; <span class="comment">// 后代组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">SubSub</span> /&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后代组件代码示例：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">&quot;prop-types&quot;</span>; <span class="comment">// 用于属性校验，想了解更多见文末的扩展阅读。</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SubSub</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> contextTypes = &#123;</span><br><span class="line">    <span class="comment">// 后代组件必须校验属性类型</span></span><br><span class="line">    color: PropTypes.string,</span><br><span class="line">    callback: PropTypes.func,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> style = &#123; <span class="attr">color</span>: <span class="built_in">this</span>.context.color &#125;; <span class="comment">// 通过 this.context 获取上下文的值</span></span><br><span class="line">    <span class="keyword">const</span> cb = <span class="function">(<span class="params">msg</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context.callback(msg);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div style=&#123;style&#125;&gt;</span><br><span class="line">        &lt;h1&gt;In SubSub.js&lt;<span class="regexp">/h1&gt; /</span><span class="regexp">/ 粉色字体展示 In SubSub.js</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;cb(&quot;this is SubSub.js&quot;)&#125;&gt;click me&lt;/</span>button&gt; <span class="comment">// 点击按钮，弹出</span></span><br><span class="line">        <span class="built_in">this</span> is SubSub.js 字样</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上可以看出，祖先组件声明了 context 上下文，后代组件通过 this.context 获取祖先组件传递下来的内容</p>
+<p><strong>注意：</strong>如果后代组件使用构造函数 Constructor，那么 context 需要作为构造函数的第二个参数传入，否则无法使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">constructor</span> (<span class="params">props, context</span>) &#123;</span><br><span class="line">    <span class="built_in">super</span>(props)</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -347,14 +352,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/10/React%20Hooks%2002/" rel="prev" title="React Hooks 02">
-                  <i class="fa fa-chevron-left"></i> React Hooks 02
+                <a href="/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A101/" rel="prev" title="React 组件通信01">
+                  <i class="fa fa-chevron-left"></i> React 组件通信01
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/12/React%20Hooks%2004/" rel="next" title="React Hooks 04">
-                  React Hooks 04 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
