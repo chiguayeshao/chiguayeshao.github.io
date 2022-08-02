@@ -23,21 +23,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta name="description" content="React 组件通信 03非嵌套组件通信Hooks开发过程中会遇到这样一个场景 FirstChild 和 SecondChild 是我们的两个组件，FirstChild 组件 dispatch action，在 SecondChild 组件展示变化的数据，那么就需要在两个字组件之上一层来设计 context  首先建立 context，存储一个初始状态和一个变更 state 的状态管理器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Hooks 03">
-<meta property="og:url" content="http://example.com/2022/05/11/React%20Hooks%2003/index.html">
+<meta property="og:title" content="React 组件通信03">
+<meta property="og:url" content="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A103/index.html">
 <meta property="og:site_name" content="SunleDog">
-<meta property="og:description" content="React Hooks 03useMemo()记忆组件 与 useCallback()的区别  useCallback()不会执行第一个参数函数，而是将它返回 useMemo()则是执行第一个函数参数，将函数的执行结果返回  代码">
+<meta property="og:description" content="React 组件通信 03非嵌套组件通信Hooks开发过程中会遇到这样一个场景 FirstChild 和 SecondChild 是我们的两个组件，FirstChild 组件 dispatch action，在 SecondChild 组件展示变化的数据，那么就需要在两个字组件之上一层来设计 context  首先建立 context，存储一个初始状态和一个变更 state 的状态管理器">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-05-11T12:11:31.000Z">
-<meta property="article:modified_time" content="2022-07-31T17:49:37.693Z">
+<meta property="article:published_time" content="2022-06-24T12:27:42.000Z">
+<meta property="article:modified_time" content="2022-08-02T08:11:48.964Z">
 <meta property="article:author" content="Xiaotian Ye">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+<link rel="canonical" href="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A103/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>React Hooks 03 | SunleDog</title>
+<title>React 组件通信03 | SunleDog</title>
   
 
 
@@ -189,7 +189,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Hooks-03"><span class="nav-number">1.</span> <span class="nav-text">React Hooks 03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#useMemo"><span class="nav-number">1.1.</span> <span class="nav-text">useMemo()</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1-03"><span class="nav-number">1.</span> <span class="nav-text">React 组件通信 03</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%B5%8C%E5%A5%97%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1"><span class="nav-number">1.1.</span> <span class="nav-text">非嵌套组件通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hooks"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.3.</span> <span class="nav-text">订阅发布模式</span></a></li></ol></li></ol></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -275,7 +275,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/11/React%20Hooks%2003/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A103/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avatar.JPG">
@@ -288,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React Hooks 03
+          React 组件通信03
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +299,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-05-11 20:11:31" itemprop="dateCreated datePublished" datetime="2022-05-11T20:11:31+08:00">2022-05-11</time>
+      <time title="Created: 2022-06-24 20:27:42" itemprop="dateCreated datePublished" datetime="2022-06-24T20:27:42+08:00">2022-06-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,16 +321,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="React-Hooks-03"><a href="#React-Hooks-03" class="headerlink" title="React Hooks 03"></a>React Hooks 03</h1><h2 id="useMemo"><a href="#useMemo" class="headerlink" title="useMemo()"></a>useMemo()</h2><p>记忆组件</p>
-<p>与 useCallback()的区别</p>
+        <h1 id="React-组件通信-03"><a href="#React-组件通信-03" class="headerlink" title="React 组件通信 03"></a>React 组件通信 03</h1><h2 id="非嵌套组件通信"><a href="#非嵌套组件通信" class="headerlink" title="非嵌套组件通信"></a>非嵌套组件通信</h2><h3 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h3><p>开发过程中会遇到这样一个场景 FirstChild 和 SecondChild 是我们的两个组件，FirstChild 组件 dispatch action，在 SecondChild 组件展示变化的数据，那么就需要在两个字组件之上一层来设计 context</p>
 <ol>
-<li>useCallback()不会执行第一个参数函数，而是将它返回</li>
-<li>useMemo()则是执行第一个函数参数，将函数的执行结果返回</li>
+<li>首先建立 context，存储一个初始状态和一个变更 state 的状态管理器</li>
 </ol>
-<p>代码</p>
 <span id="more"></span>
 
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给list增加996</span></span><br><span class="line"><span class="comment">// 没用memo的情况下，当别的状态改变的时候都重新触发该函数</span></span><br><span class="line"><span class="comment">// let list996 = lists.map((v) =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   console.log(&quot;fuck&quot;);</span></span><br><span class="line"><span class="comment">//   return v + &quot;996&quot;;</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用memo的情况下</span></span><br><span class="line"><span class="comment">// 只有当依赖中的lists发生改变的时候，才会重新计算</span></span><br><span class="line"><span class="keyword">const</span> list996 = useMemo(</span><br><span class="line">  () =&gt;</span><br><span class="line">    lists.map(<span class="function">(<span class="params">v</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> v + <span class="string">&quot;996&quot;</span>;</span><br><span class="line">    &#125;),</span><br><span class="line">  [lists]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Context.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">  value: <span class="number">0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;ADD&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">value</span>: state.value + <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;REDUCE&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, <span class="attr">value</span>: state.value - <span class="number">1</span> &#125;;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>需要显性的声明 Context.Provider 把数据传给包裹组件，这就需要使用 useReducer，我们把 reducer 和默认 state 作为 useReducer 的参数传入</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Content.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; useReducer, createContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> FirstChild <span class="keyword">from</span> <span class="string">&quot;./FirstChild&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> SecondChild <span class="keyword">from</span> <span class="string">&quot;./SecondChild&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; reducer, defaultState &#125; <span class="keyword">from</span> <span class="string">&quot;./Context&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Context = createContext(<span class="literal">null</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">Content</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [state, dispatch] = useReducer(reducer, defaultState);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Context.Provider value=&#123;&#123; state, <span class="attr">dispatch</span>: dispatch &#125;&#125;&gt;</span><br><span class="line">      &lt;FirstChild /&gt;</span><br><span class="line">      &lt;SecondChild /&gt;</span><br><span class="line">    &lt;/Context.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>组件 FirstChild 有两个按钮‘ADD’和‘REDUCE’，点击两个按钮分别进行加 1 减 1 操作</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Context &#125; <span class="keyword">from</span> <span class="string">&quot;./Content&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FirstChild</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> AppContext = useContext(Context);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;button</span><br><span class="line">        onClick=&#123;<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          AppContext.dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;ADD&quot;</span> &#125;);</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        ADD</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button</span><br><span class="line">        onClick=&#123;<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          AppContext.dispatch(&#123; <span class="attr">type</span>: <span class="string">&quot;REDUCE&quot;</span> &#125;);</span><br><span class="line">        &#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        REDUCE</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> FirstChild;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>组件 SecondChild 展示当前 state.value</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Context &#125; <span class="keyword">from</span> <span class="string">&quot;./Content&quot;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SecondChild</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> AppContext = useContext(Context);</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;AppContext.state.value&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> SecondChild;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>Redux 是一个独立的事件通讯插件，Redux 的基本原理实际上就是围绕着 store 进行的，这个 store 是通过 createStore()方法创建的，他具有唯一性，可以认为是整个应用的数据存储中心，集中了大部分页面需要的状态数据。想要改变 state 的唯一方法就是出发 Action，Reducer 接收到 Action 并更新数据 store。按照这个思想，Redux 适用于多交互，多数据源的场景。</p>
+<h3 id="订阅发布模式"><a href="#订阅发布模式" class="headerlink" title="订阅发布模式"></a>订阅发布模式</h3><p>前文讲过订阅发布模式 [设计模式 订阅发布 | SunleDog](<a target="_blank" rel="noopener" href="https://sunle.dog/2022/02/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">https://sunle.dog/2022/02/03/设计模式</a> 订阅发布/)</p>
 
     </div>
 
@@ -347,14 +362,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/10/React%20Hooks%2002/" rel="prev" title="React Hooks 02">
-                  <i class="fa fa-chevron-left"></i> React Hooks 02
+                <a href="/2022/06/24/React%20%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A102/" rel="prev" title="React 组件通信02">
+                  <i class="fa fa-chevron-left"></i> React 组件通信02
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/12/React%20Hooks%2004/" rel="next" title="React Hooks 04">
-                  React Hooks 04 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
